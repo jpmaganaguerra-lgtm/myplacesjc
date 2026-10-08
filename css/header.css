@@ -4,8 +4,9 @@ header.solid{background:var(--paper);color:var(--ink);padding-top:calc(14px + en
 .menu-btn{display:flex;gap:14px;align-items:center;justify-self:start}
 .menu-btn i{display:block;width:26px;height:7px;border-top:1px solid currentColor;border-bottom:1px solid currentColor}
 .mark{text-align:center;text-decoration:none}
-.mark b{display:block;font:300 22px var(--serif);letter-spacing:.46em;margin-right:-.46em}
-.mark small{display:block;font-size:7.5px;letter-spacing:.56em;margin-right:-.56em;margin-top:3px;opacity:.8;text-transform:uppercase}
+.mark b{display:block;font:300 11px var(--serif);letter-spacing:.04em;margin-right:0;text-transform:uppercase}
+.mark span{display:block;font:600 18px var(--serif);letter-spacing:.08em;line-height:0.95;margin-bottom:2px}
+.mark small{display:block;font-size:7px;letter-spacing:.44em;margin-right:-.44em;margin-top:3px;opacity:.7;text-transform:uppercase}
 .res-btn{justify-self:end;border-bottom:1px solid currentColor;padding-bottom:3px}
-@media(max-width:560px){.menu-btn span{display:none}.mark b{font-size:17px}}
+@media(max-width:560px){.menu-btn span{display:none}.mark b{font-size:10px}.mark span{font-size:16px}}
 
