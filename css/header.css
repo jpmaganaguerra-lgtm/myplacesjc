@@ -5,8 +5,7 @@ header.solid{background:var(--paper);color:var(--ink);padding-top:calc(14px + en
 .menu-btn i{display:block;width:26px;height:7px;border-top:1px solid currentColor;border-bottom:1px solid currentColor}
 .mark{text-align:center;text-decoration:none}
 .mark{display:flex;align-items:center;gap:0}
-.logo-img{height:clamp(32px,5vw,42px);width:auto;filter:brightness(1);transition:filter .4s}
-header.solid .logo-img{filter:brightness(0)}
+.logo-img{height:clamp(32px,5vw,42px);width:auto;transition:opacity .4s}
 .mark small{display:none;font-size:7px;letter-spacing:.44em;margin-right:-.44em;margin-top:3px;opacity:.7;text-transform:uppercase}
 @media(max-width:560px){.mark{gap:0}}
 @media(max-width:700px){.logo-img{height:36px}}
