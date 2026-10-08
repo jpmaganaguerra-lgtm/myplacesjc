@@ -48,10 +48,14 @@ header.solid{background:var(--paper);color:var(--ink);padding-top:calc(14px + en
 .menu-btn{display:flex;gap:14px;align-items:center;justify-self:start}
 .menu-btn i{display:block;width:26px;height:7px;border-top:1px solid currentColor;border-bottom:1px solid currentColor}
 .mark{text-align:center;text-decoration:none}
-.mark b{display:block;font:300 22px var(--serif);letter-spacing:.46em;margin-right:-.46em}
-.mark small{display:block;font-size:7.5px;letter-spacing:.56em;margin-right:-.56em;margin-top:3px;opacity:.8;text-transform:uppercase}
+.mark{display:flex;align-items:center;gap:0}
+.logo-img{height:clamp(32px,5vw,42px);width:auto;filter:brightness(1);transition:filter .4s}
+header.solid .logo-img{filter:brightness(0)}
+.mark small{display:none;font-size:7px;letter-spacing:.44em;margin-right:-.44em;margin-top:3px;opacity:.7;text-transform:uppercase}
+@media(max-width:560px){.mark{gap:0}}
+@media(max-width:700px){.logo-img{height:36px}}
 .res-btn{justify-self:end;border-bottom:1px solid currentColor;padding-bottom:3px}
-@media(max-width:560px){.menu-btn span{display:none}.mark b{font-size:17px}}
+@media(max-width:560px){.menu-btn span{display:none}.mark b{font-size:10px}.mark span{font-size:16px}}
 
 </style>
 <style>
@@ -321,7 +325,7 @@ footer span{opacity:.6}
 
 <header id="hd">
   <button class="menu-btn lab" id="mOpen" aria-label="Abrir menú"><i></i><span>Menú</span></button>
-  <a class="mark" href="#top" aria-label="MyPlace San José del Cabo"><b>MYPLACE</b><small>San José del Cabo</small></a>
+  <a class="mark" href="#top" aria-label="Casa Damiana"><img src="about:blank" alt="Casa Damiana" class="logo-img" data-logo-detect><small>San José del Cabo</small></a>
   <button class="res-btn lab" data-reserve>Reservar</button>
 </header>
 
@@ -420,7 +424,7 @@ footer span{opacity:.6}
 </main>
 
 <footer>
-  <div>MYPLACE · SAN JOSÉ DEL CABO</div>
+  <div>CASA DAMIANA · SAN JOSÉ DEL CABO</div>
   <span>Baja California Sur, México</span>
   <span>MyPlace Leisure Homes STR</span>
 </footer>
@@ -941,6 +945,33 @@ onScroll();
   window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
   window.addEventListener('resize',upd);
   upd();
+})();
+
+</script>
+  <script>
+// Auto-detecta el formato del logo disponible (SVG, PNG o JPG)
+(function(){
+  var img=document.querySelector('[data-logo-detect]');
+  if(!img)return;
+  var formats=['svg','png','jpg'],idx=0;
+  function tryLoad(){
+    if(idx>=formats.length){
+      console.warn('No logo found in ../assets/logo/');
+      return;
+    }
+    var fmt=formats[idx],src='../assets/logo/logo.'+fmt;
+    var test=new Image();
+    test.onload=function(){
+      img.src=src;
+      img.removeAttribute('data-logo-detect');
+    };
+    test.onerror=function(){
+      idx++;
+      tryLoad();
+    };
+    test.src=src;
+  }
+  tryLoad();
 })();
 
 </script>
