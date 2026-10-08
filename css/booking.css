@@ -1,0 +1,45 @@
+/* ---------- booking bar ---------- */
+.bar{position:relative;display:grid;grid-template-columns:1.1fr 1.1fr 1.2fr auto;background:var(--ivory);color:#1B1712;max-width:880px;width:calc(100% - 2*clamp(18px,3.4vw,48px));box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.hero .bar{position:absolute;left:clamp(18px,3.4vw,48px);bottom:34px}
+.bar .fld{text-align:left;padding:16px 22px 14px;border-right:1px solid rgba(27,23,18,.14);display:block;width:100%;transition:background .3s}
+.bar .fld:hover{background:rgba(27,23,18,.04)}
+.bar .fld small{display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#7a7263;font-weight:400}
+.bar .fld b{display:block;font:400 21px/1.2 var(--serif);margin-top:3px;white-space:nowrap}
+.bar .fld b.ph{color:#9a917f;font-style:italic}
+.bar .go{background:var(--olive);color:var(--ivory);padding:0 34px;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;transition:background .3s}
+.bar .go:hover{background:var(--clay)}
+@media(max-width:700px){
+  .bar{grid-template-columns:1fr 1fr}
+  .bar .fld:nth-child(3){grid-column:1/-1;border-top:1px solid rgba(27,23,18,.14);border-right:0}
+  .bar .go{grid-column:1/-1;padding:18px}
+  .hero .bar{bottom:22px}
+}
+.pop{position:absolute;left:0;bottom:calc(100% + 10px);background:var(--ivory);color:#1B1712;box-shadow:0 30px 70px -20px rgba(0,0,0,.55);padding:26px 28px;z-index:30;display:none;max-width:calc(100vw - 24px)}
+.pop.on{display:block;animation:fadeup .35s var(--ease)}
+.pop.below{bottom:auto;top:calc(100% + 10px)}
+@keyframes fadeup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.cal{display:flex;gap:42px}
+.cal .m{width:252px}
+@media(max-width:700px){.cal .m+.m{display:none}.pop{left:0;right:0;padding:20px}.cal .m{width:100%}}
+.cal .mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font:400 22px var(--serif);text-transform:capitalize}
+.cal .mh button{width:28px;height:28px;font-size:16px;line-height:1}
+.cal .mh button[disabled]{opacity:.2;cursor:default}
+.cal .g{display:grid;grid-template-columns:repeat(7,1fr);row-gap:2px;text-align:center}
+.cal .g span{font-size:9px;letter-spacing:.18em;color:#7a7263;padding-bottom:8px;text-transform:uppercase}
+.cal .d{height:34px;font-size:13px;position:relative;z-index:1}
+.cal .d:hover:not([disabled]):not(.s){outline:1px solid #1B1712;outline-offset:-3px}
+.cal .d[disabled]{color:#c4bba8;cursor:default}
+.cal .d.r:before{content:"";position:absolute;inset:3px 0;background:rgba(62,68,48,.14);z-index:-1}
+.cal .d.s{background:var(--olive);color:var(--ivory)}
+.pop-f{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid rgba(27,23,18,.14);font-size:11px;color:#7a7263}
+.pop-f button{font-size:10px;letter-spacing:.26em;text-transform:uppercase;border-bottom:1px solid;padding-bottom:2px;color:#1B1712}
+.gst{width:300px;max-width:100%}
+.gst .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(27,23,18,.12)}
+.gst .row:last-of-type{border:0}
+.gst .row div b{display:block;font:400 20px var(--serif)}
+.gst .row div small{font-size:11px;color:#7a7263}
+.gst .st{display:flex;align-items:center;gap:16px}
+.gst .st button{width:32px;height:32px;border:1px solid rgba(27,23,18,.35);border-radius:50%;font-size:16px;line-height:1}
+.gst .st button[disabled]{opacity:.25}
+.gst .st span{width:14px;text-align:center;font-size:15px}
+

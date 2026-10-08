@@ -1,0 +1,11 @@
+/* ---------- header ---------- */
+header{position:fixed;left:0;right:0;top:0;z-index:60;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:calc(22px + env(safe-area-inset-top,0px)) clamp(18px,3.4vw,48px) 20px;color:var(--ivory);transition:background .5s,color .5s,padding .5s,border-color .5s;border-bottom:1px solid transparent}
+header.solid{background:var(--paper);color:var(--ink);padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:12px;border-color:var(--line)}
+.menu-btn{display:flex;gap:14px;align-items:center;justify-self:start}
+.menu-btn i{display:block;width:26px;height:7px;border-top:1px solid currentColor;border-bottom:1px solid currentColor}
+.mark{text-align:center;text-decoration:none}
+.mark b{display:block;font:300 22px var(--serif);letter-spacing:.46em;margin-right:-.46em}
+.mark small{display:block;font-size:7.5px;letter-spacing:.56em;margin-right:-.56em;margin-top:3px;opacity:.8;text-transform:uppercase}
+.res-btn{justify-self:end;border-bottom:1px solid currentColor;padding-bottom:3px}
+@media(max-width:560px){.menu-btn span{display:none}.mark b{font-size:17px}}
+

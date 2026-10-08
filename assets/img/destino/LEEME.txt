@@ -1,0 +1,4 @@
+Coloca aquí:
+destino-centro.jpg, destino-playas.jpg, destino-golf.jpg, destino-mar.jpg — 1200x1500 vertical 4:5
+
+Nombres exactos. Detalle en docs/IMAGENES.md

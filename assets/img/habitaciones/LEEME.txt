@@ -1,0 +1,4 @@
+Coloca aquí:
+hab-suite1.jpg, hab-residencia2.jpg, hab-estudio.jpg, hab-habitacion.jpg — 1200x1800 vertical
+
+Nombres exactos. Detalle en docs/IMAGENES.md

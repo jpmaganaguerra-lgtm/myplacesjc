@@ -1,0 +1,4 @@
+Coloca aquí:
+reserva-noche.jpg — 2400x1400 horizontal
+
+Nombres exactos. Detalle en docs/IMAGENES.md

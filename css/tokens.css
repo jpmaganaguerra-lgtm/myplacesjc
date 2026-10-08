@@ -1,0 +1,10 @@
+/* Tokens de marca: colores, tipografía, modo oscuro. Edita aquí la paleta. */
+:root{
+  --paper:#EFE9DD; --paper2:#E6DECE; --ink:#1B1712; --mut:#7a7263; --line:rgba(27,23,18,.16);
+  --olive:#2F3424; --olive2:#3E4430; --clay:#B0714C; --sand:#CDB99A; --esp:#16130F; --ivory:#F2EDE2;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif; --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  box-sizing:border-box;
+}
+:root[data-theme="dark"]{--paper:#17140F;--paper2:#1E1A14;--ink:#EDE6D8;--mut:#a39b8b;--line:rgba(237,230,216,.16)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#17140F;--paper2:#1E1A14;--ink:#EDE6D8;--mut:#a39b8b;--line:rgba(237,230,216,.16)}}

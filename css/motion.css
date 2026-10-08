@@ -1,0 +1,3 @@
+/* Imágenes reales y accesibilidad de movimiento. */
+.sc img{width:100%;height:100%;object-fit:cover;display:block}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero h1 .ln span{transform:none}html{scroll-behavior:auto}}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MyPlace San José del Cabo · Suites y residencias junto al campo de golf</title>
+<meta name="description" content="56 suites y residencias con cocina y terraza en San José del Cabo, junto al campo de golf y cerca del centro histórico y las playas. Reserva directa.">
+<meta property="og:title" content="MyPlace San José del Cabo">
+<meta property="og:description" content="Un lado más quieto de Cabo. Suites y residencias junto al campo de golf.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/og/og-1200x630.jpg">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"MyPlace San José del Cabo","description":"Suites y residencias con cocina y terraza junto al campo de golf en San José del Cabo.","numberOfRooms":56,"address":{"@type":"PostalAddress","addressLocality":"San José del Cabo","addressRegion":"Baja California Sur","addressCountry":"MX"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Albercas","value":true},{"@type":"LocationFeatureSpecification","name":"Recepción 24 horas","value":true},{"@type":"LocationFeatureSpecification","name":"Estacionamiento","value":true}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/menu.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/booking.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/drawer.css">
+<link rel="stylesheet" href="css/sky.css">
+<link rel="stylesheet" href="css/motion.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="sky" id="sky" aria-hidden="true">
+  <svg class="sun" viewBox="0 0 44 44"><circle class="disc" cx="22" cy="22" r="6.5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/><g class="rays"><path d="M22 4v6M22 34v6M4 22h6M34 22h6M9.3 9.3l4.2 4.2M30.5 30.5l4.2 4.2M34.7 9.3l-4.2 4.2M13.5 30.5l-4.2 4.2" opacity=".9"/></g></svg>
+  <svg class="moon" viewBox="0 0 44 44"><path class="crescent" d="M24 6A16 16 0 1 0 24 38A10 16 0 0 1 24 6Z" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/><path class="st" d="M36 10v5M33.5 12.5h5" opacity="0"/><path class="st" d="M38 28v3M36.5 29.5h3" opacity="0"/></svg>
+</div>
+
+<header id="hd">
+  <button class="menu-btn lab" id="mOpen" aria-label="Abrir menú"><i></i><span>Menú</span></button>
+  <a class="mark" href="#top" aria-label="MyPlace San José del Cabo"><b>MYPLACE</b><small>San José del Cabo</small></a>
+  <button class="res-btn lab" data-reserve>Reservar</button>
+</header>
+
+<nav class="menu" id="menu" aria-label="Menú principal">
+  <button class="close lab" id="mClose"><i></i><span>Cerrar</span></button>
+  <div class="mc">
+    <ul>
+      <li><a href="#habitaciones" data-s="0"><small>01</small>Habitaciones</a></li>
+      <li><a href="#destino" data-s="1"><small>02</small>San José del Cabo</a></li>
+      <li><a href="#destino" data-s="2" data-acc="2"><small>03</small>Golf y playas</a></li>
+      <li><a href="#amenidades" data-s="3"><small>04</small>Amenidades</a></li>
+      <li><a href="#reservar" data-s="4" data-reserve><small>05</small>Reservar</a></li>
+    </ul>
+    <div class="mf">San José del Cabo · Baja California Sur</div>
+  </div>
+  <div class="mv" id="mv"></div>
+</nav>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" aria-label="Portada">
+  <div class="layer l1"><div class="sc" data-scene="hero-dorada"></div></div>
+  <div class="layer l2"><div class="sc" data-scene="hero-azul"></div></div>
+  <div class="shade"></div>
+  <div class="f" id="heroF" data-sp="-0.05"><div class="sc" data-scene="hero-frente"></div></div>
+  <div class="hero-copy">
+    <span class="lab">56 suites y residencias</span>
+    <h1><span class="ln"><span>Un lado más</span></span><span class="ln"><span>quieto de <em>Cabo.</em></span></span></h1>
+  </div>
+  <div class="coord">23.06° N · 109.70° O</div>
+  <div class="scroll-cue">Descubrir</div>
+  <div class="bar" data-bar></div>
+</section>
+
+<!-- DECLARACIÓN -->
+<section class="pad">
+  <div class="stmt">
+    <span class="lab rv">San José del Cabo</span>
+    <p id="stmt">Aquí el desierto baja hasta el mar. Una casa con cocina, terraza y tiempo, a un paso del centro histórico, las playas y el campo de golf.</p>
+    <div class="facts rv">
+      <div><b>56</b><small>Suites y residencias</small></div>
+      <div><b>24/7</b><small>Recepción</small></div>
+      <div><b>3 clics</b><small>De la fecha a la reserva</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- HABITACIONES -->
+<section class="rooms" id="habitaciones">
+  <div class="sec-h">
+    <h2 class="rv">Dónde <em>quedarte.</em></h2>
+    <p class="rv">Espacios con cocina y terraza. Algunas unidades se conectan para sumar recámaras.</p>
+    <div class="arrows"><button id="rPrev" aria-label="Anterior">←</button><button id="rNext" aria-label="Siguiente">→</button></div>
+  </div>
+  <div class="rail" id="rail"></div>
+</section>
+
+<!-- DESTINO -->
+<section class="dest" id="destino">
+  <div class="l">
+    <span class="lab rv">El destino</span>
+    <h2 class="rv">Todo cabe en <em>un día.</em></h2>
+    <div class="acc" id="acc"></div>
+  </div>
+  <div class="r"><div class="vis" id="dvis"><div class="cap" id="dcap"></div></div></div>
+</section>
+
+<!-- AMENIDADES -->
+<section class="amen" id="amenidades">
+  <div>
+    <span class="lab rv">Amenidades</span>
+    <h2 class="rv">Lo necesario, <em>bien hecho.</em></h2>
+    <ul class="al">
+      <li class="rv"><small>01</small><b>Albercas</b><span>Agua y sombra para el día entero</span></li>
+      <li class="rv"><small>02</small><b>Palapa</b><span>Un lugar para quedarse al aire libre</span></li>
+      <li class="rv"><small>03</small><b>Recepción 24/7</b><span>Llegadas y salidas a cualquier hora</span></li>
+      <li class="rv"><small>04</small><b>Seguridad</b><span>Y estacionamiento dentro de la propiedad</span></li>
+      <li class="rv"><small>05</small><b>Cocina propia</b><span>En la mayoría de las unidades</span></li>
+    </ul>
+  </div>
+  <div class="vis"><div class="sc" data-scene="amenidades-alberca"></div></div>
+</section>
+
+<!-- RESERVA -->
+<section class="final" id="reservar">
+  <div class="sc" data-scene="reserva-noche"></div>
+  <div class="in-">
+    <h2 class="rv">Elige tus <em>fechas.</em></h2>
+    <p class="rv">Dos pasos más y tu habitación queda confirmada.</p>
+    <div class="bar rv" data-bar></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div>MYPLACE · SAN JOSÉ DEL CABO</div>
+  <span>Baja California Sur, México</span>
+  <span>MyPlace Leisure Homes STR</span>
+</footer>
+
+<div class="stick" id="stick"><div class="sm"><i>Tu estancia</i><span id="stickTx">Elige fechas</span></div><button class="go" data-reserve>Reservar</button></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drw" id="drw" aria-label="Reserva" aria-hidden="true">
+  <div class="dh"><h3>Tu estancia</h3><button class="lab" id="dClose">Cerrar</button></div>
+  <div class="steps" id="steps"><span>1 · Fechas</span><span>2 · Habitación</span><span>3 · Pago</span></div>
+  <div class="db" id="db"></div>
+  <div class="df" id="df"></div>
+</aside>
+
+<script src="js/config.js"></script>
+<script src="js/content.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/images.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/sky.js"></script>
+</body>
+</html>

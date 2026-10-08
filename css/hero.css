@@ -1,0 +1,24 @@
+/* ---------- hero ---------- */
+.hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:#1a1712;color:var(--ivory)}
+.hero .layer{position:absolute;inset:-4% -2%;will-change:transform}
+.hero .l1{animation:drift 40s ease-in-out infinite alternate}
+.hero .l2{opacity:0;animation:dusk 28s ease-in-out infinite}
+@keyframes drift{from{transform:scale(1.04) translateX(-1%)}to{transform:scale(1.12) translateX(1.2%)}}
+@keyframes dusk{0%,18%{opacity:0}50%,68%{opacity:1}100%{opacity:0}}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,8,5,.5),rgba(10,8,5,0) 30%,rgba(10,8,5,0) 52%,rgba(10,8,5,.68))}
+.hero .f{position:absolute;inset:auto -2% -3% -2%;height:72%}
+.hero-copy{position:absolute;left:clamp(18px,3.4vw,48px);right:clamp(18px,3.4vw,48px);top:50%;transform:translateY(-62%)}
+.hero-copy .lab{opacity:.85;margin-bottom:26px;display:block}
+.hero h1{font:300 clamp(46px,8.4vw,136px)/.92 var(--serif);letter-spacing:-.025em}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln span{display:block;transform:translateY(110%);animation:up 1.5s var(--ease) forwards}
+.hero h1 .ln:nth-child(2) span{animation-delay:.18s}
+.hero h1 em{font-style:italic;color:#E9C9A2}
+@keyframes up{to{transform:none}}
+.coord{position:absolute;right:clamp(18px,3.4vw,48px);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:9.5px;letter-spacing:.36em;opacity:.7;text-transform:uppercase}
+@media(max-width:700px){.coord{display:none}}
+.scroll-cue{position:absolute;left:clamp(18px,3.4vw,48px);bottom:132px;display:flex;align-items:center;gap:14px;font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.8}
+.scroll-cue:after{content:"";width:1px;height:46px;background:linear-gradient(var(--ivory),transparent);animation:cue 2.4s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media(max-width:700px){.scroll-cue{display:none}}
+

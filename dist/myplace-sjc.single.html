@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MyPlace San José del Cabo · Suites y residencias junto al campo de golf</title>
+<meta name="description" content="56 suites y residencias con cocina y terraza en San José del Cabo, junto al campo de golf y cerca del centro histórico y las playas. Reserva directa.">
+<meta property="og:title" content="MyPlace San José del Cabo">
+<meta property="og:description" content="Un lado más quieto de Cabo. Suites y residencias junto al campo de golf.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/og/og-1200x630.jpg">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"MyPlace San José del Cabo","description":"Suites y residencias con cocina y terraza junto al campo de golf en San José del Cabo.","numberOfRooms":56,"address":{"@type":"PostalAddress","addressLocality":"San José del Cabo","addressRegion":"Baja California Sur","addressCountry":"MX"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Albercas","value":true},{"@type":"LocationFeatureSpecification","name":"Recepción 24 horas","value":true},{"@type":"LocationFeatureSpecification","name":"Estacionamiento","value":true}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* Tokens de marca: colores, tipografía, modo oscuro. Edita aquí la paleta. */
+:root{
+  --paper:#EFE9DD; --paper2:#E6DECE; --ink:#1B1712; --mut:#7a7263; --line:rgba(27,23,18,.16);
+  --olive:#2F3424; --olive2:#3E4430; --clay:#B0714C; --sand:#CDB99A; --esp:#16130F; --ivory:#F2EDE2;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif; --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  box-sizing:border-box;
+}
+:root[data-theme="dark"]{--paper:#17140F;--paper2:#1E1A14;--ink:#EDE6D8;--mut:#a39b8b;--line:rgba(237,230,216,.16)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#17140F;--paper2:#1E1A14;--ink:#EDE6D8;--mut:#a39b8b;--line:rgba(237,230,216,.16)}}
+</style>
+<style>
+/* Reset, utilidades y grano de película. */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+.lab{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;font-weight:400}
+.serif{font-family:var(--serif)}
+.sc{position:absolute;inset:0;overflow:hidden}
+.sc svg{width:100%;height:100%;display:block}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.16;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+</style>
+<style>
+/* ---------- header ---------- */
+header{position:fixed;left:0;right:0;top:0;z-index:60;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:calc(22px + env(safe-area-inset-top,0px)) clamp(18px,3.4vw,48px) 20px;color:var(--ivory);transition:background .5s,color .5s,padding .5s,border-color .5s;border-bottom:1px solid transparent}
+header.solid{background:var(--paper);color:var(--ink);padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:12px;border-color:var(--line)}
+.menu-btn{display:flex;gap:14px;align-items:center;justify-self:start}
+.menu-btn i{display:block;width:26px;height:7px;border-top:1px solid currentColor;border-bottom:1px solid currentColor}
+.mark{text-align:center;text-decoration:none}
+.mark b{display:block;font:300 22px var(--serif);letter-spacing:.46em;margin-right:-.46em}
+.mark small{display:block;font-size:7.5px;letter-spacing:.56em;margin-right:-.56em;margin-top:3px;opacity:.8;text-transform:uppercase}
+.res-btn{justify-self:end;border-bottom:1px solid currentColor;padding-bottom:3px}
+@media(max-width:560px){.menu-btn span{display:none}.mark b{font-size:17px}}
+
+</style>
+<style>
+/* ---------- menu overlay ---------- */
+.menu{position:fixed;inset:0;z-index:80;background:var(--olive);color:var(--ivory);display:grid;grid-template-columns:1.05fr 1fr;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .9s var(--ease),visibility 0s .9s}
+.menu.on{clip-path:inset(0);visibility:visible;transition:clip-path .9s var(--ease)}
+.menu .mc{padding:calc(110px + env(safe-area-inset-top,0px)) clamp(22px,5vw,80px) 50px;display:flex;flex-direction:column;justify-content:center}
+.menu ul{list-style:none}
+.menu li a{display:flex;align-items:baseline;gap:22px;font:300 clamp(34px,5.6vw,84px)/1.08 var(--serif);text-decoration:none;border-bottom:1px solid rgba(242,237,226,.14);padding:8px 0;transition:padding .5s var(--ease),color .4s,opacity .4s}
+.menu li a small{font:400 10px var(--sans);letter-spacing:.3em;opacity:.55;min-width:24px}
+.menu ul:hover li a{opacity:.38}
+.menu ul li a:hover{opacity:1;padding-left:18px;color:#E9C9A2}
+.menu .mv{position:relative;overflow:hidden}
+.menu .mv .sc{opacity:0;transition:opacity .8s,transform 1.6s var(--ease);transform:scale(1.08)}
+.menu .mv .sc.on{opacity:1;transform:scale(1)}
+.menu .mf{margin-top:34px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.6}
+.menu .close{position:absolute;top:calc(24px + env(safe-area-inset-top,0px));left:clamp(18px,3.4vw,48px);z-index:3;display:flex;gap:14px;align-items:center}
+.menu .close i{position:relative;width:26px;height:26px;display:block}
+.menu .close i:before,.menu .close i:after{content:"";position:absolute;left:0;top:12px;width:26px;height:1px;background:currentColor;transform:rotate(45deg)}
+.menu .close i:after{transform:rotate(-45deg)}
+@media(max-width:800px){.menu{grid-template-columns:1fr}.menu .mv{display:none}}
+
+</style>
+<style>
+/* ---------- hero ---------- */
+.hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:#1a1712;color:var(--ivory)}
+.hero .layer{position:absolute;inset:-4% -2%;will-change:transform}
+.hero .l1{animation:drift 40s ease-in-out infinite alternate}
+.hero .l2{opacity:0;animation:dusk 28s ease-in-out infinite}
+@keyframes drift{from{transform:scale(1.04) translateX(-1%)}to{transform:scale(1.12) translateX(1.2%)}}
+@keyframes dusk{0%,18%{opacity:0}50%,68%{opacity:1}100%{opacity:0}}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,8,5,.5),rgba(10,8,5,0) 30%,rgba(10,8,5,0) 52%,rgba(10,8,5,.68))}
+.hero .f{position:absolute;inset:auto -2% -3% -2%;height:72%}
+.hero-copy{position:absolute;left:clamp(18px,3.4vw,48px);right:clamp(18px,3.4vw,48px);top:50%;transform:translateY(-62%)}
+.hero-copy .lab{opacity:.85;margin-bottom:26px;display:block}
+.hero h1{font:300 clamp(46px,8.4vw,136px)/.92 var(--serif);letter-spacing:-.025em}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln span{display:block;transform:translateY(110%);animation:up 1.5s var(--ease) forwards}
+.hero h1 .ln:nth-child(2) span{animation-delay:.18s}
+.hero h1 em{font-style:italic;color:#E9C9A2}
+@keyframes up{to{transform:none}}
+.coord{position:absolute;right:clamp(18px,3.4vw,48px);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:9.5px;letter-spacing:.36em;opacity:.7;text-transform:uppercase}
+@media(max-width:700px){.coord{display:none}}
+.scroll-cue{position:absolute;left:clamp(18px,3.4vw,48px);bottom:132px;display:flex;align-items:center;gap:14px;font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.8}
+.scroll-cue:after{content:"";width:1px;height:46px;background:linear-gradient(var(--ivory),transparent);animation:cue 2.4s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media(max-width:700px){.scroll-cue{display:none}}
+
+</style>
+<style>
+/* ---------- booking bar ---------- */
+.bar{position:relative;display:grid;grid-template-columns:1.1fr 1.1fr 1.2fr auto;background:var(--ivory);color:#1B1712;max-width:880px;width:calc(100% - 2*clamp(18px,3.4vw,48px));box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.hero .bar{position:absolute;left:clamp(18px,3.4vw,48px);bottom:34px}
+.bar .fld{text-align:left;padding:16px 22px 14px;border-right:1px solid rgba(27,23,18,.14);display:block;width:100%;transition:background .3s}
+.bar .fld:hover{background:rgba(27,23,18,.04)}
+.bar .fld small{display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#7a7263;font-weight:400}
+.bar .fld b{display:block;font:400 21px/1.2 var(--serif);margin-top:3px;white-space:nowrap}
+.bar .fld b.ph{color:#9a917f;font-style:italic}
+.bar .go{background:var(--olive);color:var(--ivory);padding:0 34px;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;transition:background .3s}
+.bar .go:hover{background:var(--clay)}
+@media(max-width:700px){
+  .bar{grid-template-columns:1fr 1fr}
+  .bar .fld:nth-child(3){grid-column:1/-1;border-top:1px solid rgba(27,23,18,.14);border-right:0}
+  .bar .go{grid-column:1/-1;padding:18px}
+  .hero .bar{bottom:22px}
+}
+.pop{position:absolute;left:0;bottom:calc(100% + 10px);background:var(--ivory);color:#1B1712;box-shadow:0 30px 70px -20px rgba(0,0,0,.55);padding:26px 28px;z-index:30;display:none;max-width:calc(100vw - 24px)}
+.pop.on{display:block;animation:fadeup .35s var(--ease)}
+.pop.below{bottom:auto;top:calc(100% + 10px)}
+@keyframes fadeup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.cal{display:flex;gap:42px}
+.cal .m{width:252px}
+@media(max-width:700px){.cal .m+.m{display:none}.pop{left:0;right:0;padding:20px}.cal .m{width:100%}}
+.cal .mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font:400 22px var(--serif);text-transform:capitalize}
+.cal .mh button{width:28px;height:28px;font-size:16px;line-height:1}
+.cal .mh button[disabled]{opacity:.2;cursor:default}
+.cal .g{display:grid;grid-template-columns:repeat(7,1fr);row-gap:2px;text-align:center}
+.cal .g span{font-size:9px;letter-spacing:.18em;color:#7a7263;padding-bottom:8px;text-transform:uppercase}
+.cal .d{height:34px;font-size:13px;position:relative;z-index:1}
+.cal .d:hover:not([disabled]):not(.s){outline:1px solid #1B1712;outline-offset:-3px}
+.cal .d[disabled]{color:#c4bba8;cursor:default}
+.cal .d.r:before{content:"";position:absolute;inset:3px 0;background:rgba(62,68,48,.14);z-index:-1}
+.cal .d.s{background:var(--olive);color:var(--ivory)}
+.pop-f{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid rgba(27,23,18,.14);font-size:11px;color:#7a7263}
+.pop-f button{font-size:10px;letter-spacing:.26em;text-transform:uppercase;border-bottom:1px solid;padding-bottom:2px;color:#1B1712}
+.gst{width:300px;max-width:100%}
+.gst .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(27,23,18,.12)}
+.gst .row:last-of-type{border:0}
+.gst .row div b{display:block;font:400 20px var(--serif)}
+.gst .row div small{font-size:11px;color:#7a7263}
+.gst .st{display:flex;align-items:center;gap:16px}
+.gst .st button{width:32px;height:32px;border:1px solid rgba(27,23,18,.35);border-radius:50%;font-size:16px;line-height:1}
+.gst .st button[disabled]{opacity:.25}
+.gst .st span{width:14px;text-align:center;font-size:15px}
+
+</style>
+<style>
+/* ---------- sections ---------- */
+section{position:relative}
+.pad{padding:clamp(90px,14vw,200px) clamp(18px,3.4vw,48px)}
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.stmt{max-width:1180px;margin:0 auto}
+.stmt .lab{color:var(--mut);display:block;margin-bottom:34px}
+.stmt p{font:300 clamp(30px,4.6vw,68px)/1.14 var(--serif);letter-spacing:-.015em}
+.stmt p span{opacity:.16;transition:opacity .6s}
+.stmt p span.on{opacity:1}
+.stmt p em{font-style:italic}
+.facts{display:flex;flex-wrap:wrap;gap:12px 56px;margin-top:64px;padding-top:26px;border-top:1px solid var(--line)}
+.facts div b{display:block;font:300 44px/1 var(--serif)}
+.facts div small{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mut)}
+
+.rooms{background:var(--paper2);padding:clamp(80px,11vw,150px) 0 clamp(80px,11vw,140px)}
+.sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;padding:0 clamp(18px,3.4vw,48px);margin-bottom:46px;flex-wrap:wrap}
+.sec-h h2{font:300 clamp(40px,6vw,96px)/.98 var(--serif);letter-spacing:-.02em}
+.sec-h h2 em{font-style:italic;color:var(--clay)}
+.sec-h p{max-width:340px;color:var(--mut);font-size:14px}
+.arrows{display:flex;gap:10px}
+.arrows button{width:50px;height:50px;border:1px solid var(--line);border-radius:50%;font-size:18px;transition:background .3s,color .3s}
+.arrows button:hover{background:var(--ink);color:var(--paper)}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 clamp(18px,3.4vw,48px);scrollbar-width:none;scroll-padding-left:clamp(18px,3.4vw,48px)}
+.rail::-webkit-scrollbar{display:none}
+.room{position:relative;flex:0 0 min(82vw,430px);height:min(78vh,640px);min-height:480px;scroll-snap-align:start;overflow:hidden;color:var(--ivory);cursor:pointer;background:#222}
+.room .sc svg,.room .sc img{transition:transform 2s var(--ease)}
+.room:hover .sc svg,.room:hover .sc img{transform:scale(1.06)}
+.room:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(12,10,6,.78),rgba(12,10,6,0) 55%)}
+.room .tx{position:absolute;left:28px;right:28px;bottom:28px;z-index:2}
+.room .tx .lab{opacity:.8;font-size:9.5px}
+.room .tx h3{font:300 36px/1.05 var(--serif);margin:10px 0 8px}
+.room .tx p{font-size:13px;opacity:.88;max-width:300px}
+.room .tx .cta{display:inline-block;margin-top:18px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;border-bottom:1px solid;padding-bottom:3px;transform:translateY(10px);opacity:0;transition:all .6s var(--ease)}
+.room:hover .cta,.room:focus-within .cta{opacity:1;transform:none}
+@media(hover:none){.room .tx .cta{opacity:1;transform:none}}
+.rooms .note{padding:34px clamp(18px,3.4vw,48px) 0;color:var(--mut);font-size:13px;max-width:640px}
+
+.dest{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:start;padding:clamp(90px,12vw,170px) clamp(18px,3.4vw,48px)}
+.dest .l h2{font:300 clamp(40px,6vw,96px)/.98 var(--serif);letter-spacing:-.02em;margin:22px 0 46px}
+.dest .l h2 em{font-style:italic;color:var(--clay)}
+.dest .l .lab{color:var(--mut)}
+.acc{border-top:1px solid var(--line)}
+.acc .it{border-bottom:1px solid var(--line)}
+.acc .hd{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 0;font:300 clamp(26px,3vw,40px)/1.1 var(--serif);text-align:left;opacity:.45;transition:opacity .4s}
+.acc .hd:after{content:"+";font:300 26px var(--sans);transition:transform .5s var(--ease)}
+.acc .it.on .hd{opacity:1}
+.acc .it.on .hd:after{transform:rotate(45deg)}
+.acc .bd{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
+.acc .it.on .bd{grid-template-rows:1fr}
+.acc .bd div{overflow:hidden}
+.acc .bd p{padding:0 0 26px;max-width:460px;color:var(--mut);font-size:15px}
+.dest .r{position:sticky;top:90px}
+.dest .vis{position:relative;aspect-ratio:4/5;overflow:hidden;background:#222;max-height:80vh;width:100%}
+.dest .vis .sc{opacity:0;transition:opacity 1s,transform 2.4s var(--ease);transform:scale(1.07)}
+.dest .vis .sc.on{opacity:1;transform:none}
+.dest .cap{position:absolute;left:20px;bottom:16px;z-index:2;color:var(--ivory);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.85}
+@media(max-width:860px){.dest{grid-template-columns:1fr}.dest .r{position:relative;top:0;order:-1}}
+
+.amen{background:var(--olive);color:var(--ivory);display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(30px,6vw,100px);padding:clamp(90px,12vw,170px) clamp(18px,3.4vw,48px)}
+.amen .lab{opacity:.65}
+.amen h2{font:300 clamp(40px,6vw,96px)/.98 var(--serif);letter-spacing:-.02em;margin:22px 0 54px}
+.amen h2 em{font-style:italic;color:#E9C9A2}
+.al{list-style:none;border-top:1px solid rgba(242,237,226,.16)}
+.al li{display:grid;grid-template-columns:44px 1fr auto;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid rgba(242,237,226,.16);transition:padding .6s var(--ease)}
+.al li:hover{padding-left:14px}
+.al li small{font-size:10px;letter-spacing:.3em;opacity:.5}
+.al li b{font:300 clamp(28px,3.6vw,52px)/1.05 var(--serif)}
+.al li span{font-size:13px;opacity:.7;text-align:right;max-width:240px}
+.amen .vis{position:relative;min-height:520px;overflow:hidden;align-self:stretch}
+@media(max-width:860px){.amen{grid-template-columns:1fr}.amen .vis{min-height:380px;order:-1}.al li{grid-template-columns:36px 1fr}.al li span{grid-column:2;text-align:left}}
+
+.final{background:var(--esp);color:var(--ivory);text-align:center;padding:clamp(100px,16vw,230px) clamp(18px,3.4vw,48px) clamp(90px,12vw,150px)}
+.final .sc{opacity:.5}
+.final .in-{position:relative;z-index:2}
+.final h2{font:300 clamp(48px,9vw,150px)/.92 var(--serif);letter-spacing:-.025em}
+.final h2 em{font-style:italic;color:#E9C9A2}
+.final p{margin:26px auto 54px;max-width:420px;opacity:.8;font-size:15px}
+.final .bar{margin:0 auto;text-align:left}
+footer{background:var(--esp);color:var(--ivory);padding:34px clamp(18px,3.4vw,48px) calc(38px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(242,237,226,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;font-size:11px;letter-spacing:.14em;opacity:.95}
+footer span{opacity:.6}
+
+</style>
+<style>
+/* ---------- sticky reserve + drawer ---------- */
+.stick{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:55;transform:translate(-50%,160%);transition:transform .7s var(--ease);display:flex;align-items:stretch;background:var(--ivory);color:#1B1712;box-shadow:0 20px 50px -10px rgba(0,0,0,.5)}
+.stick.on{transform:translate(-50%,0)}
+.stick .sm{padding:12px 24px;font:400 18px var(--serif);display:flex;align-items:center;white-space:nowrap}
+.stick .sm i{font:400 9px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#7a7263;margin-right:14px;font-style:normal}
+.stick .go{background:var(--olive);color:var(--ivory);padding:0 26px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:400}
+.stick .go:hover{background:var(--clay)}
+@media(max-width:560px){.stick{width:calc(100% - 28px)}.stick .sm{flex:1;padding:12px 16px;font-size:16px}.stick .sm i{display:none}}
+.scrim{position:fixed;inset:0;background:rgba(10,8,5,.55);z-index:95;opacity:0;pointer-events:none;transition:opacity .5s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drw{position:fixed;top:0;right:0;bottom:0;width:min(500px,100%);background:var(--ivory);color:#1B1712;z-index:96;transform:translateX(102%);transition:transform .8s var(--ease);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+.drw.on{transform:none}
+.drw .dh{display:flex;justify-content:space-between;align-items:center;padding:24px 30px 18px;border-bottom:1px solid rgba(27,23,18,.14)}
+.drw .dh h3{font:300 30px var(--serif)}
+.steps{display:flex;gap:0;padding:16px 30px;border-bottom:1px solid rgba(27,23,18,.14);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#a39b8b}
+.steps span{flex:1;padding-bottom:10px;border-bottom:1px solid transparent;margin-bottom:-17px;transition:all .4s}
+.steps span.on{color:#1B1712;border-color:#1B1712}
+.steps span.ok{color:var(--olive2)}
+.drw .db{flex:1;overflow-y:auto;padding:26px 30px}
+.drw .db .cal{gap:0}
+.drw .db .pop-f{border-color:rgba(27,23,18,.14)}
+.opt{display:grid;grid-template-columns:96px 1fr;gap:18px;width:100%;text-align:left;padding:14px;border:1px solid rgba(27,23,18,.16);margin-bottom:12px;transition:border-color .3s,background .3s}
+.opt:hover{border-color:#1B1712}
+.opt.sel{border-color:var(--olive);background:rgba(62,68,48,.08)}
+.opt .th{position:relative;height:96px;overflow:hidden}
+.opt b{display:block;font:400 23px/1.1 var(--serif)}
+.opt small{display:block;color:#7a7263;font-size:12px;margin-top:6px}
+.sum{border-top:1px solid rgba(27,23,18,.14)}
+.sum div{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid rgba(27,23,18,.14);font-size:14px}
+.sum div span:first-child{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#7a7263;padding-top:3px}
+.sum div span:last-child{font:400 20px var(--serif);text-align:right}
+.drw .df{padding:18px 30px calc(22px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(27,23,18,.14)}
+.btn{display:block;width:100%;background:var(--olive);color:var(--ivory);padding:19px;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;text-align:center;transition:background .3s;font-weight:400}
+.btn:hover{background:var(--clay)}
+.btn[disabled]{opacity:.35;cursor:default;background:var(--olive)}
+.msg{margin-top:14px;font-size:12px;color:#7a7263;line-height:1.5}
+.back{font-size:10px;letter-spacing:.26em;text-transform:uppercase;border-bottom:1px solid;padding-bottom:2px;margin-bottom:20px;display:inline-block}
+</style>
+<style>
+/* Compañero celeste: sol que sube con el scroll y luna al final. Solo líneas blancas;
+   mix-blend-mode:difference lo vuelve oscuro sobre fondos claros y claro sobre fondos oscuros. */
+.sky{position:fixed;left:clamp(10px,1.8vw,28px);top:0;width:44px;height:100vh;height:100svh;z-index:40;pointer-events:none;color:#fff;mix-blend-mode:difference}
+.sky svg{position:absolute;left:0;top:0;width:44px;height:44px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:round;will-change:transform}
+.sky *{vector-effect:non-scaling-stroke}
+.sky .moon{opacity:0}
+.sky .rays{transform-box:fill-box;transform-origin:center}
+@media(max-width:700px){.sky{left:8px;width:34px}.sky svg{width:34px;height:34px}}
+</style>
+<style>
+/* Imágenes reales y accesibilidad de movimiento. */
+.sc img{width:100%;height:100%;object-fit:cover;display:block}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero h1 .ln span{transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="sky" id="sky" aria-hidden="true">
+  <svg class="sun" viewBox="0 0 44 44"><circle class="disc" cx="22" cy="22" r="6.5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/><g class="rays"><path d="M22 4v6M22 34v6M4 22h6M34 22h6M9.3 9.3l4.2 4.2M30.5 30.5l4.2 4.2M34.7 9.3l-4.2 4.2M13.5 30.5l-4.2 4.2" opacity=".9"/></g></svg>
+  <svg class="moon" viewBox="0 0 44 44"><path class="crescent" d="M24 6A16 16 0 1 0 24 38A10 16 0 0 1 24 6Z" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/><path class="st" d="M36 10v5M33.5 12.5h5" opacity="0"/><path class="st" d="M38 28v3M36.5 29.5h3" opacity="0"/></svg>
+</div>
+
+<header id="hd">
+  <button class="menu-btn lab" id="mOpen" aria-label="Abrir menú"><i></i><span>Menú</span></button>
+  <a class="mark" href="#top" aria-label="MyPlace San José del Cabo"><b>MYPLACE</b><small>San José del Cabo</small></a>
+  <button class="res-btn lab" data-reserve>Reservar</button>
+</header>
+
+<nav class="menu" id="menu" aria-label="Menú principal">
+  <button class="close lab" id="mClose"><i></i><span>Cerrar</span></button>
+  <div class="mc">
+    <ul>
+      <li><a href="#habitaciones" data-s="0"><small>01</small>Habitaciones</a></li>
+      <li><a href="#destino" data-s="1"><small>02</small>San José del Cabo</a></li>
+      <li><a href="#destino" data-s="2" data-acc="2"><small>03</small>Golf y playas</a></li>
+      <li><a href="#amenidades" data-s="3"><small>04</small>Amenidades</a></li>
+      <li><a href="#reservar" data-s="4" data-reserve><small>05</small>Reservar</a></li>
+    </ul>
+    <div class="mf">San José del Cabo · Baja California Sur</div>
+  </div>
+  <div class="mv" id="mv"></div>
+</nav>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" aria-label="Portada">
+  <div class="layer l1"><div class="sc" data-scene="hero-dorada"></div></div>
+  <div class="layer l2"><div class="sc" data-scene="hero-azul"></div></div>
+  <div class="shade"></div>
+  <div class="f" id="heroF" data-sp="-0.05"><div class="sc" data-scene="hero-frente"></div></div>
+  <div class="hero-copy">
+    <span class="lab">56 suites y residencias</span>
+    <h1><span class="ln"><span>Un lado más</span></span><span class="ln"><span>quieto de <em>Cabo.</em></span></span></h1>
+  </div>
+  <div class="coord">23.06° N · 109.70° O</div>
+  <div class="scroll-cue">Descubrir</div>
+  <div class="bar" data-bar></div>
+</section>
+
+<!-- DECLARACIÓN -->
+<section class="pad">
+  <div class="stmt">
+    <span class="lab rv">San José del Cabo</span>
+    <p id="stmt">Aquí el desierto baja hasta el mar. Una casa con cocina, terraza y tiempo, a un paso del centro histórico, las playas y el campo de golf.</p>
+    <div class="facts rv">
+      <div><b>56</b><small>Suites y residencias</small></div>
+      <div><b>24/7</b><small>Recepción</small></div>
+      <div><b>3 clics</b><small>De la fecha a la reserva</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- HABITACIONES -->
+<section class="rooms" id="habitaciones">
+  <div class="sec-h">
+    <h2 class="rv">Dónde <em>quedarte.</em></h2>
+    <p class="rv">Espacios con cocina y terraza. Algunas unidades se conectan para sumar recámaras.</p>
+    <div class="arrows"><button id="rPrev" aria-label="Anterior">←</button><button id="rNext" aria-label="Siguiente">→</button></div>
+  </div>
+  <div class="rail" id="rail"></div>
+</section>
+
+<!-- DESTINO -->
+<section class="dest" id="destino">
+  <div class="l">
+    <span class="lab rv">El destino</span>
+    <h2 class="rv">Todo cabe en <em>un día.</em></h2>
+    <div class="acc" id="acc"></div>
+  </div>
+  <div class="r"><div class="vis" id="dvis"><div class="cap" id="dcap"></div></div></div>
+</section>
+
+<!-- AMENIDADES -->
+<section class="amen" id="amenidades">
+  <div>
+    <span class="lab rv">Amenidades</span>
+    <h2 class="rv">Lo necesario, <em>bien hecho.</em></h2>
+    <ul class="al">
+      <li class="rv"><small>01</small><b>Albercas</b><span>Agua y sombra para el día entero</span></li>
+      <li class="rv"><small>02</small><b>Palapa</b><span>Un lugar para quedarse al aire libre</span></li>
+      <li class="rv"><small>03</small><b>Recepción 24/7</b><span>Llegadas y salidas a cualquier hora</span></li>
+      <li class="rv"><small>04</small><b>Seguridad</b><span>Y estacionamiento dentro de la propiedad</span></li>
+      <li class="rv"><small>05</small><b>Cocina propia</b><span>En la mayoría de las unidades</span></li>
+    </ul>
+  </div>
+  <div class="vis"><div class="sc" data-scene="amenidades-alberca"></div></div>
+</section>
+
+<!-- RESERVA -->
+<section class="final" id="reservar">
+  <div class="sc" data-scene="reserva-noche"></div>
+  <div class="in-">
+    <h2 class="rv">Elige tus <em>fechas.</em></h2>
+    <p class="rv">Dos pasos más y tu habitación queda confirmada.</p>
+    <div class="bar rv" data-bar></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div>MYPLACE · SAN JOSÉ DEL CABO</div>
+  <span>Baja California Sur, México</span>
+  <span>MyPlace Leisure Homes STR</span>
+</footer>
+
+<div class="stick" id="stick"><div class="sm"><i>Tu estancia</i><span id="stickTx">Elige fechas</span></div><button class="go" data-reserve>Reservar</button></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drw" id="drw" aria-label="Reserva" aria-hidden="true">
+  <div class="dh"><h3>Tu estancia</h3><button class="lab" id="dClose">Cerrar</button></div>
+  <div class="steps" id="steps"><span>1 · Fechas</span><span>2 · Habitación</span><span>3 · Pago</span></div>
+  <div class="db" id="db"></div>
+  <div class="df" id="df"></div>
+</aside>
+
+<script>
+'use strict';
+/* Configuración editable. */
+var CONFIG={
+  bookingUrl:'' // URL del motor de reservas. Recibe ?checkin=AAAA-MM-DD&checkout=...&adults=&children=&room=
+};
+
+</script>
+<script>
+'use strict';
+/* Textos y datos de habitaciones y destino. Edita aquí el contenido. `s` = nombre del espacio de imagen (ver docs/IMAGENES.md). */
+var ROOMS=[
+ {id:'suite1',n:'Suite de una recámara',t:'Sala, cocina y terraza',d:'Para dos, con espacio de sobra y luz de mañana.',s:'hab-suite1'},
+ {id:'res2',n:'Residencia de dos recámaras',t:'Dos recámaras · cocina completa',d:'Para familias o amigos, con la sala como centro.',s:'hab-residencia2'},
+ {id:'studio',n:'Estudio',t:'Un solo ambiente · cocina',d:'Todo en uno, con la tranquilidad de una casa propia.',s:'hab-estudio'},
+ {id:'hab',n:'Habitación',t:'Descanso esencial',d:'Sin cocina, con las albercas y el golf a la puerta.',s:'hab-habitacion'}
+];
+var DEST=[
+ {n:'Centro histórico',s:'destino-centro',c:'Calle, galería, mesa',p:'Galerías, plazas y mesas al aire libre. Los jueves de temporada, el Art Walk llena las calles.'},
+ {n:'Playas',s:'destino-playas',c:'Palmilla · Costa Azul · Estero',p:'Palmilla y Costa Azul para nadar o surfear; el Estero de San José para ver aves al amanecer.'},
+ {n:'Golf',s:'destino-golf',c:'Junto al hotel',p:'El campo de golf está a un paso. Sal con el primer sol y vuelve a desayunar en tu terraza.'},
+ {n:'Mar y sierra',s:'destino-mar',c:'Ballenas · Todos Santos',p:'Ballenas de diciembre a abril. Todos Santos y la Sierra de la Laguna, a una excursión de distancia.'}
+];
+
+</script>
+<script>
+'use strict';
+/* Imágenes provisionales dibujadas con código. Se reemplazan solas al colocar fotos (ver images.js). */
+
+var uid=0;
+function R(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function ridge(seed,y,amp,c,op,steps){
+  var r=R(seed),n=steps||9,p=[],i;
+  for(i=0;i<=n;i++)p.push({x:i*1600/n,y:y+(r()-.5)*2*amp});
+  var d='M0 1000 L0 '+p[0].y;
+  for(i=1;i<=n;i++){var a=p[i-1],b=p[i];d+=' Q'+a.x+' '+a.y+' '+((a.x+b.x)/2)+' '+((a.y+b.y)/2)}
+  d+=' L1600 '+p[n].y+' L1600 1000Z';
+  return '<path d="'+d+'" fill="'+c+'" opacity="'+op+'"/>';
+}
+function cardon(x,y,h,w,c){return '<g stroke="'+c+'" stroke-width="'+w+'" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M'+x+' '+y+'V'+(y-h)+'"/><path d="M'+x+' '+(y-h*.42)+'H'+(x-h*.17)+'V'+(y-h*.74)+'"/><path d="M'+x+' '+(y-h*.28)+'H'+(x+h*.19)+'V'+(y-h*.56)+'"/></g>'}
+function cirio(x,y,h,c){var w=h*.03;return '<path d="M'+(x-w)+' '+y+'L'+(x+w)+' '+y+'L'+(x+1.5)+' '+(y-h)+'L'+(x-1.5)+' '+(y-h)+'Z" fill="'+c+'"/><path d="M'+x+' '+(y-h*.55)+'q'+(h*.12)+' -'+(h*.04)+' '+(h*.16)+' -'+(h*.2)+' M'+x+' '+(y-h*.4)+'q-'+(h*.1)+' -'+(h*.03)+' -'+(h*.13)+' -'+(h*.16)+'" stroke="'+c+'" stroke-width="'+(w*.7)+'" fill="none" stroke-linecap="round"/>'}
+function agave(x,y,len,c){var s='',a;for(a=-70;a<=70;a+=20){var r=a*Math.PI/180,ex=x+Math.sin(r)*len,ey=y-Math.cos(r)*len*.9;s+='<path d="M'+x+' '+y+' Q'+(x+Math.sin(r)*len*.4)+' '+(y-len*.7)+' '+ex+' '+ey+'" stroke="'+c+'" stroke-width="'+(len*.09)+'" stroke-linecap="round" fill="none"/>'}return s}
+function fgSet(c,v){
+  var g='<path d="M0 1000V870Q260 830 560 880T1180 862T1600 890V1000Z" fill="'+c+'"/>';
+  if(v===0)g+=cardon(150,880,430,16,c)+cardon(1420,886,360,13,c)+cirio(300,880,330,c)+agave(60,900,120,c)+agave(1500,905,140,c)+agave(1300,890,90,c);
+  else if(v===1)g+=cardon(1320,886,470,17,c)+cirio(1470,890,380,c)+cirio(190,880,260,c)+agave(90,905,130,c)+agave(1180,890,100,c);
+  else g+=cirio(260,884,420,c)+cardon(1380,890,340,12,c)+agave(120,905,150,c)+agave(1500,905,110,c);
+  return g;
+}
+function lsInner(o,id){
+  var s='<defs><linearGradient id="sk'+id+'" x1="0" y1="0" x2="0" y2="1">';
+  o.sky.forEach(function(k){s+='<stop offset="'+k[0]+'" stop-color="'+k[1]+'"/>'});
+  s+='</linearGradient><radialGradient id="sn'+id+'"><stop offset="0" stop-color="'+o.sun.c+'" stop-opacity=".9"/><stop offset="1" stop-color="'+o.sun.c+'" stop-opacity="0"/></radialGradient>';
+  s+='<linearGradient id="se'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+o.sea[0]+'"/><stop offset="1" stop-color="'+o.sea[1]+'"/></linearGradient></defs>';
+  s+='<rect width="1600" height="1000" fill="url(#sk'+id+')"/>';
+  if(o.stars){var r=R(7),i;for(i=0;i<70;i++)s+='<circle cx="'+(r()*1600)+'" cy="'+(r()*430)+'" r="'+(r()*1.6+.4)+'" fill="#fff" opacity="'+(r()*.7+.2)+'"/>'}
+  s+='<circle cx="'+o.sun.x+'" cy="'+o.sun.y+'" r="'+(o.sun.r*5)+'" fill="url(#sn'+id+')"/><circle cx="'+o.sun.x+'" cy="'+o.sun.y+'" r="'+o.sun.r+'" fill="'+o.sun.c+'"/>';
+  o.ridges.forEach(function(q){s+=ridge(q[0],q[1],q[2],q[3],q[4],q[5])});
+  s+='<rect y="'+o.hz+'" width="1600" height="'+(1000-o.hz)+'" fill="url(#se'+id+')"/>';
+  if(o.glint){var g=R(3),k;for(k=0;k<46;k++){var gy=o.hz+8+Math.pow(g(),1.7)*300,gw=(30+g()*140)*(1+(gy-o.hz)/260),gx=o.sun.x+(g()-.5)*(60+(gy-o.hz)*1.3);s+='<rect x="'+(gx-gw/2)+'" y="'+gy+'" width="'+gw+'" height="'+(1.2+(gy-o.hz)/90)+'" fill="'+o.glint+'" opacity="'+(.15+g()*.5)+'"/>'}}
+  if(o.flag)s+='<path d="M1130 '+(o.hz+190)+'V'+(o.hz+60)+'" stroke="#f3eee2" stroke-width="3"/><path d="M1130 '+(o.hz+60)+'l56 16l-56 16z" fill="#c4553a"/><ellipse cx="1130" cy="'+(o.hz+192)+'" rx="40" ry="7" fill="#1c2a14" opacity=".5"/>';
+  if(o.fg!==undefined&&o.fg!==null)s+=fgSet(o.fgc,o.fg);
+  return s;
+}
+function landscape(o){var id=++uid;return '<svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'+lsInner(o,id)+'</svg>'}
+var P={
+ gold:{sky:[[0,'#26343a'],[.34,'#78665a'],[.56,'#d9a273'],[.7,'#f2c691']],hz:660,sun:{x:1040,y:626,r:64,c:'#f7d8a8'},ridges:[[11,540,60,'#7a6358',.6,8],[23,605,38,'#52443d',.9,10]],sea:['#c58b68','#34403f'],glint:'#ffe3b8'},
+ blue:{sky:[[0,'#0e1522'],[.38,'#2a3450'],[.62,'#7b6a79'],[.74,'#cf8e7c']],hz:660,sun:{x:1040,y:664,r:34,c:'#eebba2'},ridges:[[11,545,60,'#34334a',.7,8],[23,607,36,'#1f2030',.95,10]],sea:['#5a5873','#111522'],glint:'#f1c3b0'},
+ dawn:{sky:[[0,'#8c9db0'],[.4,'#d9c3b3'],[.62,'#f1d2b4'],[.72,'#f6e0c2']],hz:660,sun:{x:460,y:640,r:56,c:'#fbe8c8'},ridges:[[31,560,58,'#a6968f',.55,8],[41,612,34,'#7f716c',.8,10]],sea:['#c9ccc7','#6e8080'],glint:'#fff3dc'},
+ noon:{sky:[[0,'#5d8fa8'],[.5,'#a9c6c8'],[.72,'#e0d6b6']],hz:640,sun:{x:1200,y:150,r:40,c:'#fffbea'},ridges:[[51,540,58,'#8f8f7e',.55,8],[61,596,34,'#6a6d58',.85,10]],sea:['#5aa0a2','#1f5a60'],glint:'#ffffff'},
+ dusk:{sky:[[0,'#434a5c'],[.4,'#b9694a'],[.62,'#eeb272'],[.74,'#f7cd90']],hz:650,sun:{x:760,y:620,r:60,c:'#fbdcae'},ridges:[[71,535,64,'#6e4f45',.65,8],[81,598,38,'#3d322f',.92,10]],sea:['#c77e57','#2d2f33'],glint:'#ffd9a3'},
+ night:{sky:[[0,'#080b12'],[.5,'#171d2d'],[.74,'#3a3a44']],hz:680,sun:{x:1180,y:240,r:26,c:'#efe9d8'},ridges:[[91,570,60,'#141622',.9,8],[101,630,36,'#0d0f17',1,10]],sea:['#1d2336','#07090e'],glint:'#cfd6e8',stars:true},
+ golf:{sky:[[0,'#8fb3c0'],[.5,'#cfdac8'],[.7,'#ecdfbd']],hz:600,sun:{x:300,y:180,r:34,c:'#fffbea'},ridges:[[121,520,62,'#8d9a82',.6,8],[131,575,32,'#6c7e5a',.9,9]],sea:['#7f9a58','#35502a'],glint:null,flag:true}
+};
+function mix(base,over){var o={},k;for(k in base)o[k]=base[k];for(k in over)o[k]=over[k];return o}
+function arch(o){
+  var id=++uid,view=o.view?mix(P[o.view],{fg:o.fg,fgc:'#14110c'}):mix(P.gold,{fg:1,fgc:'#14110c'});
+  var ax=o.ax||290,aw=o.aw||420,at=o.at||200,ab=o.ab||930;
+  var cx=ax+aw/2,rad=aw/2;
+  var shape='M'+ax+' '+ab+'V'+(at+rad)+'A'+rad+' '+rad+' 0 0 1 '+(ax+aw)+' '+(at+rad)+'V'+ab+'Z';
+  var s='<svg viewBox="0 0 1000 1300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>';
+  s+='<linearGradient id="w'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+o.wall[0]+'"/><stop offset="1" stop-color="'+o.wall[1]+'"/></linearGradient>';
+  s+='<linearGradient id="f'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+o.floor[0]+'"/><stop offset="1" stop-color="'+o.floor[1]+'"/></linearGradient>';
+  s+='<linearGradient id="l'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+o.light+'" stop-opacity=".75"/><stop offset="1" stop-color="'+o.light+'" stop-opacity="0"/></linearGradient>';
+  s+='<clipPath id="c'+id+'"><path d="'+shape+'"/></clipPath><filter id="b'+id+'"><feGaussianBlur stdDeviation="14"/></filter></defs>';
+  s+='<rect width="1000" height="1300" fill="url(#w'+id+')"/>';
+  s+='<svg x="'+ax+'" y="'+at+'" width="'+aw+'" height="'+(ab-at)+'" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" clip-path="url(#c'+id+')">'+lsInner(view,id+1000)+'</svg>';
+  s+='<path d="'+shape+'" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="10"/>';
+  s+='<rect y="'+ab+'" width="1000" height="'+(1300-ab)+'" fill="url(#f'+id+')"/>';
+  s+='<polygon points="'+ax+','+ab+' '+(ax+aw)+','+ab+' '+(ax+aw+(o.spread||260))+',1300 '+(ax-(o.spread||260)*.3)+',1300" fill="url(#l'+id+')" opacity=".85"/>';
+  var r=R(o.seed||5),i;
+  for(i=0;i<5;i++){s+='<ellipse cx="'+(120+r()*130)+'" cy="'+(300+i*105+r()*30)+'" rx="'+(26+r()*34)+'" ry="'+(10+r()*12)+'" transform="rotate('+(-50+r()*100)+' 180 '+(300+i*105)+')" fill="#000" opacity=".16" filter="url(#b'+id+')"/>'}
+  s+='<rect x="'+(o.bx||110)+'" y="1040" width="360" height="62" rx="4" fill="'+o.f1+'"/><rect x="'+(o.bx||110)+'" y="1100" width="360" height="30" fill="#000" opacity=".25"/>';
+  s+='<ellipse cx="'+((o.bx||110)+410)+'" cy="1098" rx="38" ry="12" fill="#000" opacity=".25"/><path d="M'+((o.bx||110)+380)+' 1098 q-6 -90 12 -120 q42 24 38 120z" fill="'+o.f2+'"/>';
+  s+='<path d="M'+((o.bx||110)+410)+' 980 q-6 -70 -40 -120 M'+((o.bx||110)+410)+' 980 q14 -80 56 -110 M'+((o.bx||110)+410)+' 980 q-2 -90 8 -150" stroke="#2c2a1e" stroke-width="3" fill="none" stroke-linecap="round"/>';
+  s+='</svg>';
+  return s;
+}
+function pool(){
+  var id=++uid,s='<svg viewBox="0 0 1000 1300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="p'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f9a93"/><stop offset=".5" stop-color="#4d6d69"/><stop offset="1" stop-color="#25403e"/></linearGradient><linearGradient id="q'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9cdb4"/><stop offset="1" stop-color="#b9a98a"/></linearGradient></defs>';
+  s+='<rect width="1000" height="1300" fill="url(#p'+id+')"/>';
+  var r=R(17),i;
+  for(i=0;i<130;i++){var y=140+r()*1160,x=r()*1000,w=40+r()*160;s+='<path d="M'+x+' '+y+' q'+(w/4)+' -'+(6+r()*10)+' '+(w/2)+' 0 t'+(w/2)+' 0" stroke="#e8f2ea" stroke-width="'+(.8+r()*1.8)+'" fill="none" opacity="'+(.12+r()*.4)+'"/>'}
+  s+='<rect width="1000" height="150" fill="url(#q'+id+')"/><rect y="150" width="1000" height="26" fill="#000" opacity=".22"/>';
+  s+='<path d="M780 150 q30 -120 -4 -210" stroke="#14110c" stroke-width="10" fill="none" stroke-linecap="round" opacity=".0"/>';
+  s+='<path d="M60 0 q70 90 40 150 M130 0 q40 80 60 150" stroke="#000" stroke-width="30" opacity=".08" fill="none"/></svg>';
+  return s;
+}
+var SC={
+ 'hero-dorada':function(){return landscape(mix(P.gold,{}))},
+ 'hero-azul':function(){return landscape(mix(P.blue,{}))},
+ 'hero-frente':function(){return '<svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice" aria-hidden="true">'+fgSet('#0e0c08',0)+'</svg>'},
+ 'destino-mar':function(){return landscape(mix(P.dawn,{fg:2,fgc:'#1a1812'}))},
+ 'destino-playas':function(){return landscape(mix(P.noon,{fg:1,fgc:'#1e2417'}))},
+ 'destino-centro':function(){return landscape(mix(P.dusk,{fg:0,fgc:'#14110c'}))},
+ 'reserva-noche':function(){return landscape(mix(P.night,{fg:1,fgc:'#05060a'}))},
+ 'destino-golf':function(){return landscape(mix(P.golf,{fg:2,fgc:'#18200f'}))},
+ 'amenidades-alberca':pool,
+ 'hab-suite1':function(){return arch({wall:['#cdbba0','#a88f72'],floor:['#8f7a62','#5d4d3d'],light:'#f6d9a8',view:'gold',fg:0,f1:'#6b5a46',f2:'#b0714c',seed:3})},
+ 'hab-residencia2':function(){return arch({wall:['#d9ccb4','#b9a587'],floor:['#a89478','#6f5e49'],light:'#fbe6bf',view:'dusk',fg:1,ax:230,aw:540,at:250,ab:940,f1:'#4c463a',f2:'#7b6d4c',seed:9,bx:160})},
+ 'hab-estudio':function(){return arch({wall:['#bfae93','#8f7a60'],floor:['#7a6650','#4a3c2e'],light:'#f1cf9a',view:'dawn',fg:2,ax:340,aw:320,at:220,ab:900,f1:'#3f382c',f2:'#a2603f',seed:14,bx:70})},
+ 'hab-habitacion':function(){return arch({wall:['#cfc3ae','#a79a82'],floor:['#8b7c66','#5a4e3f'],light:'#f7e1b7',view:'noon',fg:0,ax:300,aw:400,at:300,ab:900,f1:'#5c5340',f2:'#7a8260',seed:21,bx:140})}
+};
+
+
+</script>
+<script>
+'use strict';
+/* Manifiesto de imágenes.
+   Suelta el archivo con el nombre exacto en la carpeta indicada y aparece solo.
+   '' = usar la imagen provisional · 'off' = ocultar el espacio. Detalle en docs/IMAGENES.md */
+var IMG_BASE='assets/img/';
+var IMAGES={
+  'hero-dorada':'hero/hero-dorada.jpg',
+  'hero-azul':'hero/hero-azul.jpg',
+  'hero-frente':'hero/hero-frente.png',
+  'hab-suite1':'habitaciones/hab-suite1.jpg',
+  'hab-residencia2':'habitaciones/hab-residencia2.jpg',
+  'hab-estudio':'habitaciones/hab-estudio.jpg',
+  'hab-habitacion':'habitaciones/hab-habitacion.jpg',
+  'destino-centro':'destino/destino-centro.jpg',
+  'destino-playas':'destino/destino-playas.jpg',
+  'destino-golf':'destino/destino-golf.jpg',
+  'destino-mar':'destino/destino-mar.jpg',
+  'amenidades-alberca':'amenidades/amenidades-alberca.jpg',
+  'reserva-noche':'reserva/reserva-noche.jpg'
+};
+/* Punto de enfoque al recortar (object-position). */
+var IMG_POS={'hero-dorada':'50% 60%','hero-azul':'50% 60%','hero-frente':'50% 100%'};
+/* Texto alternativo (SEO y accesibilidad). */
+var IMG_ALT={
+  'hab-suite1':'Suite de una recámara con terraza en San José del Cabo',
+  'hab-residencia2':'Residencia de dos recámaras con cocina completa',
+  'hab-estudio':'Estudio con cocina en San José del Cabo',
+  'hab-habitacion':'Habitación en San José del Cabo',
+  'destino-centro':'Centro histórico de San José del Cabo al atardecer',
+  'destino-playas':'Playa en San José del Cabo',
+  'destino-golf':'Campo de golf junto al hotel',
+  'destino-mar':'Amanecer sobre el mar en Baja California Sur',
+  'amenidades-alberca':'Alberca del hotel',
+  'reserva-noche':'Noche en San José del Cabo'
+};
+function preload(src,ok,fail){var i=new Image();i.onload=function(){ok()};i.onerror=function(){fail()};i.src=src}
+function putImg(el,n){
+  var img=new Image();img.alt=IMG_ALT[n]||'';img.decoding='async';
+  if(n.indexOf('hero-')!==0)img.loading='lazy';
+  img.src=IMG_BASE+IMAGES[n];img.style.objectPosition=IMG_POS[n]||'50% 50%';
+  el.innerHTML='';el.appendChild(img);el.setAttribute('data-real','1');
+}
+function mount(el){
+  var n=el.getAttribute('data-scene');
+  if(n.indexOf('hero-')===0||el.getAttribute('data-m'))return;
+  el.setAttribute('data-m','1');
+  var f=IMAGES[n];
+  if(f==='off'){el.style.display='none';return}
+  if(SC[n])el.innerHTML=SC[n]();
+  if(f)preload(IMG_BASE+f,function(){putImg(el,n)},function(){});
+}
+function mountAll(root){(root||document).querySelectorAll('[data-scene]').forEach(mount)}
+/* Portada: si hay foto principal, las capas azul y primer plano son opcionales; si no, todo provisional. */
+function mountHero(){
+  function q(n){return document.querySelector('[data-scene="'+n+'"]')}
+  var d=q('hero-dorada'),a=q('hero-azul'),f=q('hero-frente');
+  function proc(){d.innerHTML=SC['hero-dorada']();a.innerHTML=SC['hero-azul']();f.innerHTML=SC['hero-frente']()}
+  function opt(el,n){var x=IMAGES[n];if(!x||x==='off'){el.style.display='none';return}
+    preload(IMG_BASE+x,function(){putImg(el,n)},function(){el.style.display='none'})}
+  var fd=IMAGES['hero-dorada'];
+  if(!fd||fd==='off'){proc();return}
+  preload(IMG_BASE+fd,function(){putImg(d,'hero-dorada');opt(a,'hero-azul');opt(f,'hero-frente')},proc);
+}
+
+</script>
+<script>
+'use strict';
+/* Estado de la reserva, calendario, barra de reserva y panel lateral. */
+
+var S={start:null,end:null,adults:2,kids:0,room:null,view:new Date(),step:1};
+S.view.setDate(1);S.view.setHours(0,0,0,0);
+var TODAY=new Date();TODAY.setHours(0,0,0,0);
+
+
+var MONTHS=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+var DAYS=['L','M','M','J','V','S','D'];
+function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function fmt(d){return d.getDate()+' '+MONTHS[d.getMonth()].slice(0,3)}
+function nights(){return S.start&&S.end?Math.round((S.end-S.start)/864e5):0}
+function guestTx(){var t=S.adults+(S.adults===1?' adulto':' adultos');if(S.kids)t+=' · '+S.kids+(S.kids===1?' niño':' niños');return t}
+function roomById(id){return ROOMS.filter(function(r){return r.id===id})[0]}
+
+
+function monthHTML(base,first,last){
+  var y=base.getFullYear(),m=base.getMonth(),h='<div class="m"><div class="mh">';
+  h+=first?'<button data-nav="-1" aria-label="Mes anterior"'+(y===TODAY.getFullYear()&&m===TODAY.getMonth()?' disabled':'')+'>←</button>':'<span></span>';
+  h+='<span>'+MONTHS[m]+' '+y+'</span>';
+  h+=last?'<button data-nav="1" aria-label="Mes siguiente">→</button>':'<span></span>';
+  h+='</div><div class="g">';
+  DAYS.forEach(function(d){h+='<span>'+d+'</span>'});
+  var off=(new Date(y,m,1).getDay()+6)%7,i;
+  for(i=0;i<off;i++)h+='<span></span>';
+  var dim=new Date(y,m+1,0).getDate();
+  for(i=1;i<=dim;i++){
+    var d=new Date(y,m,i),c='d',dis=d<TODAY;
+    if(S.start&&d.getTime()===S.start.getTime())c+=' s';
+    if(S.end&&d.getTime()===S.end.getTime())c+=' s';
+    if(S.start&&S.end&&d>S.start&&d<S.end)c+=' r';
+    h+='<button class="'+c+'" data-d="'+iso(d)+'"'+(dis?' disabled':'')+'>'+i+'</button>';
+  }
+  return h+'</div></div>';
+}
+function calHTML(){
+  var n=new Date(S.view.getFullYear(),S.view.getMonth()+1,1);
+  var info=S.start?(S.end?nights()+(nights()===1?' noche':' noches'):'Elige la salida'):'Elige la llegada';
+  return '<div class="cal">'+monthHTML(S.view,true,false)+monthHTML(n,false,true)+'</div><div class="pop-f"><span>'+info+'</span><button data-clear>Borrar</button></div>';
+}
+
+
+var bars=[];
+function guestHTML(){
+  return '<div class="gst"><div class="row"><div><b>Adultos</b><small>13 años o más</small></div><div class="st"><button data-g="a-1"'+(S.adults<=1?' disabled':'')+'>−</button><span>'+S.adults+'</span><button data-g="a1"'+(S.adults>=8?' disabled':'')+'>+</button></div></div>'+
+  '<div class="row"><div><b>Niños</b><small>0 a 12 años</small></div><div class="st"><button data-g="k-1"'+(S.kids<=0?' disabled':'')+'>−</button><span>'+S.kids+'</span><button data-g="k1"'+(S.kids>=6?' disabled':'')+'>+</button></div></div></div>';
+}
+function buildBar(el){
+  el.innerHTML='<button class="fld" data-f="in"><small>Llegada</small><b data-v="in"></b></button><button class="fld" data-f="out"><small>Salida</small><b data-v="out"></b></button><button class="fld" data-f="g"><small>Huéspedes</small><b data-v="g"></b></button><button class="go" data-go>Ver tarifas</button><div class="pop" data-pop></div>';
+  bars.push(el);
+}
+function closePops(except){bars.forEach(function(b){var p=b.querySelector('[data-pop]');if(p!==except)p.classList.remove('on')})}
+function refresh(){
+  bars.forEach(function(b){
+    var a=b.querySelector('[data-v="in"]'),o=b.querySelector('[data-v="out"]'),g=b.querySelector('[data-v="g"]');
+    a.textContent=S.start?fmt(S.start):'Añadir fecha';a.className=S.start?'':'ph';
+    o.textContent=S.end?fmt(S.end):'Añadir fecha';o.className=S.end?'':'ph';
+    g.textContent=guestTx();
+    var p=b.querySelector('[data-pop]');
+    if(p.classList.contains('on')){p.innerHTML=p.getAttribute('data-k')==='g'?guestHTML():calHTML()}
+  });
+  var tx=S.start&&S.end?fmt(S.start)+' – '+fmt(S.end):(S.start?fmt(S.start)+' – ?':'Elige fechas');
+  document.getElementById('stickTx').textContent=tx+' · '+S.adults+(S.kids?'+'+S.kids:'')+' pax';
+  if(drw.classList.contains('on'))renderDrawer();
+}
+document.addEventListener('click',function(e){
+  var t=e.target;
+  var pop=t.closest&&t.closest('[data-pop]');
+  var bar=t.closest&&t.closest('[data-bar]');
+  if(!bar)closePops();
+  if(!bar)return;
+  var p=bar.querySelector('[data-pop]');
+  var f=t.closest('[data-f]');
+  if(f){
+    var k=f.getAttribute('data-f')==='g'?'g':'c';
+    var same=p.classList.contains('on')&&p.getAttribute('data-k')===k;
+    closePops(p);
+    if(same){p.classList.remove('on')}else{p.setAttribute('data-k',k);p.classList.add('on');p.innerHTML=k==='g'?guestHTML():calHTML();
+      if(!bar.closest('.hero')&&bar.getBoundingClientRect().top<420)p.classList.add('below');else p.classList.remove('below')}
+    return;
+  }
+  if(t.closest('[data-go]')){
+    if(!(S.start&&S.end)){closePops(p);p.setAttribute('data-k','c');p.classList.add('on');p.innerHTML=calHTML();return}
+    closePops();openDrawer(2);return;
+  }
+  if(pop)popClick(t,p);
+});
+function popClick(t,p){
+  var nav=t.closest('[data-nav]'),d=t.closest('[data-d]'),g=t.closest('[data-g]'),c=t.closest('[data-clear]');
+  if(nav){S.view=new Date(S.view.getFullYear(),S.view.getMonth()+(+nav.getAttribute('data-nav')),1);refresh();return}
+  if(c){S.start=null;S.end=null;refresh();return}
+  if(g){var v=g.getAttribute('data-g');if(v==='a-1')S.adults--;if(v==='a1')S.adults++;if(v==='k-1')S.kids--;if(v==='k1')S.kids++;refresh();return}
+  if(d){pickDay(d.getAttribute('data-d'));if(S.start&&S.end&&p.hasAttribute&&p.hasAttribute('data-pop')){p.classList.remove('on');refresh()}}
+}
+function pickDay(s){
+  var d=new Date(s+'T00:00:00');
+  if(!S.start||(S.start&&S.end)){S.start=d;S.end=null}
+  else if(d<=S.start){S.start=d}
+  else{S.end=d}
+  refresh();
+}
+
+
+var drw=document.getElementById('drw'),scrim=document.getElementById('scrim'),db=document.getElementById('db'),df=document.getElementById('df'),stepsEl=document.getElementById('steps');
+function openDrawer(step,room){
+  if(room)S.room=room;
+  S.step=(S.start&&S.end)?(step||2):1;
+  if(step===1)S.step=1;
+  drw.classList.add('on');scrim.classList.add('on');drw.setAttribute('aria-hidden','false');renderDrawer();
+  document.body.style.overflow='hidden';
+}
+function closeDrawer(){drw.classList.remove('on');scrim.classList.remove('on');drw.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+function renderDrawer(){
+  var sp=stepsEl.children,i;
+  for(i=0;i<3;i++){sp[i].className=(i+1===S.step?'on':(i+1<S.step?'ok':''))}
+  if(S.step===1){
+    db.innerHTML='<div class="cal" data-dcal style="display:block">'+'</div>';
+    var host=db.firstChild;
+    host.innerHTML=calHTML().replace('class="cal"','class="cal" style="flex-direction:column;gap:22px"');
+    df.innerHTML='<button class="btn" data-next'+(S.start&&S.end?'':' disabled')+'>Continuar</button>';
+  }else if(S.step===2){
+    var h='<p class="msg" style="margin:0 0 18px">'+fmt(S.start)+' – '+fmt(S.end)+' · '+nights()+(nights()===1?' noche':' noches')+' · '+guestTx()+' <button class="back" data-edit style="margin:0 0 0 8px">Cambiar</button></p>';
+    ROOMS.forEach(function(r){h+='<button class="opt'+(S.room===r.id?' sel':'')+'" data-room="'+r.id+'"><div class="th"><div class="sc" data-scene="'+r.s+'"></div></div><div><b>'+r.n+'</b><small>'+r.t+'</small><small>'+r.d+'</small></div></button>'});
+    db.innerHTML=h;mountAll(db);
+    df.innerHTML='<button class="btn" data-next'+(S.room?'':' disabled')+'>Continuar</button>';
+  }else{
+    var rm=roomById(S.room);
+    db.innerHTML='<button class="back" data-prev>Volver</button><div class="sum"><div><span>Llegada</span><span>'+fmt(S.start)+'</span></div><div><span>Salida</span><span>'+fmt(S.end)+'</span></div><div><span>Noches</span><span>'+nights()+'</span></div><div><span>Huéspedes</span><span>'+guestTx()+'</span></div><div><span>Habitación</span><span>'+rm.n+'</span></div></div><p class="msg">La tarifa total y el pago se completan de forma segura en el motor de reservas.</p><p class="msg" id="bmsg"></p>';
+    df.innerHTML='<button class="btn" data-pay>Continuar al pago</button>';
+  }
+}
+drw.addEventListener('click',function(e){
+  var t=e.target,r=t.closest('[data-room]');
+  if(t.closest('[data-nav]')||t.closest('[data-d]')||t.closest('[data-clear]')){popClick(t,drw);if(S.start&&S.end&&t.closest('[data-d]')){S.step=2;renderDrawer()}return}
+  if(r){S.room=r.getAttribute('data-room');renderDrawer();return}
+  if(t.closest('[data-edit]')){S.step=1;renderDrawer();return}
+  if(t.closest('[data-prev]')){S.step=2;renderDrawer();return}
+  if(t.closest('[data-next]')){S.step=Math.min(3,S.step+1);renderDrawer();return}
+  if(t.closest('[data-pay]')){
+    if(CONFIG.bookingUrl){
+      var q='?checkin='+iso(S.start)+'&checkout='+iso(S.end)+'&adults='+S.adults+'&children='+S.kids+'&room='+S.room;
+      window.open(CONFIG.bookingUrl+q,'_blank','noopener');
+    }else{document.getElementById('bmsg').textContent='Aquí se conecta el motor de reservas con estas fechas y esta habitación. (Pendiente de definir el proveedor.)'}
+  }
+});
+document.getElementById('dClose').addEventListener('click',closeDrawer);
+scrim.addEventListener('click',closeDrawer);
+document.addEventListener('click',function(e){
+  var r=e.target.closest('[data-reserve]');
+  if(r){e.preventDefault();closeMenu();openDrawer(S.start&&S.end?2:1)}
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDrawer();closeMenu();closePops()}});
+
+
+</script>
+<script>
+'use strict';
+/* Menú, carrusel de habitaciones, destino, efectos de scroll. */
+
+var menu=document.getElementById('menu'),mv=document.getElementById('mv');
+var MS=['a1','dusk','golf','pool','dawn'];
+MS.forEach(function(n,i){var d=document.createElement('div');d.className='sc'+(i===0?' on':'');d.setAttribute('data-scene',n);mv.appendChild(d)});
+function openMenu(){mountAll(mv);menu.classList.add('on')}
+function closeMenu(){menu.classList.remove('on')}
+document.getElementById('mOpen').addEventListener('click',openMenu);
+document.getElementById('mClose').addEventListener('click',closeMenu);
+menu.querySelectorAll('li a').forEach(function(a){
+  a.addEventListener('mouseenter',function(){var k=+a.getAttribute('data-s');mv.querySelectorAll('.sc').forEach(function(s,i){s.classList.toggle('on',i===k)})});
+  a.addEventListener('click',function(){
+    closeMenu();
+    var ac=a.getAttribute('data-acc');if(ac!==null)setAcc(+ac);
+  });
+});
+
+
+var rail=document.getElementById('rail');
+ROOMS.forEach(function(r,i){
+  var c=document.createElement('article');c.className='room';c.tabIndex=0;
+  c.innerHTML='<div class="sc" data-scene="'+r.s+'"></div><div class="tx"><span class="lab">0'+(i+1)+'</span><h3>'+r.n+'</h3><p>'+r.d+'</p><span class="cta">Reservar esta</span></div>';
+  c.addEventListener('click',function(){openDrawer(S.start&&S.end?2:1,r.id)});
+  c.addEventListener('keydown',function(e){if(e.key==='Enter')openDrawer(S.start&&S.end?2:1,r.id)});
+  rail.appendChild(c);
+});
+document.getElementById('rPrev').addEventListener('click',function(){rail.scrollBy({left:-460,behavior:'smooth'})});
+document.getElementById('rNext').addEventListener('click',function(){rail.scrollBy({left:460,behavior:'smooth'})});
+
+
+var acc=document.getElementById('acc'),dvis=document.getElementById('dvis'),dcap=document.getElementById('dcap'),items=[],scs=[];
+DEST.forEach(function(d,i){
+  var it=document.createElement('div');it.className='it';
+  it.innerHTML='<button class="hd">'+d.n+'</button><div class="bd"><div><p>'+d.p+'</p></div></div>';
+  it.querySelector('.hd').addEventListener('click',function(){setAcc(i)});
+  acc.appendChild(it);items.push(it);
+  var s=document.createElement('div');s.className='sc';s.setAttribute('data-scene',d.s);dvis.insertBefore(s,dcap);scs.push(s);
+});
+function setAcc(i){items.forEach(function(it,k){it.classList.toggle('on',k===i)});scs.forEach(function(s,k){s.classList.toggle('on',k===i)});dcap.textContent=DEST[i].c}
+setAcc(0);
+
+
+document.querySelectorAll('[data-bar]').forEach(buildBar);
+refresh();
+
+
+var hd=document.getElementById('hd'),stick=document.getElementById('stick'),hero=document.querySelector('.hero');
+var words=document.getElementById('stmt'),wsp=[];
+(function(){var t=words.innerHTML,out='';t.split(/(\s+)/).forEach(function(w){if(/^\s+$/.test(w)||!w){out+=w}else{out+='<span>'+w+'</span>'}});words.innerHTML=out;wsp=[].slice.call(words.querySelectorAll('span'))})();
+var parallax=[].slice.call(document.querySelectorAll('[data-sp]'));
+var ticking=false;
+function onScroll(){
+  var y=window.scrollY||0,vh=window.innerHeight;
+  hd.classList.toggle('solid',y>vh*0.7);
+  stick.classList.toggle('on',y>vh*0.85&&!drw.classList.contains('on'));
+  if(y<vh*1.4){parallax.forEach(function(p){if(p.closest('.hero')||p.id==='heroF'){p.style.transform='translate3d(0,'+(y*parseFloat(p.getAttribute('data-sp')))+'px,0)'}})}
+  var r=words.getBoundingClientRect(),pr=Math.min(1,Math.max(0,(vh*.82-r.top)/(r.height+vh*.25)));
+  var n=Math.floor(pr*wsp.length*1.08);
+  wsp.forEach(function(w,i){w.classList.toggle('on',i<n)});
+  ticking=false;
+}
+window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+window.addEventListener('resize',onScroll);
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+}else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
+mountAll();
+mountHero();
+onScroll();
+
+</script>
+<script>
+'use strict';
+/* Sol de líneas: sale desde abajo, sube con el scroll y se esconde arriba.
+   Al llegar a la última sección (noche) aparece una luna. */
+(function(){
+  var sky=document.getElementById('sky'),night=document.getElementById('reservar');
+  if(!sky||!night)return;
+  var sun=sky.querySelector('.sun'),moon=sky.querySelector('.moon'),rays=sky.querySelector('.rays'),disc=sky.querySelector('.disc'),crescent=sky.querySelector('.crescent');
+  var tick=false;
+  function cl(v){return Math.max(0,Math.min(1,v))}
+  function upd(){
+    tick=false;
+    var vh=window.innerHeight,y=window.scrollY||0,nTop=night.getBoundingClientRect().top+y;
+    var span=Math.max(1,nTop-vh*0.55),t=cl(y/span);
+    var py=vh*1.04-t*vh*1.22,px=Math.sin(t*Math.PI)*10;
+    sun.style.transform='translate3d('+px+'px,'+py+'px,0)';
+    disc.style.strokeDashoffset=1-cl(t*7);
+    rays.style.transform='rotate('+(y*0.08)+'deg)';
+    rays.style.opacity=cl(t*9);
+    var top=night.getBoundingClientRect().top,m=cl((vh*0.78-top)/(vh*0.42));
+    moon.style.opacity=m>0?1:0;
+    moon.style.transform='translate3d(0,'+(vh*0.3+(1-m)*46)+'px,0)';
+    crescent.style.strokeDashoffset=1-m;
+    [].forEach.call(moon.querySelectorAll('.st'),function(s){s.style.opacity=cl((m-.45)*2)});
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+  window.addEventListener('resize',upd);
+  upd();
+})();
+
+</script>
+</body>
+</html>

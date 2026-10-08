@@ -1,0 +1,4 @@
+Coloca aquí:
+og-1200x630.jpg — 1200x630
+
+Nombres exactos. Detalle en docs/IMAGENES.md

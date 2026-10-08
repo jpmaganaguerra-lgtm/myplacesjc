@@ -1,0 +1,4 @@
+Coloca aquí:
+hero-dorada.jpg 2400x1500 | hero-azul.jpg 2400x1500 (opcional) | hero-frente.png 2400x1000 transparente (opcional)
+
+Nombres exactos. Detalle en docs/IMAGENES.md

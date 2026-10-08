@@ -1,0 +1,8 @@
+/* Compañero celeste: sol que sube con el scroll y luna al final. Solo líneas blancas;
+   mix-blend-mode:difference lo vuelve oscuro sobre fondos claros y claro sobre fondos oscuros. */
+.sky{position:fixed;left:clamp(10px,1.8vw,28px);top:0;width:44px;height:100vh;height:100svh;z-index:40;pointer-events:none;color:#fff;mix-blend-mode:difference}
+.sky svg{position:absolute;left:0;top:0;width:44px;height:44px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:round;will-change:transform}
+.sky *{vector-effect:non-scaling-stroke}
+.sky .moon{opacity:0}
+.sky .rays{transform-box:fill-box;transform-origin:center}
+@media(max-width:700px){.sky{left:8px;width:34px}.sky svg{width:34px;height:34px}}
