@@ -9,8 +9,9 @@
 <meta property="og:description" content="Un lado más quieto de Cabo. Suites y residencias junto al campo de golf.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/img/og/og-1200x630.jpg">
+<link rel="preload" as="image" href="assets/video/hero/hero-poster.jpg" fetchpriority="high">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"MyPlace San José del Cabo","description":"Suites y residencias con cocina y terraza junto al campo de golf en San José del Cabo.","numberOfRooms":56,"address":{"@type":"PostalAddress","addressLocality":"San José del Cabo","addressRegion":"Baja California Sur","addressCountry":"MX"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Albercas","value":true},{"@type":"LocationFeatureSpecification","name":"Recepción 24 horas","value":true},{"@type":"LocationFeatureSpecification","name":"Estacionamiento","value":true}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"MyPlace San José del Cabo","description":"Suites y residencias con cocina y terraza junto al campo de golf en San José del Cabo.","numberOfRooms":56,"geo":{"@type":"GeoCoordinates","latitude":23.0462202853639,"longitude":-109.70324270407971},"hasMap":"https://maps.app.goo.gl/gbsJGfEmFwYNMdrS8","address":{"@type":"PostalAddress","addressLocality":"San José del Cabo","addressRegion":"Baja California Sur","addressCountry":"MX"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Albercas","value":true},{"@type":"LocationFeatureSpecification","name":"Recepción 24 horas","value":true},{"@type":"LocationFeatureSpecification","name":"Estacionamiento","value":true}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -19,8 +20,10 @@
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/menu.css">
 <link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/video.css">
 <link rel="stylesheet" href="css/booking.css">
 <link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/day.css">
 <link rel="stylesheet" href="css/drawer.css">
 <link rel="stylesheet" href="css/sky.css">
 <link rel="stylesheet" href="css/motion.css">
@@ -55,22 +58,25 @@
 
 <main id="top">
 <!-- HERO -->
-<section class="hero" aria-label="Portada">
+<section class="hero" aria-label="Portada" data-tone="dark">
   <div class="layer l1"><div class="sc" data-scene="hero-dorada"></div></div>
   <div class="layer l2"><div class="sc" data-scene="hero-azul"></div></div>
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <video id="heroVid" muted loop playsinline preload="none" poster="assets/video/hero/hero-poster.jpg" disablepictureinpicture disableremoteplayback tabindex="-1"></video>
+    <div class="veil"></div>
+  </div>
   <div class="shade"></div>
   <div class="f" id="heroF" data-sp="-0.05"><div class="sc" data-scene="hero-frente"></div></div>
   <div class="hero-copy">
     <span class="lab">56 suites y residencias</span>
     <h1><span class="ln"><span>Un lado más</span></span><span class="ln"><span>quieto de <em>Cabo.</em></span></span></h1>
   </div>
-  <div class="coord">23.06° N · 109.70° O</div>
+  <a class="coord" href="https://maps.app.goo.gl/gbsJGfEmFwYNMdrS8" target="_blank" rel="noopener" aria-label="Ver ubicación en Google Maps: 23.04622 grados norte, 109.70324 grados oeste">23.04622° N · 109.70324° O</a>
   <div class="scroll-cue">Descubrir</div>
-  <div class="bar" data-bar></div>
 </section>
 
 <!-- DECLARACIÓN -->
-<section class="pad">
+<section class="pad day-dawn day-light" data-tone="light">
   <div class="stmt">
     <span class="lab rv">San José del Cabo</span>
     <p id="stmt">Aquí el desierto baja hasta el mar. Una casa con cocina, terraza y tiempo, a un paso del centro histórico, las playas y el campo de golf.</p>
@@ -83,7 +89,7 @@
 </section>
 
 <!-- HABITACIONES -->
-<section class="rooms" id="habitaciones">
+<section class="rooms day-morning day-light" id="habitaciones" data-tone="light">
   <div class="sec-h">
     <h2 class="rv">Dónde <em>quedarte.</em></h2>
     <p class="rv">Espacios con cocina y terraza. Algunas unidades se conectan para sumar recámaras.</p>
@@ -93,7 +99,7 @@
 </section>
 
 <!-- DESTINO -->
-<section class="dest" id="destino">
+<section class="dest day-noon day-light" id="destino" data-tone="light">
   <div class="l">
     <span class="lab rv">El destino</span>
     <h2 class="rv">Todo cabe en <em>un día.</em></h2>
@@ -103,7 +109,7 @@
 </section>
 
 <!-- AMENIDADES -->
-<section class="amen" id="amenidades">
+<section class="amen day-dusk" id="amenidades" data-tone="dark">
   <div>
     <span class="lab rv">Amenidades</span>
     <h2 class="rv">Lo necesario, <em>bien hecho.</em></h2>
@@ -119,7 +125,7 @@
 </section>
 
 <!-- RESERVA -->
-<section class="final" id="reservar">
+<section class="final day-night" id="reservar" data-tone="dark">
   <div class="sc" data-scene="reserva-noche"></div>
   <div class="in-">
     <h2 class="rv">Elige tus <em>fechas.</em></h2>
@@ -150,6 +156,7 @@
 <script src="js/images.js"></script>
 <script src="js/booking.js"></script>
 <script src="js/ui.js"></script>
+<script src="js/hero-video.js"></script>
 <script src="js/sky.js"></script>
 </body>
 </html>

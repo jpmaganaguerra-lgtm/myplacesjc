@@ -59,3 +59,24 @@ assets/img/
 - `'off'` → oculta ese espacio.
 - Si hay `hero-dorada.jpg` pero no `hero-azul.jpg`, la portada usa solo la foto (sin fundido).
 - Texto alternativo de cada imagen en `IMG_ALT`.
+
+## Video de portada
+
+```
+assets/video/hero/
+├─ hero-1080-av1.mp4    AV1 10 bits · 1920×1080 · ~5.6 MB · escritorio (primera opción)
+├─ hero-1080-h264.mp4   H.264 · 1920×1080 · ~8.7 MB · escritorio (respaldo)
+├─ hero-720-av1.mp4     AV1 10 bits · 1280×720 · ~2.5 MB · móvil y tablet (primera opción)
+├─ hero-720-h264.mp4    H.264 · 1280×720 · ~4.1 MB · móvil y tablet (respaldo)
+└─ hero-poster.jpg      1920×1080 · primer cuadro, visible al instante
+```
+
+- Bucle continuo de 23 s (fundido de 1.2 s entre final y principio), sin audio, 30 fps, sin desenfoque.
+- El navegador reproduce la primera versión compatible. AV1 pesa la mitad que H.264 con la misma calidad; H.264 es el respaldo para equipos que no leen AV1.
+- La calidad máxima la limita el archivo original (1080p ya comprimido y algo suave). Con un original en 4K o con mayor bitrate, el resultado mejora.
+- Si existe el video, tiene prioridad sobre las fotos de la portada.
+- Con ahorro de datos, conexión 2G/3G o "reducir movimiento", solo se muestra el póster.
+- Se pausa cuando la portada sale de pantalla o la pestaña se oculta.
+- Diagnóstico: el elemento `.hero` lleva `data-video="loading | playing | poster-only | error | no-poster"` (se ve en el inspector). `no-poster` o `error` casi siempre significa que falta la carpeta `assets/` en el hosting.
+- Máscara en `css/video.css`: velo oscuro ligero y viñeta; para desenfocar los bordes agrega la clase `soft` a `.veil`.
+- Video nuevo: `tools/encode-hero-video.sh archivo.mp4`.

@@ -1,0 +1,10 @@
+/* El día en colores: cada sección es una hora. Amanecer → mañana → mediodía → atardecer → noche.
+   Los degradados enlazan el final de una sección con el inicio de la siguiente. */
+.day-light{--ink:#1B1712;--mut:#716A5C;--line:rgba(27,23,18,.16);--paper:#F4EFE2;color:var(--ink)}
+.day-dawn{background:linear-gradient(180deg,#E1D1D0 0%,#E9D8CB 55%,#F0E4D0 100%)}
+.day-morning{background:linear-gradient(180deg,#F0E4D0 0%,#F3E9D3 50%,#EFEBD9 100%)}
+.day-noon{background:linear-gradient(180deg,#EFEBD9 0%,#F1F2E6 45%,#E5EDE9 100%)}
+.day-dusk{background:linear-gradient(180deg,#B27B53 0%,#96573D 38%,#5F3B45 76%,#2C2937 100%);color:var(--ivory)}
+.day-dusk .al li span{opacity:.82}
+.day-dusk .lab{opacity:.8}
+.day-night{background:linear-gradient(180deg,#2C2937 0%,#10131C 32%,#0B0D14 100%)}

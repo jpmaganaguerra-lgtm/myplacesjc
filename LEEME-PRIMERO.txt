@@ -1,0 +1,6 @@
+MyPlace San José del Cabo · sitio de transición
+
+1. Descomprime el zip y conserva la carpeta tal cual (index.html, css, js, assets...).
+2. Para verlo: abre index.html. Para publicarlo: sube la carpeta COMPLETA.
+3. El video de portada está en assets/video/hero/ (4 archivos .mp4 + hero-poster.jpg).
+4. Fotos: docs/IMAGENES.md. Motor de reservas: js/config.js.

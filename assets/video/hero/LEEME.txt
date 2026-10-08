@@ -1,0 +1,11 @@
+Video de portada (bucle continuo de 23 s, sin audio, 30 fps, sin desenfoque).
+El navegador elige solo la primera versión que pueda reproducir.
+
+hero-1080-av1.mp4    AV1 10 bits 1920x1080  ~5.6 MB  escritorio (primera opción)
+hero-1080-h264.mp4   H.264      1920x1080  ~8.7 MB  escritorio (respaldo)
+hero-720-av1.mp4     AV1 10 bits 1280x720   ~2.5 MB  móvil y tablet (primera opción)
+hero-720-h264.mp4    H.264      1280x720   ~4.1 MB  móvil y tablet (respaldo)
+hero-poster.jpg      1920x1080              primer cuadro; se ve al instante y si el video no carga
+
+IMPORTANTE: sube la carpeta completa (index.html + css + js + assets). Si falta esta carpeta, no hay video.
+Para cambiar el video: tools/encode-hero-video.sh <archivo.mp4>

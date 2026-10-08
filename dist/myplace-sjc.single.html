@@ -8,9 +8,10 @@
 <meta property="og:title" content="MyPlace San José del Cabo">
 <meta property="og:description" content="Un lado más quieto de Cabo. Suites y residencias junto al campo de golf.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/img/og/og-1200x630.jpg">
-<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"MyPlace San José del Cabo","description":"Suites y residencias con cocina y terraza junto al campo de golf en San José del Cabo.","numberOfRooms":56,"address":{"@type":"PostalAddress","addressLocality":"San José del Cabo","addressRegion":"Baja California Sur","addressCountry":"MX"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Albercas","value":true},{"@type":"LocationFeatureSpecification","name":"Recepción 24 horas","value":true},{"@type":"LocationFeatureSpecification","name":"Estacionamiento","value":true}]}</script>
+<meta property="og:image" content="../assets/img/og/og-1200x630.jpg">
+<link rel="preload" as="image" href="../assets/video/hero/hero-poster.jpg" fetchpriority="high">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"MyPlace San José del Cabo","description":"Suites y residencias con cocina y terraza junto al campo de golf en San José del Cabo.","numberOfRooms":56,"geo":{"@type":"GeoCoordinates","latitude":23.0462202853639,"longitude":-109.70324270407971},"hasMap":"https://maps.app.goo.gl/gbsJGfEmFwYNMdrS8","address":{"@type":"PostalAddress","addressLocality":"San José del Cabo","addressRegion":"Baja California Sur","addressCountry":"MX"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Albercas","value":true},{"@type":"LocationFeatureSpecification","name":"Recepción 24 horas","value":true},{"@type":"LocationFeatureSpecification","name":"Estacionamiento","value":true}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -84,7 +85,7 @@ header.solid{background:var(--paper);color:var(--ink);padding-top:calc(14px + en
 @keyframes dusk{0%,18%{opacity:0}50%,68%{opacity:1}100%{opacity:0}}
 .hero .shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,8,5,.5),rgba(10,8,5,0) 30%,rgba(10,8,5,0) 52%,rgba(10,8,5,.68))}
 .hero .f{position:absolute;inset:auto -2% -3% -2%;height:72%}
-.hero-copy{position:absolute;left:clamp(18px,3.4vw,48px);right:clamp(18px,3.4vw,48px);top:50%;transform:translateY(-62%)}
+.hero-copy{position:absolute;left:clamp(18px,3.4vw,48px);right:clamp(18px,3.4vw,48px);top:52%;transform:translateY(-56%)}
 .hero-copy .lab{opacity:.85;margin-bottom:26px;display:block}
 .hero h1{font:300 clamp(46px,8.4vw,136px)/.92 var(--serif);letter-spacing:-.025em}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
@@ -92,18 +93,32 @@ header.solid{background:var(--paper);color:var(--ink);padding-top:calc(14px + en
 .hero h1 .ln:nth-child(2) span{animation-delay:.18s}
 .hero h1 em{font-style:italic;color:#E9C9A2}
 @keyframes up{to{transform:none}}
-.coord{position:absolute;right:clamp(18px,3.4vw,48px);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:9.5px;letter-spacing:.36em;opacity:.7;text-transform:uppercase}
-@media(max-width:700px){.coord{display:none}}
-.scroll-cue{position:absolute;left:clamp(18px,3.4vw,48px);bottom:132px;display:flex;align-items:center;gap:14px;font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.8}
+.coord{position:absolute;right:clamp(14px,3vw,44px);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:clamp(16px,1.5vw,20px);font-weight:300;letter-spacing:.2em;color:var(--ivory);text-decoration:none;text-transform:uppercase;opacity:.9;padding:14px 6px;border-right:1px solid transparent;transition:opacity .4s,letter-spacing .6s var(--ease),border-color .4s;z-index:5}
+.coord:hover,.coord:focus-visible{opacity:1;letter-spacing:.26em;border-right-color:rgba(242,237,226,.7)}
+@media(max-width:700px){.coord{font-size:16px;letter-spacing:.14em}}
+.scroll-cue{position:absolute;left:clamp(18px,3.4vw,48px);bottom:40px;display:flex;align-items:center;gap:14px;font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.8}
 .scroll-cue:after{content:"";width:1px;height:46px;background:linear-gradient(var(--ivory),transparent);animation:cue 2.4s ease-in-out infinite;transform-origin:top}
 @keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 @media(max-width:700px){.scroll-cue{display:none}}
 
 </style>
 <style>
+/* Video de portada + máscara. Ajusta la opacidad del velo en .veil para más o menos oscuridad. */
+.hero-media{position:absolute;inset:0;display:none;background:#1a1712}
+.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%}
+.hero-media .veil{position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 85% 75% at 50% 52%,rgba(12,9,5,0) 0%,rgba(12,9,5,.42) 100%),
+    linear-gradient(rgba(12,9,5,.22),rgba(12,9,5,.22))}
+/* Desenfoque solo en los bordes (opcional): añade la clase "soft" a .veil.
+   Cuesta más en gama baja, por eso viene apagado. */
+.hero-media .veil.soft{backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+  -webkit-mask-image:radial-gradient(ellipse 70% 62% at 50% 50%,transparent 55%,#000 100%);mask-image:radial-gradient(ellipse 70% 62% at 50% 50%,transparent 55%,#000 100%)}
+.hero.has-video .layer,.hero.has-video .f{display:none}
+</style>
+<style>
 /* ---------- booking bar ---------- */
 .bar{position:relative;display:grid;grid-template-columns:1.1fr 1.1fr 1.2fr auto;background:var(--ivory);color:#1B1712;max-width:880px;width:calc(100% - 2*clamp(18px,3.4vw,48px));box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
-.hero .bar{position:absolute;left:clamp(18px,3.4vw,48px);bottom:34px}
 .bar .fld{text-align:left;padding:16px 22px 14px;border-right:1px solid rgba(27,23,18,.14);display:block;width:100%;transition:background .3s}
 .bar .fld:hover{background:rgba(27,23,18,.04)}
 .bar .fld small{display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#7a7263;font-weight:400}
@@ -115,7 +130,6 @@ header.solid{background:var(--paper);color:var(--ink);padding-top:calc(14px + en
   .bar{grid-template-columns:1fr 1fr}
   .bar .fld:nth-child(3){grid-column:1/-1;border-top:1px solid rgba(27,23,18,.14);border-right:0}
   .bar .go{grid-column:1/-1;padding:18px}
-  .hero .bar{bottom:22px}
 }
 .pop{position:absolute;left:0;bottom:calc(100% + 10px);background:var(--ivory);color:#1B1712;box-shadow:0 30px 70px -20px rgba(0,0,0,.55);padding:26px 28px;z-index:30;display:none;max-width:calc(100vw - 24px)}
 .pop.on{display:block;animation:fadeup .35s var(--ease)}
@@ -232,6 +246,18 @@ footer span{opacity:.6}
 
 </style>
 <style>
+/* El día en colores: cada sección es una hora. Amanecer → mañana → mediodía → atardecer → noche.
+   Los degradados enlazan el final de una sección con el inicio de la siguiente. */
+.day-light{--ink:#1B1712;--mut:#716A5C;--line:rgba(27,23,18,.16);--paper:#F4EFE2;color:var(--ink)}
+.day-dawn{background:linear-gradient(180deg,#E1D1D0 0%,#E9D8CB 55%,#F0E4D0 100%)}
+.day-morning{background:linear-gradient(180deg,#F0E4D0 0%,#F3E9D3 50%,#EFEBD9 100%)}
+.day-noon{background:linear-gradient(180deg,#EFEBD9 0%,#F1F2E6 45%,#E5EDE9 100%)}
+.day-dusk{background:linear-gradient(180deg,#B27B53 0%,#96573D 38%,#5F3B45 76%,#2C2937 100%);color:var(--ivory)}
+.day-dusk .al li span{opacity:.82}
+.day-dusk .lab{opacity:.8}
+.day-night{background:linear-gradient(180deg,#2C2937 0%,#10131C 32%,#0B0D14 100%)}
+</style>
+<style>
 /* ---------- sticky reserve + drawer ---------- */
 .stick{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:55;transform:translate(-50%,160%);transition:transform .7s var(--ease);display:flex;align-items:stretch;background:var(--ivory);color:#1B1712;box-shadow:0 20px 50px -10px rgba(0,0,0,.5)}
 .stick.on{transform:translate(-50%,0)}
@@ -272,8 +298,8 @@ footer span{opacity:.6}
 </style>
 <style>
 /* Compañero celeste: sol que sube con el scroll y luna al final. Solo líneas blancas;
-   mix-blend-mode:difference lo vuelve oscuro sobre fondos claros y claro sobre fondos oscuros. */
-.sky{position:fixed;left:clamp(10px,1.8vw,28px);top:0;width:44px;height:100vh;height:100svh;z-index:40;pointer-events:none;color:#fff;mix-blend-mode:difference}
+   sky.js cambia el color a oscuro sobre secciones claras (data-tone="light") y blanco sobre las oscuras. */
+.sky{position:fixed;left:clamp(10px,1.8vw,28px);top:0;width:44px;height:100vh;height:100svh;z-index:40;pointer-events:none;color:#fff;transition:color .5s}
 .sky svg{position:absolute;left:0;top:0;width:44px;height:44px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:round;will-change:transform}
 .sky *{vector-effect:non-scaling-stroke}
 .sky .moon{opacity:0}
@@ -316,22 +342,25 @@ footer span{opacity:.6}
 
 <main id="top">
 <!-- HERO -->
-<section class="hero" aria-label="Portada">
+<section class="hero" aria-label="Portada" data-tone="dark">
   <div class="layer l1"><div class="sc" data-scene="hero-dorada"></div></div>
   <div class="layer l2"><div class="sc" data-scene="hero-azul"></div></div>
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <video id="heroVid" muted loop playsinline preload="none" poster="../assets/video/hero/hero-poster.jpg" disablepictureinpicture disableremoteplayback tabindex="-1"></video>
+    <div class="veil"></div>
+  </div>
   <div class="shade"></div>
   <div class="f" id="heroF" data-sp="-0.05"><div class="sc" data-scene="hero-frente"></div></div>
   <div class="hero-copy">
     <span class="lab">56 suites y residencias</span>
     <h1><span class="ln"><span>Un lado más</span></span><span class="ln"><span>quieto de <em>Cabo.</em></span></span></h1>
   </div>
-  <div class="coord">23.06° N · 109.70° O</div>
+  <a class="coord" href="https://maps.app.goo.gl/gbsJGfEmFwYNMdrS8" target="_blank" rel="noopener" aria-label="Ver ubicación en Google Maps: 23.04622 grados norte, 109.70324 grados oeste">23.04622° N · 109.70324° O</a>
   <div class="scroll-cue">Descubrir</div>
-  <div class="bar" data-bar></div>
 </section>
 
 <!-- DECLARACIÓN -->
-<section class="pad">
+<section class="pad day-dawn day-light" data-tone="light">
   <div class="stmt">
     <span class="lab rv">San José del Cabo</span>
     <p id="stmt">Aquí el desierto baja hasta el mar. Una casa con cocina, terraza y tiempo, a un paso del centro histórico, las playas y el campo de golf.</p>
@@ -344,7 +373,7 @@ footer span{opacity:.6}
 </section>
 
 <!-- HABITACIONES -->
-<section class="rooms" id="habitaciones">
+<section class="rooms day-morning day-light" id="habitaciones" data-tone="light">
   <div class="sec-h">
     <h2 class="rv">Dónde <em>quedarte.</em></h2>
     <p class="rv">Espacios con cocina y terraza. Algunas unidades se conectan para sumar recámaras.</p>
@@ -354,7 +383,7 @@ footer span{opacity:.6}
 </section>
 
 <!-- DESTINO -->
-<section class="dest" id="destino">
+<section class="dest day-noon day-light" id="destino" data-tone="light">
   <div class="l">
     <span class="lab rv">El destino</span>
     <h2 class="rv">Todo cabe en <em>un día.</em></h2>
@@ -364,7 +393,7 @@ footer span{opacity:.6}
 </section>
 
 <!-- AMENIDADES -->
-<section class="amen" id="amenidades">
+<section class="amen day-dusk" id="amenidades" data-tone="dark">
   <div>
     <span class="lab rv">Amenidades</span>
     <h2 class="rv">Lo necesario, <em>bien hecho.</em></h2>
@@ -380,7 +409,7 @@ footer span{opacity:.6}
 </section>
 
 <!-- RESERVA -->
-<section class="final" id="reservar">
+<section class="final day-night" id="reservar" data-tone="dark">
   <div class="sc" data-scene="reserva-noche"></div>
   <div class="in-">
     <h2 class="rv">Elige tus <em>fechas.</em></h2>
@@ -536,7 +565,7 @@ var SC={
 /* Manifiesto de imágenes.
    Suelta el archivo con el nombre exacto en la carpeta indicada y aparece solo.
    '' = usar la imagen provisional · 'off' = ocultar el espacio. Detalle en docs/IMAGENES.md */
-var IMG_BASE='assets/img/';
+var IMG_BASE='../assets/img/';
 var IMAGES={
   'hero-dorada':'hero/hero-dorada.jpg',
   'hero-azul':'hero/hero-azul.jpg',
@@ -830,24 +859,80 @@ onScroll();
 </script>
 <script>
 'use strict';
+/* Video de portada: el póster se ve al instante; el video se descarga al terminar la carga de la página.
+   Sin video (datos reducidos, conexión lenta o "reducir movimiento") se queda el póster. */
+(function(){
+  var hero=document.querySelector('.hero'),media=document.getElementById('heroMedia'),v=document.getElementById('heroVid');
+  if(!hero||!media||!v)return;
+  var BASE='../assets/video/hero/';
+  var VIDEO={
+    desktop:[
+      {src:BASE+'hero-1080-av1.mp4',type:'video/mp4; codecs="av01.0.08M.10"'},
+      {src:BASE+'hero-1080-h264.mp4',type:'video/mp4; codecs="avc1.640029"'}
+    ],
+    mobile:[
+      {src:BASE+'hero-720-av1.mp4',type:'video/mp4; codecs="av01.0.05M.10"'},
+      {src:BASE+'hero-720-h264.mp4',type:'video/mp4; codecs="avc1.4d401f"'}
+    ]
+  };
+  v.muted=true;v.defaultMuted=true;
+  function state(x){hero.setAttribute('data-video',x)}
+  v.addEventListener('playing',function(){state('playing')});
+  v.addEventListener('error',function(){state('error')},true);
+  function play(){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  function start(){
+    var c=navigator.connection||{};
+    var slow=c.saveData||/(^|-)2g|3g/.test(c.effectiveType||'');
+    var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(slow||still){state('poster-only');return}
+    var list=window.matchMedia('(max-width:820px)').matches?VIDEO.mobile:VIDEO.desktop;
+    function attach(){
+      list.forEach(function(s){var el=document.createElement('source');el.src=s.src;el.type=s.type;v.appendChild(el)});
+      v.load();play();
+    }
+    function go(){if('requestIdleCallback' in window)requestIdleCallback(attach,{timeout:1500});else setTimeout(attach,400)}
+    if(document.readyState==='complete')go();else window.addEventListener('load',go,{once:true});
+  }
+  var img=new Image();
+  img.onload=function(){media.style.display='block';hero.classList.add('has-video');state('loading');start()};
+  img.onerror=function(){state('no-poster')};
+  img.src=v.getAttribute('poster');
+  /* Ahorra batería: pausa si la portada no se ve o la pestaña está oculta. */
+  function live(){return !!v.querySelector('source')}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){if(!live())return;if(e.isIntersecting&&!document.hidden)play();else v.pause()})},{threshold:.05}).observe(hero);
+  }
+  document.addEventListener('visibilitychange',function(){if(!live())return;if(document.hidden)v.pause();else play()});
+})();
+
+</script>
+<script>
+'use strict';
 /* Sol de líneas: sale desde abajo, sube con el scroll y se esconde arriba.
    Al llegar a la última sección (noche) aparece una luna. */
 (function(){
   var sky=document.getElementById('sky'),night=document.getElementById('reservar');
   if(!sky||!night)return;
   var sun=sky.querySelector('.sun'),moon=sky.querySelector('.moon'),rays=sky.querySelector('.rays'),disc=sky.querySelector('.disc'),crescent=sky.querySelector('.crescent');
-  var tick=false;
+  var tick=false,tones=[].slice.call(document.querySelectorAll('[data-tone]')),cur='';
   function cl(v){return Math.max(0,Math.min(1,v))}
   function upd(){
     tick=false;
     var vh=window.innerHeight,y=window.scrollY||0,nTop=night.getBoundingClientRect().top+y;
-    var span=Math.max(1,nTop-vh*0.55),t=cl(y/span);
-    var py=vh*1.04-t*vh*1.22,px=Math.sin(t*Math.PI)*10;
+    var maxS=Math.max(1,document.documentElement.scrollHeight-vh);
+    /* El sol termina justo al llegar a la sección final: sale por arriba cuando ocupa ~65% de la pantalla. */
+    var span=Math.max(1,Math.min(nTop-vh*0.35,maxS*0.97)),t=cl(y/span);
+    var py=vh*1.04-t*(vh*1.04+64),px=Math.sin(t*Math.PI)*10;
     sun.style.transform='translate3d('+px+'px,'+py+'px,0)';
     disc.style.strokeDashoffset=1-cl(t*7);
     rays.style.transform='rotate('+(y*0.08)+'deg)';
     rays.style.opacity=cl(t*9);
-    var top=night.getBoundingClientRect().top,m=cl((vh*0.78-top)/(vh*0.42));
+    var cy=py+22,tone='dark',i;
+    if(t>=1)cy=vh*0.3;
+    for(i=0;i<tones.length;i++){var r=tones[i].getBoundingClientRect();if(r.top<=cy&&r.bottom>cy){tone=tones[i].getAttribute('data-tone');break}}
+    var col=tone==='light'?'#1B1712':'#ffffff';
+    if(col!==cur){cur=col;sky.style.color=col}
+    var top=night.getBoundingClientRect().top,m=cl((vh*0.4-top)/(vh*0.32)); /* la luna sale cuando el sol ya terminó */
     moon.style.opacity=m>0?1:0;
     moon.style.transform='translate3d(0,'+(vh*0.3+(1-m)*46)+'px,0)';
     crescent.style.strokeDashoffset=1-m;
