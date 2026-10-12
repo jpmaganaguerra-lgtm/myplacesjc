@@ -15,8 +15,9 @@
 .hero h1 .ln:nth-child(2) span{animation-delay:.18s}
 .hero h1 em{font-style:italic;color:#E9C9A2}
 @keyframes up{to{transform:none}}
-.coord{position:absolute;right:clamp(14px,3vw,44px);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:clamp(16px,1.5vw,20px);font-weight:300;letter-spacing:.2em;color:var(--ivory);text-decoration:none;text-transform:uppercase;opacity:.9;padding:14px 6px;border-right:1px solid transparent;transition:opacity .4s,letter-spacing .6s var(--ease),border-color .4s;z-index:5}
-.coord:hover,.coord:focus-visible{opacity:1;letter-spacing:.26em;border-right-color:rgba(242,237,226,.7)}
+.coord{position:absolute;right:clamp(14px,3vw,44px);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;white-space:nowrap;font-size:clamp(16px,1.5vw,20px);font-weight:300;letter-spacing:.2em;color:var(--ivory);text-decoration:none;text-transform:uppercase;opacity:.9;padding:14px 6px;transition:opacity .5s ease;z-index:5}
+.coord:after{content:"";position:absolute;top:0;bottom:0;right:0;width:1px;background:currentColor;transform:scaleY(0);transform-origin:top;transition:transform .8s var(--ease)}
+@media(hover:hover){.coord:hover,.coord:focus-visible{opacity:1}.coord:hover:after,.coord:focus-visible:after{transform:scaleY(1)}}
 @media(max-width:700px){.coord{font-size:16px;letter-spacing:.14em}}
 .scroll-cue{position:absolute;left:clamp(18px,3.4vw,48px);bottom:40px;display:flex;align-items:center;gap:14px;font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.8}
 .scroll-cue:after{content:"";width:1px;height:46px;background:linear-gradient(var(--ivory),transparent);animation:cue 2.4s ease-in-out infinite;transform-origin:top}

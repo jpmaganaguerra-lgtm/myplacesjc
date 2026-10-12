@@ -1,0 +1,78 @@
+/* Animación al pasar el cursor (o enfocar con teclado) en TODOS los botones y enlaces del sitio.
+   Cuatro familias, para que todo se sienta de la misma casa:
+   1) subrayado que se dibuja   2) relleno que barre   3) círculo que se llena   4) fila que se desplaza
+   Solo con ratón (hover:hover): en pantallas táctiles no se queda pegado el efecto. */
+
+/* ---------- 1 · Subrayado que se dibuja ---------- */
+/* Botones de texto sin línea: Menú, Cerrar (menú), Cerrar (panel) */
+.menu-btn span,.menu .close span,.drw .dh button{position:relative}
+.menu-btn span::after,.menu .close span::after,.drw .dh button::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease)}
+/* Botones de texto que ya traen línea: Reservar (header), Borrar, Volver/Editar. La línea base baja de intensidad y se redibuja encima. */
+.res-btn,.pop-f button,.back{position:relative;border-bottom-color:color-mix(in srgb,currentColor 38%,transparent)}
+.res-btn::after,.pop-f button::after,.back::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease)}
+
+/* ---------- 2 · Relleno que barre (botones principales) ---------- */
+.bar .go,.stick .go,.btn{background-image:linear-gradient(var(--clay),var(--clay));background-repeat:no-repeat;background-position:0 0;background-size:0% 100%;transition:background-size .6s var(--ease),transform .3s var(--ease),opacity .3s}
+.bar .go:active,.stick .go:active,.btn:not([disabled]):active{transform:scale(.985)}
+
+/* Campos de la barra de reserva: línea que cruza por debajo y el valor se corre un poco */
+.bar .fld{position:relative}
+.bar .fld::after{content:"";position:absolute;left:22px;right:22px;bottom:0;height:2px;background:var(--clay);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.bar .fld b{transition:transform .5s var(--ease)}
+
+/* ---------- 3 · Círculo que se llena ---------- */
+.cal .mh button{border-radius:50%;transition:background .3s,transform .4s var(--ease)}
+.gst .st button{transition:background .3s,color .3s,border-color .3s,transform .4s var(--ease)}
+.arrows button{transition:background .3s,color .3s,border-color .3s,transform .4s var(--ease)}
+.cal .mh button:not([disabled]):active,.gst .st button:not([disabled]):active,.arrows button:active{transform:scale(.92)}
+
+/* ---------- 4 · Filas y tarjetas que se desplazan ---------- */
+/* Logo del header */
+.logo-img{transition:opacity .4s,transform .6s var(--ease)}
+/* Menú a pantalla completa: ícono de menú, ícono de cerrar y número de cada opción */
+.menu-btn i{transition:height .5s var(--ease)}
+.menu .close i{transition:transform .7s var(--ease)}
+.menu li a small{transition:opacity .4s}
+/* Día del calendario */
+.cal .d{transition:box-shadow .25s,background-color .25s,color .25s}
+/* Habitaciones del panel de reserva */
+.opt{transition:border-color .3s,background .3s,transform .5s var(--ease)}
+.opt .th .sc{transition:transform 1.4s var(--ease)}
+/* Tarjetas de habitaciones */
+.room .tx h3,.room .tx p{transition:transform .7s var(--ease)}
+/* Acordeón del destino */
+.acc .hd{transition:opacity .4s,padding .5s var(--ease)}
+
+@media(hover:hover){
+  /* 1 · subrayados */
+  .menu-btn:is(:hover,:focus-visible) span::after,.menu .close:is(:hover,:focus-visible) span::after,.drw .dh button:is(:hover,:focus-visible)::after,
+  .res-btn:is(:hover,:focus-visible)::after,.pop-f button:is(:hover,:focus-visible)::after,.back:is(:hover,:focus-visible)::after{transform:scaleX(1);transform-origin:left}
+
+  /* 2 · rellenos */
+  .bar .go:is(:hover,:focus-visible),.stick .go:is(:hover,:focus-visible),.btn:not([disabled]):is(:hover,:focus-visible){background-color:var(--olive);background-image:linear-gradient(var(--clay),var(--clay));background-repeat:no-repeat;background-position:0 0;background-size:100% 100%}
+  .bar .fld:is(:hover,:focus-visible)::after{transform:scaleX(1)}
+  .bar .fld:is(:hover,:focus-visible) b{transform:translateX(3px)}
+
+  /* 3 · círculos */
+  .cal .mh button:not([disabled]):hover{background:rgba(27,23,18,.08);transform:scale(1.12)}
+  .gst .st button:not([disabled]):hover{background:#1B1712;color:var(--ivory);border-color:#1B1712;transform:scale(1.08)}
+  .arrows button:hover{border-color:var(--ink);transform:scale(1.07)}
+
+  /* 4 · filas y tarjetas */
+  .mark:is(:hover,:focus-visible) .logo-img{opacity:.8;transform:scale(1.04)}
+  .menu-btn:is(:hover,:focus-visible) i{height:11px}
+  .menu .close:is(:hover,:focus-visible) i{transform:rotate(90deg)}
+  .menu ul:focus-within li a{opacity:.38}
+  .menu ul li a:focus-visible{opacity:1;padding-left:18px;color:#E9C9A2}
+  .menu li a:is(:hover,:focus-visible) small{opacity:1}
+  .cal .d:hover:not([disabled]):not(.s){outline:0;box-shadow:inset 0 0 0 1px #1B1712}
+  .cal .d.s:hover{background-color:var(--olive2)}
+  .opt:not(.sel):hover{background:rgba(62,68,48,.05)}
+  .opt:hover{transform:translateX(4px)}
+  .opt:hover .th .sc{transform:scale(1.08)}
+  .room:hover .tx h3,.room:hover .tx p{transform:translateY(-6px)}
+  .room:focus-visible{outline:1px solid var(--ivory);outline-offset:-10px}
+  .acc .hd:hover{padding-left:12px}
+  .acc .it:not(.on) .hd:hover{opacity:.9}
+  .acc .it:not(.on) .hd:hover:after{transform:rotate(90deg)}
+}

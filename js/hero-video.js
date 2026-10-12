@@ -30,8 +30,8 @@
       list.forEach(function(s){var el=document.createElement('source');el.src=s.src;el.type=s.type;v.appendChild(el)});
       v.load();play();
     }
-    function go(){if('requestIdleCallback' in window)requestIdleCallback(attach,{timeout:1500});else setTimeout(attach,400)}
-    if(document.readyState==='complete')go();else window.addEventListener('load',go,{once:true});
+    function go(){if(document.documentElement.classList.contains('intro')){attach();return}if('requestIdleCallback' in window)requestIdleCallback(attach,{timeout:1500});else setTimeout(attach,400)}
+    if(document.readyState==='complete'||document.documentElement.classList.contains('intro'))go();else window.addEventListener('load',go,{once:true});
   }
   var img=new Image();
   img.onload=function(){media.style.display='block';hero.classList.add('has-video');state('loading');start()};
