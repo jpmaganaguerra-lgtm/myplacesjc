@@ -1,4 +1,4 @@
-Coloca aquí:
-amenidades-alberca.jpg — 1200x1600 vertical
+Foto de amenidades - 1200x1600 vertical
 
-Nombres exactos. Detalle en docs/IMAGENES.md
+Nombre: amenidades-alberca (jpg/png/webp)
+Detalle en docs/IMAGENES.md

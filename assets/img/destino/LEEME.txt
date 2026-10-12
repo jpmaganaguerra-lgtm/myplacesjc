@@ -1,4 +1,5 @@
-Coloca aquí:
-destino-centro.jpg, destino-playas.jpg, destino-golf.jpg, destino-mar.jpg — 1200x1500 vertical 4:5
+Fotos del destino - 1200x1500 vertical 4:5
 
-Nombres exactos. Detalle en docs/IMAGENES.md
+El nombre del archivo es el campo "s" de cada destino en js/content.js, sin extension.
+Nombres de origen: destino-centro, destino-playas, destino-golf, destino-mar
+Detalle en docs/IMAGENES.md

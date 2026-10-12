@@ -1,4 +1,7 @@
-Coloca aquí:
-hab-suite1.jpg, hab-residencia2.jpg, hab-estudio.jpg, hab-habitacion.jpg — 1200x1800 vertical
+Fotos de habitaciones - 1200x1800 vertical, JPG/PNG/WebP
 
-Nombres exactos. Detalle en docs/IMAGENES.md
+El nombre del archivo es el campo "s" de cada habitacion en js/content.js, sin extension.
+Ejemplo: s:'habitacion-king-plano'  ->  habitacion-king-plano.jpg (aqui mismo)
+
+Nombres de origen: hab-suite1, hab-residencia2, hab-estudio, hab-habitacion
+Detalle en docs/IMAGENES.md

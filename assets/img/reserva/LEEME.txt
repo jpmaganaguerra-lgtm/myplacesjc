@@ -1,4 +1,4 @@
-Coloca aquí:
-reserva-noche.jpg — 2400x1400 horizontal
+Fondo de la seccion final - 2400x1400 horizontal
 
-Nombres exactos. Detalle en docs/IMAGENES.md
+Nombre: reserva-noche (jpg/png/webp)
+Detalle en docs/IMAGENES.md
