@@ -3,7 +3,7 @@
 var ROOMS=[
  {id:'hk',n:'Habitación hotelera king',t:'Cama king size, coffee station y baño',d:'Para dos, con espacio de sobra y luz de mañana.',s:'habitacion-king-plano'},
  {id:'d1rq',n:'Suite de una recamara con dos camas queen',t:'Una recámara · cocina completa',d:'Para familias o amigos, con la sala como centro.',s:'suite-una-recamara-doble-queen'},
- {id:'studio',n:'Estudio',t:'Un solo ambiente · cocina',d:'Todo en uno, con la tranquilidad de una casa propia.',s:'hab-estudio'},
+ {id:'d2rkq',n:'Suite de dos recamaras con king y dos queen',t:'Dos recámaras · cocina completa',d:'Todo en uno, con la tranquilidad de una casa propia.',s:'suite-dos-recamaras-king-double-queen'},
  {id:'hab',n:'Habitación',t:'Descanso esencial',d:'Sin cocina, con las albercas y el golf a la puerta.',s:'hab-habitacion'}
 ];
 var DEST=[
