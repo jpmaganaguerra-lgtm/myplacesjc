@@ -5,6 +5,7 @@ var ROOMS=[
  {id:'d1rq',n:'Suite de una recamara con dos camas queen',t:'Una recámara · cocina completa',d:'Para familias o amigos, con la sala como centro.',s:'suite-una-recamara-doble-queen'},
  {id:'d2rkq',n:'Suite de dos recamaras con king y dos queen',t:'Dos recámaras · cocina completa',d:'Todo en uno, con la tranquilidad de una casa propia.',s:'suite-dos-recamaras-king-double-queen'},
  {id:'sq',n:'Estudio queen',t:'Estudio con dos camas queen',d:'Cocina completa · sala',s:'Estudio-doble-queen'}
+ {id:'d2rq',n:'Suite de dos recamaras con dos queen',t:'Dos recámaras · cocina completa',d:'Amplia suite · Cocina completa · sala',s:'suite-dos-recamaras-queen'}
 ];
 var DEST=[
  {n:'Centro histórico',s:'destino-centro',c:'Calle, galería, mesa',p:'Galerías, plazas y mesas al aire libre. Los jueves de temporada, el Art Walk llena las calles.'},
