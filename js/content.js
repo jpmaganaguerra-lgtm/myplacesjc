@@ -11,5 +11,5 @@ var DEST=[
  {n:'Centro histórico',s:'destino-centro',c:'Calle, galería, mesa',p:'Galerías, plazas y mesas al aire libre. Los jueves de temporada, el Art Walk llena las calles.'},
  {n:'Playas',s:'destino-playas',c:'Palmilla · Costa Azul · Estero',p:'Palmilla y Costa Azul para nadar o surfear; el Estero de San José para ver aves al amanecer.'},
  {n:'Golf',s:'destino-golf',c:'Junto al hotel',p:'El campo de golf está a un paso. Sal con el primer sol y vuelve a desayunar en tu terraza.'},
- {n:'Mar y sierra',s:'destino-mar-dunas',c:'Ballenas en San Lucas',p:'Ballenas de diciembre a abril. Desde ballenas hasta dunas para hacer sandsurfing, a una excursión de distancia.'}
+ {n:'Mar y sierra',s:'destino-mar-dunas',c:'Sandboarding en las dunas',p:'Ballenas de diciembre a abril. Desde ballenas hasta dunas para hacer sandsurfing, a una excursión de distancia.'}
 ];
