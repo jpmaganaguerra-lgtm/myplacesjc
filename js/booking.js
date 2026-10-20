@@ -61,7 +61,7 @@ function refresh(){
     if(p.classList.contains('on')){p.innerHTML=p.getAttribute('data-k')==='g'?guestHTML():calHTML()}
   });
   var tx=S.start&&S.end?fmt(S.start)+' – '+fmt(S.end):(S.start?fmt(S.start)+' – ?':'Elige fechas');
-  document.getElementById('stickTx').textContent=tx+' · '+S.adults+(S.kids?'+'+S.kids:'')+' pax';
+  var stx=document.getElementById('stickTx');if(stx)stx.textContent=tx+' · '+S.adults+(S.kids?'+'+S.kids:'')+' pax';
   if(drw.classList.contains('on'))renderDrawer();
 }
 document.addEventListener('click',function(e){
