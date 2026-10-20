@@ -18,7 +18,7 @@ var I18N={
   "menu.rooms":"Rooms","menu.sjc":"San José del Cabo","menu.golf":"Golf &amp; beaches","menu.amen":"Amenities","menu.book":"Book",
   "menu.foot":"San José del Cabo · Baja California Sur",
 
-  "hero.aria":"Cover","hero.label":"56 suites and residences",
+  "hero.aria":"Cover","hero.label":"55 suites and residences",
   "hero.l1":"It's not just a place.","hero.l2":"<em>It's a state of mind.</em>",
   "hero.coord":"23.04622° N · 109.70324° W","hero.coord.aria":"View location on Google Maps: 23.04622 degrees north, 109.70324 degrees west",
   "hero.cue":"Discover",
@@ -76,7 +76,7 @@ var I18N={
   "menu.rooms":"Habitaciones","menu.sjc":"San José del Cabo","menu.golf":"Golf y playas","menu.amen":"Amenidades","menu.book":"Reservar",
   "menu.foot":"San José del Cabo · Baja California Sur",
 
-  "hero.aria":"Portada","hero.label":"56 suites y residencias",
+  "hero.aria":"Portada","hero.label":"55 suites y residencias",
   "hero.l1":"No es solo un lugar.","hero.l2":"<em>Es un estado mental.</em>",
   "hero.coord":"23.04622° N · 109.70324° O","hero.coord.aria":"Ver ubicación en Google Maps: 23.04622 grados norte, 109.70324 grados oeste",
   "hero.cue":"Descubrir",
