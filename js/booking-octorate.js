@@ -8,8 +8,8 @@
    para integraciones con diseño propio.
    ============================================================ */
 (function () {
-  var OCTORATE_SITE_KEY = 'octosite362352'; // REEMPLAZAR CON LA CLAVE REAL
-  var OCTORATE_LANG = 'es';
+  var OCTORATE_SITE_KEY = (typeof CONFIG!=='undefined' && CONFIG.octorateSiteKey) || ''; // se define en js/config.js
+  var OCTORATE_LANG = (typeof CONFIG!=='undefined' && CONFIG.octorateLang) || 'es';
 
   var form = document.getElementById('bookForm');
   var note = document.getElementById('bookNote');
@@ -55,6 +55,11 @@
     }
     if (checkout <= checkin) {
       showNote('La salida debe ser después de la llegada.', true);
+      return;
+    }
+
+    if (!OCTORATE_SITE_KEY) {
+      showNote('Motor de reservas pendiente de conectar (falta la site key de Octorate).', true);
       return;
     }
 

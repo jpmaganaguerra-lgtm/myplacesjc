@@ -138,7 +138,10 @@ drw.addEventListener('click',function(e){
   if(t.closest('[data-prev]')){S.step=2;renderDrawer();return}
   if(t.closest('[data-next]')){S.step=Math.min(3,S.step+1);renderDrawer();return}
   if(t.closest('[data-pay]')){
-    if(CONFIG.bookingUrl){
+    if(CONFIG.octorateSiteKey){
+      var od=function(d){var x=iso(d).split('-');return x[2]+'%2F'+x[1]+'%2F'+x[0]};
+      window.location.href='https://book.octorate.com/octobook/site/reservation/result.xhtml?siteKey='+encodeURIComponent(CONFIG.octorateSiteKey)+'&lang='+(CONFIG.octorateLang||'es')+'&ota=false&checkin='+od(S.start)+'&checkout='+od(S.end)+'&pax='+(S.adults+S.kids);
+    }else if(CONFIG.bookingUrl){
       var q='?checkin='+iso(S.start)+'&checkout='+iso(S.end)+'&adults='+S.adults+'&children='+S.kids+'&room='+S.room;
       window.open(CONFIG.bookingUrl+q,'_blank','noopener');
     }else{document.getElementById('bmsg').textContent='Aquí se conecta el motor de reservas con estas fechas y esta habitación. (Pendiente de definir el proveedor.)'}
