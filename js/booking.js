@@ -1,28 +1,34 @@
 'use strict';
-/* Estado de la reserva, calendario, barra de reserva y panel lateral. */
+/* Estado de la reserva, calendario, barra de reserva y panel lateral. Los textos están en js/i18n.js (EN / ES). */
 
 var S={start:null,end:null,adults:2,kids:0,room:null,view:new Date(),step:1};
 S.view.setDate(1);S.view.setHours(0,0,0,0);
 var TODAY=new Date();TODAY.setHours(0,0,0,0);
 
 
-var MONTHS=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-var DAYS=['L','M','M','J','V','S','D'];
+var MONTHS_L={
+  en:['January','February','March','April','May','June','July','August','September','October','November','December'],
+  es:['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']
+};
+var MONS_EN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+/* Inglés: la semana empieza en domingo (como en EE. UU.). Español: lunes. */
+var DAYS_L={en:['S','M','T','W','T','F','S'],es:['L','M','M','J','V','S','D']};
 function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
-function fmt(d){return d.getDate()+' '+MONTHS[d.getMonth()].slice(0,3)}
+function fmt(d){return LANG==='es'?d.getDate()+' '+MONTHS_L.es[d.getMonth()].slice(0,3):MONS_EN[d.getMonth()]+' '+d.getDate()}
 function nights(){return S.start&&S.end?Math.round((S.end-S.start)/864e5):0}
-function guestTx(){var t=S.adults+(S.adults===1?' adulto':' adultos');if(S.kids)t+=' · '+S.kids+(S.kids===1?' niño':' niños');return t}
+function nTx(n){return n+' '+(n===1?T('night'):T('nights'))}
+function guestTx(){var t=S.adults+' '+(S.adults===1?T('adult'):T('adults'));if(S.kids)t+=' · '+S.kids+' '+(S.kids===1?T('child'):T('children'));return t}
 function roomById(id){return ROOMS.filter(function(r){return r.id===id})[0]}
 
 
 function monthHTML(base,first,last){
   var y=base.getFullYear(),m=base.getMonth(),h='<div class="m"><div class="mh">';
-  h+=first?'<button data-nav="-1" aria-label="Mes anterior"'+(y===TODAY.getFullYear()&&m===TODAY.getMonth()?' disabled':'')+'>←</button>':'<span></span>';
-  h+='<span>'+MONTHS[m]+' '+y+'</span>';
-  h+=last?'<button data-nav="1" aria-label="Mes siguiente">→</button>':'<span></span>';
+  h+=first?'<button data-nav="-1" aria-label="'+T('cal.prev')+'"'+(y===TODAY.getFullYear()&&m===TODAY.getMonth()?' disabled':'')+'>←</button>':'<span></span>';
+  h+='<span>'+MONTHS_L[LANG][m]+' '+y+'</span>';
+  h+=last?'<button data-nav="1" aria-label="'+T('cal.next')+'">→</button>':'<span></span>';
   h+='</div><div class="g">';
-  DAYS.forEach(function(d){h+='<span>'+d+'</span>'});
-  var off=(new Date(y,m,1).getDay()+6)%7,i;
+  DAYS_L[LANG].forEach(function(d){h+='<span>'+d+'</span>'});
+  var fd=new Date(y,m,1).getDay(),off=LANG==='es'?(fd+6)%7:fd,i;
   for(i=0;i<off;i++)h+='<span></span>';
   var dim=new Date(y,m+1,0).getDate();
   for(i=1;i<=dim;i++){
@@ -36,32 +42,30 @@ function monthHTML(base,first,last){
 }
 function calHTML(){
   var n=new Date(S.view.getFullYear(),S.view.getMonth()+1,1);
-  var info=S.start?(S.end?nights()+(nights()===1?' noche':' noches'):'Elige la salida'):'Elige la llegada';
-  return '<div class="cal">'+monthHTML(S.view,true,false)+monthHTML(n,false,true)+'</div><div class="pop-f"><span>'+info+'</span><button data-clear>Borrar</button></div>';
+  var info=S.start?(S.end?nTx(nights()):T('cal.out')):T('cal.in');
+  return '<div class="cal">'+monthHTML(S.view,true,false)+monthHTML(n,false,true)+'</div><div class="pop-f"><span>'+info+'</span><button data-clear>'+T('cal.clear')+'</button></div>';
 }
 
 
 var bars=[];
 function guestHTML(){
-  return '<div class="gst"><div class="row"><div><b>Adultos</b><small>13 años o más</small></div><div class="st"><button data-g="a-1"'+(S.adults<=1?' disabled':'')+'>−</button><span>'+S.adults+'</span><button data-g="a1"'+(S.adults>=8?' disabled':'')+'>+</button></div></div>'+
-  '<div class="row"><div><b>Niños</b><small>0 a 12 años</small></div><div class="st"><button data-g="k-1"'+(S.kids<=0?' disabled':'')+'>−</button><span>'+S.kids+'</span><button data-g="k1"'+(S.kids>=6?' disabled':'')+'>+</button></div></div></div>';
+  return '<div class="gst"><div class="row"><div><b>'+T('g.adults')+'</b><small>'+T('g.adultsSub')+'</small></div><div class="st"><button data-g="a-1"'+(S.adults<=1?' disabled':'')+'>−</button><span>'+S.adults+'</span><button data-g="a1"'+(S.adults>=8?' disabled':'')+'>+</button></div></div>'+
+  '<div class="row"><div><b>'+T('g.kids')+'</b><small>'+T('g.kidsSub')+'</small></div><div class="st"><button data-g="k-1"'+(S.kids<=0?' disabled':'')+'>−</button><span>'+S.kids+'</span><button data-g="k1"'+(S.kids>=6?' disabled':'')+'>+</button></div></div></div>';
 }
 function buildBar(el){
-  el.innerHTML='<button class="fld" data-f="in"><small>Llegada</small><b data-v="in"></b></button><button class="fld" data-f="out"><small>Salida</small><b data-v="out"></b></button><button class="fld" data-f="g"><small>Huéspedes</small><b data-v="g"></b></button><button class="go" data-go>Ver tarifas</button><div class="pop" data-pop></div>';
+  el.innerHTML='<button class="fld" data-f="in"><small data-i18n="bar.in">'+T('bar.in')+'</small><b data-v="in"></b></button><button class="fld" data-f="out"><small data-i18n="bar.out">'+T('bar.out')+'</small><b data-v="out"></b></button><button class="fld" data-f="g"><small data-i18n="bar.g">'+T('bar.g')+'</small><b data-v="g"></b></button><button class="go" data-go data-i18n="bar.go">'+T('bar.go')+'</button><div class="pop" data-pop></div>';
   bars.push(el);
 }
 function closePops(except){bars.forEach(function(b){var p=b.querySelector('[data-pop]');if(p!==except)p.classList.remove('on')})}
 function refresh(){
   bars.forEach(function(b){
     var a=b.querySelector('[data-v="in"]'),o=b.querySelector('[data-v="out"]'),g=b.querySelector('[data-v="g"]');
-    a.textContent=S.start?fmt(S.start):'Añadir fecha';a.className=S.start?'':'ph';
-    o.textContent=S.end?fmt(S.end):'Añadir fecha';o.className=S.end?'':'ph';
+    a.textContent=S.start?fmt(S.start):T('addDate');a.className=S.start?'':'ph';
+    o.textContent=S.end?fmt(S.end):T('addDate');o.className=S.end?'':'ph';
     g.textContent=guestTx();
     var p=b.querySelector('[data-pop]');
     if(p.classList.contains('on')){p.innerHTML=p.getAttribute('data-k')==='g'?guestHTML():calHTML()}
   });
-  var tx=S.start&&S.end?fmt(S.start)+' – '+fmt(S.end):(S.start?fmt(S.start)+' – ?':'Elige fechas');
-  var stx=document.getElementById('stickTx');if(stx)stx.textContent=tx+' · '+S.adults+(S.kids?'+'+S.kids:'')+' pax';
   if(drw.classList.contains('on'))renderDrawer();
 }
 document.addEventListener('click',function(e){
@@ -118,16 +122,16 @@ function renderDrawer(){
     db.innerHTML='<div class="cal" data-dcal style="display:block">'+'</div>';
     var host=db.firstChild;
     host.innerHTML=calHTML().replace('class="cal"','class="cal" style="flex-direction:column;gap:22px"');
-    df.innerHTML='<button class="btn" data-next'+(S.start&&S.end?'':' disabled')+'>Continuar</button>';
+    df.innerHTML='<button class="btn" data-next'+(S.start&&S.end?'':' disabled')+'>'+T('btn.continue')+'</button>';
   }else if(S.step===2){
-    var h='<p class="msg" style="margin:0 0 18px">'+fmt(S.start)+' – '+fmt(S.end)+' · '+nights()+(nights()===1?' noche':' noches')+' · '+guestTx()+' <button class="back" data-edit style="margin:0 0 0 8px">Cambiar</button></p>';
+    var h='<p class="msg" style="margin:0 0 18px">'+fmt(S.start)+' – '+fmt(S.end)+' · '+nTx(nights())+' · '+guestTx()+' <button class="back" data-edit style="margin:0 0 0 8px">'+T('btn.change')+'</button></p>';
     ROOMS.forEach(function(r){h+='<button class="opt'+(S.room===r.id?' sel':'')+'" data-room="'+r.id+'"><div class="th"><div class="sc" data-scene="'+r.s+'"></div></div><div><b>'+r.n+'</b><small>'+r.t+'</small><small>'+r.d+'</small></div></button>'});
     db.innerHTML=h;mountAll(db);
-    df.innerHTML='<button class="btn" data-next'+(S.room?'':' disabled')+'>Continuar</button>';
+    df.innerHTML='<button class="btn" data-next'+(S.room?'':' disabled')+'>'+T('btn.continue')+'</button>';
   }else{
     var rm=roomById(S.room);
-    db.innerHTML='<button class="back" data-prev>Volver</button><div class="sum"><div><span>Llegada</span><span>'+fmt(S.start)+'</span></div><div><span>Salida</span><span>'+fmt(S.end)+'</span></div><div><span>Noches</span><span>'+nights()+'</span></div><div><span>Huéspedes</span><span>'+guestTx()+'</span></div><div><span>Habitación</span><span>'+rm.n+'</span></div></div><p class="msg">La tarifa total y el pago se completan de forma segura en el motor de reservas.</p><p class="msg" id="bmsg"></p>';
-    df.innerHTML='<button class="btn" data-pay>Continuar al pago</button>';
+    db.innerHTML='<button class="back" data-prev>'+T('btn.back')+'</button><div class="sum"><div><span>'+T('sum.in')+'</span><span>'+fmt(S.start)+'</span></div><div><span>'+T('sum.out')+'</span><span>'+fmt(S.end)+'</span></div><div><span>'+T('sum.nights')+'</span><span>'+nights()+'</span></div><div><span>'+T('sum.guests')+'</span><span>'+guestTx()+'</span></div><div><span>'+T('sum.room')+'</span><span>'+rm.n+'</span></div></div><p class="msg">'+T('pay.msg')+'</p><p class="msg" id="bmsg"></p>';
+    df.innerHTML='<button class="btn" data-pay>'+T('btn.pay')+'</button>';
   }
 }
 drw.addEventListener('click',function(e){
@@ -140,11 +144,11 @@ drw.addEventListener('click',function(e){
   if(t.closest('[data-pay]')){
     if(CONFIG.octorateSiteKey){
       var od=function(d){var x=iso(d).split('-');return x[2]+'%2F'+x[1]+'%2F'+x[0]};
-      window.location.href='https://book.octorate.com/octobook/site/reservation/result.xhtml?siteKey='+encodeURIComponent(CONFIG.octorateSiteKey)+'&lang='+(CONFIG.octorateLang||'es')+'&ota=false&checkin='+od(S.start)+'&checkout='+od(S.end)+'&pax='+(S.adults+S.kids);
+      window.location.href='https://book.octorate.com/octobook/site/reservation/result.xhtml?siteKey='+encodeURIComponent(CONFIG.octorateSiteKey)+'&lang='+(CONFIG.octorateLang||LANG)+'&ota=false&checkin='+od(S.start)+'&checkout='+od(S.end)+'&pax='+(S.adults+S.kids);
     }else if(CONFIG.bookingUrl){
       var q='?checkin='+iso(S.start)+'&checkout='+iso(S.end)+'&adults='+S.adults+'&children='+S.kids+'&room='+S.room;
       window.open(CONFIG.bookingUrl+q,'_blank','noopener');
-    }else{document.getElementById('bmsg').textContent='Aquí se conecta el motor de reservas con estas fechas y esta habitación. (Pendiente de definir el proveedor.)'}
+    }else{document.getElementById('bmsg').textContent=T('pay.pending')}
   }
 });
 document.getElementById('dClose').addEventListener('click',closeDrawer);
@@ -155,3 +159,5 @@ document.addEventListener('click',function(e){
 });
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDrawer();closeMenu();closePops()}});
 
+/* Al cambiar de idioma: fechas, calendario abierto y panel se vuelven a escribir. */
+onLang(function(){refresh()});

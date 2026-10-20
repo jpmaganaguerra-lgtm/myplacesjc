@@ -1,10 +1,11 @@
-/* Footer · WhatsApp: el botón "Contactar" abre un chat con el número del hotel y el texto del cuadro. */
+/* Footer · WhatsApp: el botón "Contactar" abre un chat con el número del hotel y el texto del cuadro.
+   Si el cuadro está vacío manda el saludo de js/i18n.js (clave wa.default), en el idioma activo. */
 (function(){
   var NUM='525518214245'; /* +52 55 1821 4245 */
-  var DEFAULT='Hola, me gustaría información sobre MyPlace San José del Cabo.';
   var ta=document.getElementById('waMsg'),btn=document.getElementById('waBtn'),f=document.getElementById('waForm');
   if(!ta||!btn)return;
-  function upd(){btn.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(ta.value.trim()||DEFAULT)}
+  function upd(){btn.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(ta.value.trim()||T('wa.default'))}
   ta.addEventListener('input',upd);upd();
+  onLang(upd);
   f.addEventListener('submit',function(e){e.preventDefault();window.open(btn.href,'_blank','noopener')});
 })();

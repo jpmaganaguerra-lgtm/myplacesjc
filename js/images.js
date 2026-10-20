@@ -29,8 +29,8 @@ var IMG_POS={'hero-dorada':'50% 60%','hero-azul':'50% 60%','hero-frente':'50% 10
 
 /* OPCIONAL · texto alternativo. Si falta, se usa el nombre de la habitación o del destino de content.js. */
 var IMG_ALT={
-  'amenidades-alberca':'Alberca del hotel',
-  'reserva-noche':'Noche en San José del Cabo'
+  'amenidades-alberca':'alt.pool',     /* claves de js/i18n.js: se traducen solas */
+  'reserva-noche':'alt.night'
 };
 
 /* Imagen provisional cuando aún no hay foto: la ilustración del propio nombre, o una genérica de su sección. */
@@ -72,7 +72,7 @@ function folderOf(el){
   return null;
 }
 function altOf(n){
-  if(IMG_ALT[n])return IMG_ALT[n];
+  if(IMG_ALT[n])return T(IMG_ALT[n]);
   var i,L=(typeof ROOMS!=='undefined'?ROOMS:[]),D=(typeof DEST!=='undefined'?DEST:[]);
   for(i=0;i<L.length;i++)if(L[i].s===n)return L[i].n;
   for(i=0;i<D.length;i++)if(D[i].s===n)return D[i].n;

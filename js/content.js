@@ -1,15 +1,38 @@
 'use strict';
-/* Textos y datos de habitaciones y destino. Edita aquí el contenido. `s` = nombre del espacio de imagen (ver docs/IMAGENES.md). */
+/* Textos de habitaciones y destino, en inglés (en) y español (es). Edita aquí el contenido.
+   `s` = nombre de la foto SIN extensión; el archivo va en assets/img/habitaciones/ (o destino/). Ver docs/IMAGENES.md.
+   Los demás textos del sitio están en js/i18n.js. */
 var ROOMS=[
- {id:'hk',n:'Habitación hotelera king',t:'Cama king size, coffee station y baño',d:'Para dos, con espacio de sobra y luz de mañana.',s:'habitacion-king-plano'},
- {id:'d1rq',n:'Suite de una recamara con dos camas queen',t:'Una recámara · cocina completa',d:'Para familias o amigos, con la sala como centro.',s:'suite-una-recamara-doble-queen'},
- {id:'d2rkq',n:'Suite de dos recamaras con king y dos queen',t:'Dos recámaras · cocina completa',d:'Todo en uno, con la tranquilidad de una casa propia.',s:'suite-dos-recamaras-king-double-queen'},
- {id:'sq',n:'Estudio queen',t:'Estudio con dos camas queen',d:'Cocina completa · sala',s:'Estudio-doble-queen'},
- {id:'d2rq',n:'Suite de dos recamaras con dos queen',t:'Dos recámaras · cocina completa',d:'Amplia suite · Cocina completa · sala',s:'suite-dos-recamaras-queen'}
+ {id:'suite1',s:'hab-suite1',tr:{
+  en:{n:'One-Bedroom Suite',t:'Living room, kitchen and terrace',d:'For two, with room to spare and morning light.'},
+  es:{n:'Suite de una recámara',t:'Sala, cocina y terraza',d:'Para dos, con espacio de sobra y luz de mañana.'}}},
+ {id:'res2',s:'hab-residencia2',tr:{
+  en:{n:'Two-Bedroom Residence',t:'Two bedrooms · full kitchen',d:'For families or friends, with the living room at the heart.'},
+  es:{n:'Residencia de dos recámaras',t:'Dos recámaras · cocina completa',d:'Para familias o amigos, con la sala como centro.'}}},
+ {id:'studio',s:'hab-estudio',tr:{
+  en:{n:'Studio',t:'Open-plan living · kitchen',d:'Everything in one, with the calm of a home of your own.'},
+  es:{n:'Estudio',t:'Un solo ambiente · cocina',d:'Todo en uno, con la tranquilidad de una casa propia.'}}},
+ {id:'hab',s:'hab-habitacion',tr:{
+  en:{n:'Room',t:'Essential rest',d:'No kitchen, with the pools and the golf course at your door.'},
+  es:{n:'Habitación',t:'Descanso esencial',d:'Sin cocina, con las albercas y el golf a la puerta.'}}}
 ];
 var DEST=[
- {n:'Centro histórico',s:'destino-centro',c:'Calle, galería, mesa',p:'Galerías, plazas y mesas al aire libre. Los jueves de temporada, el Art Walk llena las calles.'},
- {n:'Playas',s:'destino-playas',c:'Palmilla · Costa Azul · Estero',p:'Palmilla y Costa Azul para nadar o surfear; el Estero de San José para ver aves al amanecer.'},
- {n:'Golf',s:'destino-golf',c:'Junto al hotel',p:'El campo de golf está a un paso. Sal con el primer sol y vuelve a desayunar en tu terraza.'},
- {n:'Mar y sierra',s:'destino-mar-dunas',c:'Sandboarding en las dunas',p:'Ballenas de diciembre a abril. Desde ballenas hasta dunas para hacer sandsurfing, a una excursión de distancia.'}
+ {s:'destino-centro',tr:{
+  en:{n:'Historic Downtown',c:'Street, gallery, table',p:'Galleries, plazas and open-air tables. On seasonal Thursdays, the Art Walk fills the streets.'},
+  es:{n:'Centro histórico',c:'Calle, galería, mesa',p:'Galerías, plazas y mesas al aire libre. Los jueves de temporada, el Art Walk llena las calles.'}}},
+ {s:'destino-playas',tr:{
+  en:{n:'Beaches',c:'Palmilla · Costa Azul · Estero',p:'Palmilla and Costa Azul for swimming or surfing; the San José Estuary for watching birds at dawn.'},
+  es:{n:'Playas',c:'Palmilla · Costa Azul · Estero',p:'Palmilla y Costa Azul para nadar o surfear; el Estero de San José para ver aves al amanecer.'}}},
+ {s:'destino-golf',tr:{
+  en:{n:'Golf',c:'Next to the hotel',p:'The golf course is steps away. Head out with the first sun and come back for breakfast on your terrace.'},
+  es:{n:'Golf',c:'Junto al hotel',p:'El campo de golf está a un paso. Sal con el primer sol y vuelve a desayunar en tu terraza.'}}},
+ {s:'destino-mar',tr:{
+  en:{n:'Sea & Sierra',c:'Whales · Todos Santos',p:'Whales from December to April. Todos Santos and the Sierra de la Laguna are an excursion away.'},
+  es:{n:'Mar y sierra',c:'Ballenas · Todos Santos',p:'Ballenas de diciembre a abril. Todos Santos y la Sierra de la Laguna, a una excursión de distancia.'}}}
 ];
+
+/* Copia el idioma activo a r.n / r.t / r.d (habitaciones) y d.n / d.c / d.p (destino). Lo llama i18n.js. */
+function localize(lang){
+  function pick(o){var x=o.tr[lang]||o.tr.en,k;for(k in x)o[k]=x[k]}
+  ROOMS.forEach(pick);DEST.forEach(pick);
+}

@@ -20,7 +20,7 @@ menu.querySelectorAll('li a').forEach(function(a){
 var rail=document.getElementById('rail');
 ROOMS.forEach(function(r,i){
   var c=document.createElement('article');c.className='room';c.tabIndex=0;
-  c.innerHTML='<div class="sc" data-scene="'+r.s+'"></div><div class="tx"><span class="lab">0'+(i+1)+'</span><h3>'+r.n+'</h3><p>'+r.d+'</p><span class="cta">Reservar esta</span></div>';
+  c.innerHTML='<div class="sc" data-scene="'+r.s+'"></div><div class="tx"><span class="lab">0'+(i+1)+'</span><h3>'+r.n+'</h3><p>'+r.d+'</p><span class="cta">'+T('room.cta')+'</span></div>';
   c.addEventListener('click',function(){openDrawer(S.start&&S.end?2:1,r.id)});
   c.addEventListener('keydown',function(e){if(e.key==='Enter')openDrawer(S.start&&S.end?2:1,r.id)});
   rail.appendChild(c);
@@ -29,7 +29,7 @@ document.getElementById('rPrev').addEventListener('click',function(){rail.scroll
 document.getElementById('rNext').addEventListener('click',function(){rail.scrollBy({left:460,behavior:'smooth'})});
 
 
-var acc=document.getElementById('acc'),dvis=document.getElementById('dvis'),dcap=document.getElementById('dcap'),items=[],scs=[];
+var acc=document.getElementById('acc'),dvis=document.getElementById('dvis'),dcap=document.getElementById('dcap'),items=[],scs=[],curAcc=0;
 DEST.forEach(function(d,i){
   var it=document.createElement('div');it.className='it';
   it.innerHTML='<button class="hd">'+d.n+'</button><div class="bd"><div><p>'+d.p+'</p></div></div>';
@@ -37,7 +37,7 @@ DEST.forEach(function(d,i){
   acc.appendChild(it);items.push(it);
   var s=document.createElement('div');s.className='sc';s.setAttribute('data-scene',d.s);dvis.insertBefore(s,dcap);scs.push(s);
 });
-function setAcc(i){items.forEach(function(it,k){it.classList.toggle('on',k===i)});scs.forEach(function(s,k){s.classList.toggle('on',k===i)});dcap.textContent=DEST[i].c}
+function setAcc(i){curAcc=i;items.forEach(function(it,k){it.classList.toggle('on',k===i)});scs.forEach(function(s,k){s.classList.toggle('on',k===i)});dcap.textContent=DEST[i].c}
 setAcc(0);
 
 
@@ -47,7 +47,9 @@ refresh();
 
 var hd=document.getElementById('hd'),stick=document.getElementById('stick'),hero=document.querySelector('.hero');
 var words=document.getElementById('stmt'),wsp=[];
-(function(){var t=words.innerHTML,out='';t.split(/(\s+)/).forEach(function(w){if(/^\s+$/.test(w)||!w){out+=w}else{out+='<span>'+w+'</span>'}});words.innerHTML=out;wsp=[].slice.call(words.querySelectorAll('span'))})();
+/* Párrafo que se ilumina palabra por palabra al hacer scroll. */
+function splitStmt(){var t=words.innerHTML,out='';t.split(/(\s+)/).forEach(function(w){if(/^\s+$/.test(w)||!w){out+=w}else{out+='<span>'+w+'</span>'}});words.innerHTML=out;wsp=[].slice.call(words.querySelectorAll('span'))}
+splitStmt();
 var parallax=[].slice.call(document.querySelectorAll('[data-sp]'));
 var ticking=false;
 function onScroll(){
@@ -66,6 +68,24 @@ if('IntersectionObserver' in window){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 }else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
+
+/* Al cambiar de idioma: se reescriben las tarjetas, el acordeón, el párrafo y el texto alternativo de las fotos. */
+onLang(function(){
+  [].forEach.call(rail.children,function(c,i){
+    c.querySelector('h3').textContent=ROOMS[i].n;
+    c.querySelector('p').textContent=ROOMS[i].d;
+    c.querySelector('.cta').textContent=T('room.cta');
+  });
+  items.forEach(function(it,i){
+    it.querySelector('.hd').textContent=DEST[i].n;
+    it.querySelector('.bd p').textContent=DEST[i].p;
+  });
+  dcap.textContent=DEST[curAcc].c;
+  splitStmt();onScroll();
+  [].forEach.call(document.querySelectorAll('[data-scene][data-real]'),function(el){
+    var im=el.querySelector('img');if(im)im.alt=altOf(el.getAttribute('data-scene'));
+  });
+});
 mountAll();
 mountHero();
 onScroll();
