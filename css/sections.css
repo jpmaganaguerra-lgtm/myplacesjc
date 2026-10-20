@@ -12,6 +12,11 @@ section{position:relative}
 .facts{display:flex;flex-wrap:wrap;gap:12px 56px;margin-top:64px;padding-top:26px;border-top:1px solid var(--line)}
 .facts div b{display:block;font:300 44px/1 var(--serif)}
 .facts div small{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mut)}
+/* Datos que son una frase, no una cifra */
+.facts{align-items:flex-end}
+.facts div.fx{max-width:360px}
+.facts div.fx b{font:300 clamp(22px,2.2vw,30px)/1.15 var(--serif);letter-spacing:-.005em}
+.facts div.fx b em{font-style:italic}
 
 .rooms{background:var(--paper2);padding:clamp(80px,11vw,150px) 0 clamp(80px,11vw,140px)}
 .sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;padding:0 clamp(18px,3.4vw,48px);margin-bottom:46px;flex-wrap:wrap}

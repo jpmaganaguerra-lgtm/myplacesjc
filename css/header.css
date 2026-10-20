@@ -12,5 +12,13 @@ header.solid .logo-img{filter:brightness(0)}
 @media(max-width:560px){.mark{gap:0}}
 @media(max-width:700px){.logo-img{height:36px}}
 .res-btn{justify-self:end;border-bottom:1px solid currentColor;padding-bottom:3px}
-@media(max-width:560px){.menu-btn span{display:none}.mark b{font-size:10px}.mark span{font-size:16px}}
+/* Derecha del header: selector de idioma EN / ES + Reservar */
+.hr{justify-self:end;display:flex;align-items:baseline;gap:clamp(14px,2vw,28px)}
+.lang{display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.2em;font-weight:400;text-transform:uppercase}
+.lang button{opacity:.45;padding:4px 0;transition:opacity .4s}
+.lang button[aria-pressed="true"]{opacity:1}
+.lang .sl{opacity:.3}
+@media(hover:hover){.lang button:hover,.lang button:focus-visible{opacity:1}}
+@media(max-width:560px){.menu-btn span{display:none}.mark b{font-size:10px}.mark span{font-size:16px}
+  .hr{gap:12px}.lang{font-size:9.5px;letter-spacing:.12em;gap:5px}.res-btn{letter-spacing:.2em}}
 
