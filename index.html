@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="css/hero.css">
 <link rel="stylesheet" href="css/video.css">
 <link rel="stylesheet" href="css/booking.css">
+<link rel="stylesheet" href="css/booking-octorate.css">
 <link rel="stylesheet" href="css/sections.css">
 <link rel="stylesheet" href="css/day.css">
 <link rel="stylesheet" href="css/drawer.css">
@@ -135,13 +136,21 @@
   <div class="in-">
     <h2 class="rv">Elige tus <em>fechas.</em></h2>
     <p class="rv">Dos pasos más y tu habitación queda confirmada.</p>
-    <div class="bar rv" data-bar></div>
+    <form class="book-form reveal" id="bookForm">
+      <div class="book-field"><label for="checkin">Llegada</label><input type="date" id="checkin" required></div>
+      <div class="book-field"><label for="checkout">Salida</label><input type="date" id="checkout" required></div>
+      <div class="book-field"><label for="guests">Huéspedes</label>
+        <select id="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+      </div>
+      <button type="submit" class="book-submit">Ver disponibilidad</button>
+    </form>
+    <p id="bookNote" class="book-note" role="status"></p>
   </div>
 </section>
 </main>
 
 <footer>
-  <div>CASA DAMIANA · SAN JOSÉ DEL CABO</div>
+  <div>MY PLACE - SAN JOSÉ DEL CABO</div>
   <span>Baja California Sur, México</span>
   <span>MyPlace Leisure Homes STR</span>
 </footer>
@@ -165,5 +174,6 @@
 <script src="js/sky.js"></script>
 <script src="js/intro.js"></script>
   <script src="js/logo-detect.js"></script>
+  <script src="js/booking-octorate.js"></script>
 </body>
 </html>
