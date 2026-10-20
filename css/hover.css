@@ -28,7 +28,7 @@
 
 /* ---------- 4 · Filas y tarjetas que se desplazan ---------- */
 /* Logo del header */
-.logo-img{transition:opacity .4s,transform .6s var(--ease)}
+.logo-img{transition:opacity .4s,filter .5s,transform .6s var(--ease)}
 /* Menú a pantalla completa: ícono de menú, ícono de cerrar y número de cada opción */
 .menu-btn i{transition:height .5s var(--ease)}
 .menu .close i{transition:transform .7s var(--ease)}
