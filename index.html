@@ -23,8 +23,8 @@
 <link rel="stylesheet" href="css/hero.css">
 <link rel="stylesheet" href="css/video.css">
 <link rel="stylesheet" href="css/booking.css">
-<link rel="stylesheet" href="css/booking-octorate.css">
 <link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/day.css">
 <link rel="stylesheet" href="css/drawer.css">
 <link rel="stylesheet" href="css/sky.css">
@@ -136,26 +136,34 @@
   <div class="in-">
     <h2 class="rv">Elige tus <em>fechas.</em></h2>
     <p class="rv">Dos pasos más y tu habitación queda confirmada.</p>
-    <form class="book-form reveal" id="bookForm">
-      <div class="book-field"><label for="checkin">Llegada</label><input type="date" id="checkin" required></div>
-      <div class="book-field"><label for="checkout">Salida</label><input type="date" id="checkout" required></div>
-      <div class="book-field"><label for="guests">Huéspedes</label>
-        <select id="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
-      </div>
-      <button type="submit" class="book-submit">Ver disponibilidad</button>
-    </form>
-    <p id="bookNote" class="book-note" role="status"></p>
+    <div class="bar rv" data-bar></div>
   </div>
 </section>
 </main>
 
 <footer>
-  <div>MY PLACE - SAN JOSÉ DEL CABO</div>
-  <span>Baja California Sur, México</span>
-  <span>MyPlace Leisure Homes STR</span>
+  <div class="wa">
+    <div class="wa-tx">
+      <span class="lab">Contacto</span>
+      <h3>Escríbenos por <em>WhatsApp.</em></h3>
+      <p>Cuéntanos qué necesitas y te respondemos directamente.</p>
+    </div>
+    <form class="wa-form" id="waForm" novalidate>
+      <label for="waMsg" class="wa-lb">Tu mensaje</label>
+      <textarea id="waMsg" rows="3" maxlength="600" placeholder="Hola, quisiera información sobre…"></textarea>
+      <a class="wa-btn" id="waBtn" href="https://wa.me/525518214245" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 15l-.3-.2-3.1.9.9-3-.2-.3A8.1 8.1 0 0 1 12.04 3.8zm-3.2 4.1c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3l-1.9-.9c-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.4-.5-.6-.5z"/></svg>
+        <span>Contactar</span>
+      </a>
+    </form>
+  </div>
+  <div class="fb">
+    <div>MY PLACE - SAN JOSÉ DEL CABO</div>
+    <span>Baja California Sur, México</span>
+    <span>MyPlace Leisure Homes STR</span>
+  </div>
 </footer>
 
-<div class="stick" id="stick"><div class="sm"><i>Tu estancia</i><span id="stickTx">Elige fechas</span></div><button class="go" data-reserve>Reservar</button></div>
 <div class="scrim" id="scrim"></div>
 <aside class="drw" id="drw" aria-label="Reserva" aria-hidden="true">
   <div class="dh"><h3>Tu estancia</h3><button class="lab" id="dClose">Cerrar</button></div>
@@ -174,6 +182,6 @@
 <script src="js/sky.js"></script>
 <script src="js/intro.js"></script>
   <script src="js/logo-detect.js"></script>
-  <script src="js/booking-octorate.js"></script>
+  <script src="js/whatsapp.js"></script>
 </body>
 </html>
