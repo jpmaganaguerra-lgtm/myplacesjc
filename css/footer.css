@@ -1,0 +1,21 @@
+/* Footer: contacto por WhatsApp + datos del sitio */
+footer{display:block;padding:0;letter-spacing:normal;font-size:inherit;opacity:1}
+.wa{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,6vw,96px);align-items:end;padding:clamp(56px,8vw,110px) clamp(18px,3.4vw,48px) clamp(44px,6vw,80px)}
+.wa-tx .lab{display:block;margin-bottom:18px;opacity:.7}
+.wa-tx h3{font:300 clamp(34px,4.6vw,68px)/1 var(--serif);letter-spacing:-.02em}
+.wa-tx h3 em{font-style:italic;color:#E9C9A2}
+.wa-tx p{margin-top:18px;max-width:380px;font-size:14px;line-height:1.6;letter-spacing:.01em;opacity:.7}
+.wa-form{display:flex;flex-direction:column;gap:18px}
+.wa-lb{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.6}
+.wa-form textarea{width:100%;resize:vertical;min-height:112px;background:transparent;color:var(--ivory);border:1px solid rgba(242,237,226,.28);padding:18px 20px;font:300 18px/1.5 var(--serif);transition:border-color .4s,background .4s}
+.wa-form textarea::placeholder{color:rgba(242,237,226,.4)}
+.wa-form textarea:focus{outline:0;border-color:#E9C9A2;background:rgba(242,237,226,.04)}
+.wa-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:14px;padding:18px 34px;background-color:var(--ivory);color:#1B1712;text-decoration:none;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;
+  background-image:linear-gradient(var(--clay),var(--clay));background-repeat:no-repeat;background-position:0 0;background-size:0% 100%;transition:background-size .6s var(--ease),color .4s,transform .3s var(--ease)}
+.wa-btn svg{width:18px;height:18px;flex:none}
+.wa-btn:active{transform:scale(.985)}
+@media(hover:hover){.wa-btn:is(:hover,:focus-visible){background-size:100% 100%;color:var(--ivory)}}
+.fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;padding:30px clamp(18px,3.4vw,48px) calc(38px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(242,237,226,.14);font-size:11px;letter-spacing:.14em}
+.fb span{opacity:.6}
+@media(max-width:800px){.wa{grid-template-columns:1fr;align-items:start}.wa-btn{align-self:stretch;justify-content:center}}
+.wa-btn span{opacity:1}
