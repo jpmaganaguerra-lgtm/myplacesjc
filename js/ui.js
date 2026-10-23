@@ -69,6 +69,12 @@ if('IntersectionObserver' in window){
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 }else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
 
+/* Preguntas frecuentes: abrir y cerrar cada respuesta (el texto ya está en el HTML para los buscadores). */
+document.querySelectorAll('.faq .it').forEach(function(it){
+  var b=it.querySelector('.hd');
+  b.addEventListener('click',function(){var on=!it.classList.contains('on');it.classList.toggle('on',on);b.setAttribute('aria-expanded',on?'true':'false')});
+});
+
 /* Al cambiar de idioma: se reescriben las tarjetas, el acordeón, el párrafo y el texto alternativo de las fotos. */
 onLang(function(){
   [].forEach.call(rail.children,function(c,i){

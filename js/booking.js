@@ -142,10 +142,14 @@ drw.addEventListener('click',function(e){
   if(t.closest('[data-prev]')){S.step=2;renderDrawer();return}
   if(t.closest('[data-next]')){S.step=Math.min(3,S.step+1);renderDrawer();return}
   if(t.closest('[data-pay]')){
+    /* Evento para Google Tag Manager (js/analytics.js): el visitante pasa al motor de reservas. */
+    var hit=function(){if(typeof track==='function')track('begin_checkout',{checkin:iso(S.start),checkout:iso(S.end),nights:nights(),guests:S.adults+S.kids,room:S.room,language:LANG})};
     if(CONFIG.octorateSiteKey){
+      hit();
       var od=function(d){var x=iso(d).split('-');return x[2]+'%2F'+x[1]+'%2F'+x[0]};
       window.location.href='https://book.octorate.com/octobook/site/reservation/result.xhtml?siteKey='+encodeURIComponent(CONFIG.octorateSiteKey)+'&lang='+(CONFIG.octorateLang||LANG)+'&ota=false&checkin='+od(S.start)+'&checkout='+od(S.end)+'&pax='+(S.adults+S.kids);
     }else if(CONFIG.bookingUrl){
+      hit();
       var q='?checkin='+iso(S.start)+'&checkout='+iso(S.end)+'&adults='+S.adults+'&children='+S.kids+'&room='+S.room;
       window.open(CONFIG.bookingUrl+q,'_blank','noopener');
     }else{document.getElementById('bmsg').textContent=T('pay.pending')}
