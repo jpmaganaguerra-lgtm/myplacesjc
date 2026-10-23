@@ -82,6 +82,17 @@ section{position:relative}
 .final h2 em{font-style:italic;color:#E9C9A2}
 .final p{margin:26px auto 54px;max-width:420px;opacity:.8;font-size:15px}
 .final .bar{margin:0 auto;text-align:left}
+
+/* Preguntas frecuentes: reutiliza el acordeón de destino (.acc) sobre fondo oscuro */
+.faq{background:linear-gradient(180deg,#0B0D14 0%,#16130F 100%);color:var(--ivory);--line:rgba(242,237,226,.16);--mut:rgba(242,237,226,.66);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,100px);align-items:start;padding:clamp(90px,12vw,170px) clamp(18px,3.4vw,48px) clamp(80px,10vw,140px)}
+.faq .lab{display:block;opacity:.65}
+.faq h2{font:300 clamp(38px,5vw,76px)/1 var(--serif);letter-spacing:-.02em;margin:22px 0 0}
+.faq h2 em{font-style:italic;color:#E9C9A2}
+.faq .acc .hd{font-size:clamp(20px,2.1vw,28px);gap:24px;opacity:.78}
+.faq .acc .hd:after{flex:none}
+.faq .acc .it.on .hd{opacity:1}
+.faq .acc .bd p{max-width:580px;line-height:1.7}
+@media(max-width:860px){.faq{grid-template-columns:1fr}}
 footer{background:var(--esp);color:var(--ivory);padding:34px clamp(18px,3.4vw,48px) calc(38px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(242,237,226,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;font-size:11px;letter-spacing:.14em;opacity:.95}
 footer span{opacity:.6}
 

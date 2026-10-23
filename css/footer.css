@@ -17,5 +17,7 @@ footer{display:block;padding:0;letter-spacing:normal;font-size:inherit;opacity:1
 @media(hover:hover){.wa-btn:is(:hover,:focus-visible){background-size:100% 100%;color:var(--ivory)}}
 .fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;padding:30px clamp(18px,3.4vw,48px) calc(38px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(242,237,226,.14);font-size:11px;letter-spacing:.14em}
 .fb span{opacity:.6}
+.fb a{opacity:.6;text-decoration:none;border-bottom:1px solid transparent;transition:opacity .4s,border-color .4s}
+@media(hover:hover){.fb a:hover,.fb a:focus-visible{opacity:1;border-color:currentColor}}
 @media(max-width:800px){.wa{grid-template-columns:1fr;align-items:start}.wa-btn{align-self:stretch;justify-content:center}}
 .wa-btn span{opacity:1}
