@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://myplacesjc.netlify.app/sitemap.xml

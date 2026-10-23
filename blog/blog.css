@@ -1,0 +1,78 @@
+/* Guías de viaje (blog). Usa los tokens del sitio (tokens.css): Cormorant Garamond e Inter. Siempre en tono claro. */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body.blog{--paper:#F4EFE2;--ink:#1B1712;--mut:#716A5C;--line:rgba(27,23,18,.16);--clay:#B0714C;background:var(--paper);color:var(--ink);font:300 17px/1.75 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
+.lab{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;font-weight:400;line-height:1.6}
+
+/* cabecera */
+.bh{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px clamp(18px,3.4vw,48px);border-bottom:1px solid var(--line)}
+.bh .wm{font:400 24px/1 var(--serif);text-decoration:none;letter-spacing:.01em}
+.bh .wm small{display:block;font:400 8.5px/1 var(--sans);letter-spacing:.38em;text-transform:uppercase;color:var(--mut);margin-top:7px}
+.bh nav{display:flex;gap:clamp(18px,2.6vw,36px);align-items:baseline}
+.bh nav a{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;text-decoration:none}
+.bh nav a.bk{border-bottom:1px solid currentColor;padding-bottom:3px}
+
+/* columnas */
+.wrap{max-width:780px;margin:0 auto;padding:0 clamp(18px,3.4vw,48px)}
+
+/* migas de pan */
+.crumbs{padding-top:30px}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12.5px;letter-spacing:.04em;color:var(--mut)}
+.crumbs li+li:before{content:"/";margin-right:10px;opacity:.5}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{text-decoration:underline}
+
+/* título */
+.ph{padding:clamp(30px,5vw,60px) 0 6px}
+.ph .lab{color:var(--mut)}
+.ph h1{font:300 clamp(38px,6.2vw,74px)/1.04 var(--serif);letter-spacing:-.02em;margin:20px 0 6px}
+.ph .intro{font:300 clamp(20px,2.3vw,25px)/1.5 var(--serif);margin:20px 0 0;color:var(--ink)}
+
+/* cuerpo del artículo */
+.body{padding-bottom:20px}
+.body>p:first-child{font:300 clamp(20px,2.3vw,25px)/1.5 var(--serif);margin:20px 0 1.1em}
+.body p{margin:0 0 1.25em}
+.body h2{font:300 clamp(30px,3.6vw,42px)/1.12 var(--serif);letter-spacing:-.01em;margin:2.1em 0 .55em}
+.body ul,.body ol{margin:0 0 1.4em;padding-left:1.25em}
+.body li{margin:0 0 .55em;padding-left:.2em}
+.body li::marker{color:var(--clay)}
+.body strong{font-weight:400;color:var(--ink)}
+.body a{text-decoration:underline;text-decoration-color:var(--clay)}
+.body a:hover{color:var(--clay)}
+.glance{border:1px solid var(--line);background:rgba(255,255,255,.42);padding:24px 28px 12px;margin:2em 0 1.2em}
+.glance .lab{color:var(--clay);margin-bottom:14px}
+.glance ul{margin:0 0 .8em;list-style:none;padding:0}
+.glance li{padding:10px 0 0;border-top:1px solid var(--line);margin:0 0 10px;font-size:16px;line-height:1.55}
+.glance li:first-child{border-top:0;padding-top:0}
+.pf{border-top:1px solid var(--line);margin-top:2.2em;padding:18px 0 0;color:var(--mut);font-size:14px}
+
+/* llamada a reservar */
+.cta{background:#16130F;color:#F2EDE2;margin-top:clamp(50px,8vw,96px);padding:clamp(60px,9vw,110px) clamp(18px,3.4vw,48px);text-align:center}
+.cta h2{font:300 clamp(36px,5.4vw,70px)/1 var(--serif);letter-spacing:-.02em}
+.cta h2 em{font-style:italic;color:#E9C9A2}
+.cta p{max-width:480px;margin:20px auto 34px;opacity:.78;font-size:16px}
+.cta .btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:17px 32px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;text-decoration:none;border:1px solid rgba(242,237,226,.4);color:#F2EDE2;transition:background .4s,color .4s,border-color .4s}
+.btn.pri{background:#F2EDE2;color:#1B1712;border-color:#F2EDE2}
+@media(hover:hover){.btn:hover{background:#B0714C;border-color:#B0714C;color:#F2EDE2}}
+
+/* lista de guías */
+.more{padding:clamp(56px,8vw,100px) 0}
+.more>.lab{color:var(--mut);margin-bottom:18px;display:block}
+.cards{border-top:1px solid var(--line)}
+.card{display:block;text-decoration:none;padding:30px 0;border-bottom:1px solid var(--line)}
+.card .lab{color:var(--mut)}
+.card h3{font:300 clamp(26px,3.2vw,38px)/1.12 var(--serif);margin:10px 0 8px;letter-spacing:-.01em;transition:padding .5s cubic-bezier(.2,.7,.1,1)}
+.card p{color:var(--mut);max-width:620px;font-size:16px;margin:0}
+.card .go{display:inline-block;margin-top:14px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;border-bottom:1px solid;padding-bottom:3px}
+@media(hover:hover){.card:hover h3{padding-left:10px}}
+.idx{padding-bottom:clamp(50px,8vw,100px)}
+
+/* pie */
+.bf{background:#16130F;color:#F2EDE2;border-top:1px solid rgba(242,237,226,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:30px clamp(18px,3.4vw,48px) calc(34px + env(safe-area-inset-bottom,0px));font-size:11px;letter-spacing:.14em}
+.bf a{opacity:.7;text-decoration:none}
+.bf a:hover{opacity:1}
+.bf span{opacity:.6}
+
+@media(max-width:560px){.bh .wm{font-size:21px}.bh nav{gap:16px}.bh nav a{letter-spacing:.2em}.glance{padding:20px 20px 8px}.btn{width:100%}}
