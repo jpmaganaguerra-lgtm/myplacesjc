@@ -6,12 +6,15 @@ header.solid{background:var(--paper);color:var(--ink);padding-top:calc(14px + en
 .mark{text-align:center;text-decoration:none}
 .mark{display:flex;align-items:center;gap:0}
 .logo-img{height:clamp(42px,6.5vw,55px);width:auto;transition:opacity .4s,filter .5s}
-/* Header sólido (fondo claro al bajar): el logo claro pasa a negro. Si tu logo es oscuro de origen, cambia por: header:not(.solid) .logo-img{filter:brightness(0) invert(1)} */
+/* Header sólido en modo claro (fondo crema al bajar): el logo pasa a negro, sea cual sea su color de origen.
+   En modo oscuro el header sólido es oscuro, así que el logo pasa a blanco (antes se volvía negro sobre negro y desaparecía). */
 header.solid .logo-img{filter:brightness(0)}
+:root[data-theme="dark"] header.solid .logo-img{filter:brightness(0) invert(1)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header.solid .logo-img{filter:brightness(0) invert(1)}}
 .mark small{display:none;font-size:7px;letter-spacing:.44em;margin-right:-.44em;margin-top:3px;opacity:.7;text-transform:uppercase}
 @media(max-width:560px){.mark{gap:0}}
 @media(max-width:700px){.logo-img{height:36px}}
-.res-btn{justify-self:end;border-bottom:1px solid currentColor;padding-bottom:3px}
+.res-btn{justify-self:end;border-bottom:1px solid currentColor;padding-bottom:3px;text-decoration:none}
 /* Derecha del header: selector de idioma EN / ES + Reservar */
 .hr{justify-self:end;display:flex;align-items:baseline;gap:clamp(14px,2vw,28px)}
 .lang{display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.2em;font-weight:400;text-transform:uppercase}

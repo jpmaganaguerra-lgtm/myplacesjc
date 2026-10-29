@@ -1,19 +1,29 @@
 /* ---------- menu overlay ---------- */
-.menu{position:fixed;inset:0;z-index:80;background:var(--olive);color:var(--ivory);display:grid;grid-template-columns:1.05fr 1fr;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .9s var(--ease),visibility 0s .9s}
+/* Tamaño de las opciones (--mf): se calcula para que CADA opción quepa en UNA línea y para que las 7 quepan en la altura de la pantalla.
+   --mw = ancho del texto más largo en "em" (EN: San José del Cabo · ES: Preguntas frecuentes, medidos con Cormorant Garamond, con margen).
+   --col = ancho de la columna del menú (51.2vw en escritorio, toda la pantalla en móvil). Si agregas una opción más larga, sube --mw. */
+.menu{--vh:100vh;--col:51.2vw;--mw:7.6;--fmax:84px;
+  --mf:clamp(26px,min(calc((var(--col) - 2*clamp(22px,5vw,80px) - 44px)/var(--mw)),calc((var(--vh) - 290px)/7.6)),var(--fmax))}
+@supports (height:100svh){.menu{--vh:100svh}}
+:lang(es) .menu{--mw:9}
+.menu{position:fixed;inset:0;z-index:80;background:var(--olive);color:var(--ivory);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .9s var(--ease),visibility 0s .9s}
 .menu.on{clip-path:inset(0);visibility:visible;transition:clip-path .9s var(--ease)}
-.menu .mc{padding:calc(110px + env(safe-area-inset-top,0px)) clamp(22px,5vw,80px) 50px;display:flex;flex-direction:column;justify-content:center}
+.menu .mc{min-width:0;padding:calc(100px + env(safe-area-inset-top,0px)) clamp(22px,5vw,80px) 36px;display:flex;flex-direction:column;overflow-y:auto}
+.menu .mc ul{margin-top:auto}
 .menu ul{list-style:none}
-.menu li a{display:flex;align-items:baseline;gap:22px;font:300 clamp(34px,5.6vw,84px)/1.08 var(--serif);text-decoration:none;border-bottom:1px solid rgba(242,237,226,.14);padding:8px 0;transition:padding .5s var(--ease),color .4s,opacity .4s}
+.menu li a{display:flex;align-items:baseline;gap:18px;white-space:nowrap;font:300 var(--mf)/1.08 var(--serif);text-decoration:none;border-bottom:1px solid rgba(242,237,226,.14);padding:6px 0;transition:padding .5s var(--ease),color .4s,opacity .4s}
 .menu li a small{font:400 10px var(--sans);letter-spacing:.3em;opacity:.55;min-width:24px}
+/* Etiqueta pequeña junto al texto (p. ej. "EN" en las guías, que solo existen en inglés). Vacía = no se ve. */
+.menu li a small.tag{min-width:0;margin-left:-4px}
+.menu li a small.tag:empty{display:none}
 .menu ul:hover li a{opacity:.38}
 .menu ul li a:hover{opacity:1;padding-left:18px;color:#E9C9A2}
 .menu .mv{position:relative;overflow:hidden}
 .menu .mv .sc{opacity:0;transition:opacity .8s,transform 1.6s var(--ease);transform:scale(1.08)}
 .menu .mv .sc.on{opacity:1;transform:scale(1)}
-.menu .mf{margin-top:34px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.6}
+.menu .mf{margin-top:34px;margin-bottom:auto;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.6}
 .menu .close{position:absolute;top:calc(24px + env(safe-area-inset-top,0px));left:clamp(18px,3.4vw,48px);z-index:3;display:flex;gap:14px;align-items:center}
 .menu .close i{position:relative;width:26px;height:26px;display:block}
 .menu .close i:before,.menu .close i:after{content:"";position:absolute;left:0;top:12px;width:26px;height:1px;background:currentColor;transform:rotate(45deg)}
 .menu .close i:after{transform:rotate(-45deg)}
-@media(max-width:800px){.menu{grid-template-columns:1fr}.menu .mv{display:none}}
-
+@media(max-width:800px){.menu{grid-template-columns:minmax(0,1fr);--col:100vw;--fmax:60px}.menu .mv{display:none}}

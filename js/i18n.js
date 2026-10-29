@@ -15,7 +15,7 @@ var I18N={
   "lang.label":"Language",
 
   "nav.menu":"Menu","nav.open":"Open menu","nav.close":"Close","nav.book":"Book","nav.main":"Main menu",
-  "menu.rooms":"Rooms","menu.sjc":"San José del Cabo","menu.golf":"Golf &amp; beaches","menu.amen":"Amenities","menu.book":"Book",
+  "menu.rooms":"Rooms","menu.sjc":"San José del Cabo","menu.golf":"Golf &amp; beaches","menu.amen":"Amenities","menu.faq":"FAQ","menu.blog":"Travel guides","menu.blogTag":"","menu.book":"Book",
   "menu.foot":"San José del Cabo · Baja California Sur",
 
   "hero.aria":"Cover","hero.label":"55 suites and residences",
@@ -45,8 +45,13 @@ var I18N={
   "res.h":"Choose your <em>dates.</em>","res.p":"Two more steps and your room is confirmed.",
 
   "faq.label":"Frequently asked questions","faq.h":"Before you <em>book.</em>",
+  "faq.intro":"Everything you need to know about the stay, the property and how to book. Still have a question? Write to us below and we'll reply directly.",
+  "metaFaq.title":"Frequently Asked Questions · MyPlace San José del Cabo",
+  "metaFaq.desc":"Answers about MyPlace San José del Cabo: where it is, room types, kitchens, amenities, how to book direct and what to do nearby.",
+  "metaFaq.ogTitle":"Frequently Asked Questions · MyPlace San José del Cabo",
+  "metaFaq.ogDesc":"Where it is, room types, kitchens, amenities, how to book direct and what to do nearby.",
   "faq.1.q":"Where is MyPlace San José del Cabo?",
-  "faq.1.a":"MyPlace is in San José del Cabo, Baja California Sur, Mexico, next to the golf course and close to the historic center and the beaches. The coordinates are 23.04622° N, 109.70324° W, and you can open the exact spot in Google Maps from the cover of this page.",
+  "faq.1.a":"MyPlace is in San José del Cabo, Baja California Sur, Mexico, next to the golf course and close to the historic center and the beaches. The coordinates are 23.04622° N, 109.70324° W, and you can open the exact spot in Google Maps from the cover of our home page.",
   "faq.2.q":"How many suites and residences are there, and what types?",
   "faq.2.a":"There are 55 suites and residences. Choose from king hotel rooms, a queen studio, and one- and two-bedroom suites with king and queen beds. Most have a full kitchen, and some units connect to add bedrooms.",
   "faq.3.q":"Do the accommodations have a kitchen?",
@@ -54,7 +59,7 @@ var I18N={
   "faq.4.q":"What amenities does the property offer?",
   "faq.4.a":"Pools, a palapa for unwinding in the open air, a 24/7 front desk for arrivals and departures at any hour, security, and parking on the property. A concierge is available to help you plan your stay.",
   "faq.5.q":"How do I book?",
-  "faq.5.a":"Choose your check-in and check-out dates in the booking bar on this page, pick a room and continue to payment in our secure booking engine. If you have questions first, message us on WhatsApp and we'll reply directly.",
+  "faq.5.a":"Choose your check-in and check-out dates in the booking bar on our home page, pick a room and continue to payment in our secure booking engine. If you have questions first, message us on WhatsApp and we'll reply directly.",
   "faq.6.q":"What is there to do near MyPlace?",
   "faq.6.a":"The historic center of San José del Cabo, with galleries, plazas and open-air tables, is close, and on seasonal Thursdays the Art Walk fills the streets. Palmilla and Costa Azul are the nearby beaches, the San José Estuary is good for birdwatching at dawn, and the golf course is steps from the property. Whale season runs from December to April.",
 
@@ -72,7 +77,7 @@ var I18N={
 
   "foot.label":"Contact","foot.h":"Your questions and needs are our priority. <em>Message us.</em>",
   "foot.p":"Tell us what you need and we'll reply directly.","foot.lb":"Your message",
-  "foot.ph":"Hi, I'd like information about…","foot.btn":"Contact us","foot.blog":"Travel guides",
+  "foot.ph":"Hi, I'd like information about…","foot.btn":"Contact us",
   "foot.l2":"Baja California Sur, Mexico",
   "wa.default":"Hi, I'd like information about MyPlace San José del Cabo.",
 
@@ -88,7 +93,7 @@ var I18N={
   "lang.label":"Idioma",
 
   "nav.menu":"Menú","nav.open":"Abrir menú","nav.close":"Cerrar","nav.book":"Reservar","nav.main":"Menú principal",
-  "menu.rooms":"Habitaciones","menu.sjc":"San José del Cabo","menu.golf":"Golf y playas","menu.amen":"Amenidades","menu.book":"Reservar",
+  "menu.rooms":"Habitaciones","menu.sjc":"San José del Cabo","menu.golf":"Golf y playas","menu.amen":"Amenidades","menu.faq":"Preguntas frecuentes","menu.blog":"Guías de viaje","menu.blogTag":"EN","menu.book":"Reservar",
   "menu.foot":"San José del Cabo · Baja California Sur",
 
   "hero.aria":"Portada","hero.label":"55 suites y residencias",
@@ -118,8 +123,13 @@ var I18N={
   "res.h":"Elige tus <em>fechas.</em>","res.p":"Dos pasos más y tu habitación queda confirmada.",
 
   "faq.label":"Preguntas frecuentes","faq.h":"Antes de <em>reservar.</em>",
+  "faq.intro":"Todo lo que necesitas saber sobre la estancia, la propiedad y cómo reservar. ¿Sigues con dudas? Escríbenos abajo y te respondemos directamente.",
+  "metaFaq.title":"Preguntas frecuentes · MyPlace San José del Cabo",
+  "metaFaq.desc":"Respuestas sobre MyPlace San José del Cabo: ubicación, tipos de habitación, cocinas, amenidades, cómo reservar directo y qué hacer cerca.",
+  "metaFaq.ogTitle":"Preguntas frecuentes · MyPlace San José del Cabo",
+  "metaFaq.ogDesc":"Ubicación, tipos de habitación, cocinas, amenidades, cómo reservar directo y qué hacer cerca.",
   "faq.1.q":"¿Dónde está MyPlace San José del Cabo?",
-  "faq.1.a":"MyPlace está en San José del Cabo, Baja California Sur, México, junto al campo de golf y cerca del centro histórico y las playas. Las coordenadas son 23.04622° N, 109.70324° O y puedes abrir el punto exacto en Google Maps desde la portada de esta página.",
+  "faq.1.a":"MyPlace está en San José del Cabo, Baja California Sur, México, junto al campo de golf y cerca del centro histórico y las playas. Las coordenadas son 23.04622° N, 109.70324° O y puedes abrir el punto exacto en Google Maps desde la portada de nuestra página de inicio.",
   "faq.2.q":"¿Cuántas suites y residencias hay, y de qué tipo?",
   "faq.2.a":"Son 55 suites y residencias. Hay habitaciones hoteleras king, un estudio queen y suites de una y dos recámaras con camas king y queen. La mayoría tiene cocina completa y algunas unidades se conectan para sumar recámaras.",
   "faq.3.q":"¿Los alojamientos tienen cocina?",
@@ -127,7 +137,7 @@ var I18N={
   "faq.4.q":"¿Qué amenidades ofrece la propiedad?",
   "faq.4.a":"Albercas, una palapa para quedarse al aire libre, recepción 24/7 para llegadas y salidas a cualquier hora, seguridad y estacionamiento dentro de la propiedad. Un concierge te ayuda a planear tu estancia.",
   "faq.5.q":"¿Cómo reservo?",
-  "faq.5.a":"Elige tus fechas de llegada y salida en la barra de reservas de esta página, escoge una habitación y continúa al pago en nuestro motor de reservas seguro. Si antes tienes dudas, escríbenos por WhatsApp y te respondemos directamente.",
+  "faq.5.a":"Elige tus fechas de llegada y salida en la barra de reservas de nuestra página de inicio, escoge una habitación y continúa al pago en nuestro motor de reservas seguro. Si antes tienes dudas, escríbenos por WhatsApp y te respondemos directamente.",
   "faq.6.q":"¿Qué hay para hacer cerca de MyPlace?",
   "faq.6.a":"El centro histórico de San José del Cabo, con galerías, plazas y mesas al aire libre, está cerca, y los jueves de temporada el Art Walk llena las calles. Palmilla y Costa Azul son las playas cercanas, el Estero de San José es ideal para ver aves al amanecer y el campo de golf está a un paso de la propiedad. La temporada de ballenas va de diciembre a abril.",
 
@@ -145,7 +155,7 @@ var I18N={
 
   "foot.label":"Contacto","foot.h":"Tus inquietudes y/o necesidades son nuestra prioridad. <em>Escríbenos.</em>",
   "foot.p":"Cuéntanos qué necesitas y te respondemos directamente.","foot.lb":"Tu mensaje",
-  "foot.ph":"Hola, quisiera información sobre…","foot.btn":"Contactar","foot.blog":"Guías de viaje (EN)",
+  "foot.ph":"Hola, quisiera información sobre…","foot.btn":"Contactar",
   "foot.l2":"Baja California Sur, México",
   "wa.default":"Hola, me gustaría información sobre MyPlace San José del Cabo.",
 
@@ -191,12 +201,13 @@ function paintLang(){
   document.documentElement.lang=LANG==='es'?'es-MX':'en-US';
   if(typeof localize==='function')localize(LANG);         /* content.js: habitaciones y destino */
   applyStatic();
-  document.title=T('meta.title');
-  setMeta('meta[name="description"]','content',T('meta.desc'));
-  setMeta('meta[property="og:title"]','content',T('meta.ogTitle'));
-  setMeta('meta[property="og:description"]','content',T('meta.ogDesc'));
-  setMeta('meta[name="twitter:title"]','content',T('meta.ogTitle'));
-  setMeta('meta[name="twitter:description"]','content',T('meta.ogDesc'));
+  var M=document.documentElement.getAttribute('data-meta')||'meta';   /* la página de FAQ usa 'metaFaq' */
+  document.title=T(M+'.title');
+  setMeta('meta[name="description"]','content',T(M+'.desc'));
+  setMeta('meta[property="og:title"]','content',T(M+'.ogTitle'));
+  setMeta('meta[property="og:description"]','content',T(M+'.ogDesc'));
+  setMeta('meta[name="twitter:title"]','content',T(M+'.ogTitle'));
+  setMeta('meta[name="twitter:description"]','content',T(M+'.ogDesc'));
   setMeta('meta[property="og:locale"]','content',LANG==='es'?'es_MX':'en_US');
   var ld=document.getElementById('ld-hotel');
   if(ld){try{var o=JSON.parse(ld.textContent);o.description=T('ld.desc');ld.textContent=JSON.stringify(o)}catch(e){}}

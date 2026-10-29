@@ -154,63 +154,6 @@
  ]
 }
 </script>
-<script type="application/ld+json" id="ld-faq">
-{
- "@context": "https://schema.org",
- "@type": "FAQPage",
- "inLanguage": "en-US",
- "mainEntity": [
-  {
-   "@type": "Question",
-   "name": "Where is MyPlace San José del Cabo?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "MyPlace is in San José del Cabo, Baja California Sur, Mexico, next to the golf course and close to the historic center and the beaches. The coordinates are 23.04622° N, 109.70324° W, and you can open the exact spot in Google Maps from the cover of this page."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How many suites and residences are there, and what types?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "There are 55 suites and residences. Choose from king hotel rooms, a queen studio, and one- and two-bedroom suites with king and queen beds. Most have a full kitchen, and some units connect to add bedrooms."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Do the accommodations have a kitchen?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Most units do. The suites and the studio have a full kitchen and a living area. The king hotel room has a coffee station and no kitchen."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What amenities does the property offer?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Pools, a palapa for unwinding in the open air, a 24/7 front desk for arrivals and departures at any hour, security, and parking on the property. A concierge is available to help you plan your stay."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I book?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Choose your check-in and check-out dates in the booking bar on this page, pick a room and continue to payment in our secure booking engine. If you have questions first, message us on WhatsApp and we'll reply directly."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What is there to do near MyPlace?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "The historic center of San José del Cabo, with galleries, plazas and open-air tables, is close, and on seasonal Thursdays the Art Walk fills the streets. Palmilla and Costa Azul are the nearby beaches, the San José Estuary is good for birdwatching at dawn, and the golf course is steps from the property. Whale season runs from December to April."
-   }
-  }
- ]
-}
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -254,7 +197,9 @@
       <li><a href="#destino" data-s="1"><small>02</small><span data-i18n="menu.sjc">San José del Cabo</span></a></li>
       <li><a href="#destino" data-s="2" data-acc="2"><small>03</small><span data-i18n="menu.golf">Golf &amp; beaches</span></a></li>
       <li><a href="#amenidades" data-s="3"><small>04</small><span data-i18n="menu.amen">Amenities</span></a></li>
-      <li><a href="#reservar" data-s="4" data-reserve><small>05</small><span data-i18n="menu.book">Book</span></a></li>
+      <li><a href="faq.html" data-s="1" data-track="faq_click" data-loc="menu"><small>05</small><span data-i18n="menu.faq">FAQ</span></a></li>
+      <li><a href="blog/" data-s="2" data-track="blog_cta" data-loc="menu"><small>06</small><span data-i18n="menu.blog">Travel guides</span><small class="tag" data-i18n="menu.blogTag"></small></a></li>
+      <li><a href="#reservar" data-s="4" data-reserve><small>07</small><span data-i18n="menu.book">Book</span></a></li>
     </ul>
     <div class="mf" data-i18n="menu.foot">San José del Cabo · Baja California Sur</div>
   </div>
@@ -340,22 +285,6 @@
     <div class="bar rv" data-bar></div>
   </div>
 </section>
-
-<!-- PREGUNTAS FRECUENTES (el mismo texto alimenta los datos estructurados FAQPage) -->
-<section class="faq" id="faq" data-tone="dark" aria-labelledby="faqH">
-  <div class="faq-l">
-    <span class="lab rv" data-i18n="faq.label">Frequently asked questions</span>
-    <h2 class="rv" id="faqH" data-i18n="faq.h">Before you <em>book.</em></h2>
-  </div>
-  <div class="acc faq-r">
-    <div class="it"><button class="hd" type="button" aria-expanded="false" data-i18n="faq.1.q">Where is MyPlace San José del Cabo?</button><div class="bd"><div><p data-i18n="faq.1.a">MyPlace is in San José del Cabo, Baja California Sur, Mexico, next to the golf course and close to the historic center and the beaches. The coordinates are 23.04622° N, 109.70324° W, and you can open the exact spot in Google Maps from the cover of this page.</p></div></div></div>
-    <div class="it"><button class="hd" type="button" aria-expanded="false" data-i18n="faq.2.q">How many suites and residences are there, and what types?</button><div class="bd"><div><p data-i18n="faq.2.a">There are 55 suites and residences. Choose from king hotel rooms, a queen studio, and one- and two-bedroom suites with king and queen beds. Most have a full kitchen, and some units connect to add bedrooms.</p></div></div></div>
-    <div class="it"><button class="hd" type="button" aria-expanded="false" data-i18n="faq.3.q">Do the accommodations have a kitchen?</button><div class="bd"><div><p data-i18n="faq.3.a">Most units do. The suites and the studio have a full kitchen and a living area. The king hotel room has a coffee station and no kitchen.</p></div></div></div>
-    <div class="it"><button class="hd" type="button" aria-expanded="false" data-i18n="faq.4.q">What amenities does the property offer?</button><div class="bd"><div><p data-i18n="faq.4.a">Pools, a palapa for unwinding in the open air, a 24/7 front desk for arrivals and departures at any hour, security, and parking on the property. A concierge is available to help you plan your stay.</p></div></div></div>
-    <div class="it"><button class="hd" type="button" aria-expanded="false" data-i18n="faq.5.q">How do I book?</button><div class="bd"><div><p data-i18n="faq.5.a">Choose your check-in and check-out dates in the booking bar on this page, pick a room and continue to payment in our secure booking engine. If you have questions first, message us on WhatsApp and we'll reply directly.</p></div></div></div>
-    <div class="it"><button class="hd" type="button" aria-expanded="false" data-i18n="faq.6.q">What is there to do near MyPlace?</button><div class="bd"><div><p data-i18n="faq.6.a">The historic center of San José del Cabo, with galleries, plazas and open-air tables, is close, and on seasonal Thursdays the Art Walk fills the streets. Palmilla and Costa Azul are the nearby beaches, the San José Estuary is good for birdwatching at dawn, and the golf course is steps from the property. Whale season runs from December to April.</p></div></div></div>
-  </div>
-</section>
 </main>
 
 <footer>
@@ -376,7 +305,6 @@
   </div>
   <div class="fb">
     <div>MY PLACE - SAN JOSÉ DEL CABO</div>
-    <a href="blog/" data-i18n="foot.blog">Travel guides</a>
     <span data-i18n="foot.l2">Baja California Sur, Mexico</span>
     <span>MyPlace Leisure Homes STR</span>
   </div>

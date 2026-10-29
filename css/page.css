@@ -1,0 +1,12 @@
+/* Páginas interiores (FAQ): banner con la foto de portada. El header, el menú y el footer son los mismos de la portada. */
+.pg-hero{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(340px,54vh,540px);display:flex;align-items:flex-end;background:#1a1712;color:var(--ivory)}
+.pg-hero .bg{position:absolute;inset:0;z-index:-2;background:#1a1712 url(../assets/video/hero/hero-poster.jpg) 50% 60%/cover no-repeat}
+.pg-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to bottom,rgba(10,8,5,.58),rgba(10,8,5,.18) 34%,rgba(10,8,5,.3) 55%,rgba(10,8,5,.82))}
+.pg-hero .in{width:100%;padding:calc(132px + env(safe-area-inset-top,0px)) clamp(18px,3.4vw,48px) clamp(40px,6vw,78px)}
+.pg-hero .lab{display:block;opacity:.85}
+.pg-hero h1{font:300 clamp(46px,8vw,128px)/.95 var(--serif);letter-spacing:-.025em;margin-top:24px}
+.pg-hero h1 em{font-style:italic;color:#E9C9A2}
+
+/* Cuerpo de la FAQ: usa el acordeón oscuro de sections.css (.faq); aquí solo se ajusta el arranque y el texto de la izquierda. */
+.pg .faq{padding-top:clamp(56px,8vw,110px)}
+.faq .faq-intro{font:300 clamp(20px,2vw,26px)/1.5 var(--serif);max-width:420px;opacity:.9}
