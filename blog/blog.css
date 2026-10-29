@@ -12,6 +12,8 @@ a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
 .bh nav{display:flex;gap:clamp(18px,2.6vw,36px);align-items:baseline}
 .bh nav a{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;text-decoration:none}
 .bh nav a.bk{border-bottom:1px solid currentColor;padding-bottom:3px}
+.bh nav a.ls{opacity:.65}
+.bh nav a.ls:hover{opacity:1}
 
 /* columnas */
 .wrap{max-width:780px;margin:0 auto;padding:0 clamp(18px,3.4vw,48px)}
@@ -40,6 +42,16 @@ a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
 .body strong{font-weight:400;color:var(--ink)}
 .body a{text-decoration:underline;text-decoration-color:var(--clay)}
 .body a:hover{color:var(--clay)}
+/* Elementos que el editor puede usar en el backoffice (imágenes, subtítulos, citas, tablas) */
+.pimg{margin:26px 0 4px}
+.pimg img,.body img{display:block;width:100%;max-width:100%;height:auto}
+.body img{margin:1.6em 0}
+.body h3{font:300 clamp(24px,2.8vw,32px)/1.15 var(--serif);margin:1.8em 0 .5em}
+.body blockquote{margin:1.6em 0;padding:.2em 0 .2em 1.3em;border-left:2px solid var(--clay);font:300 clamp(20px,2.2vw,24px)/1.5 var(--serif)}
+.body hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+.body table{width:100%;border-collapse:collapse;margin:1.6em 0;font-size:15px}
+.body th,.body td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.body th{font-weight:400;letter-spacing:.08em}
 .glance{border:1px solid var(--line);background:rgba(255,255,255,.42);padding:24px 28px 12px;margin:2em 0 1.2em}
 .glance .lab{color:var(--clay);margin-bottom:14px}
 .glance ul{margin:0 0 .8em;list-style:none;padding:0}

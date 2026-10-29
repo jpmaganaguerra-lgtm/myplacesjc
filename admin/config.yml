@@ -1,0 +1,169 @@
+# Backoffice del blog · MyPlace San José del Cabo (Decap CMS)
+# Los artículos se guardan como archivos en content/blog/ del repositorio de GitHub.
+# Cada vez que publicas, Netlify vuelve a generar el blog (tools/build-blog.js) y el sitio se actualiza en 1 o 2 minutos.
+
+backend:
+  name: git-gateway        # entrada con usuario y contraseña (Netlify Identity); no hay tokens en el código
+  branch: main             # la rama que Netlify publica; si tu repositorio usa "master", cámbialo aquí
+  commit_messages:
+    create: 'Blog: nueva guía «{{slug}}»'
+    update: 'Blog: actualiza «{{slug}}»'
+    delete: 'Blog: elimina «{{slug}}»'
+    uploadMedia: 'Blog: sube imagen «{{path}}»'
+    deleteMedia: 'Blog: elimina imagen «{{path}}»'
+
+locale: es                 # el editor se ve en español
+site_url: https://myplacesjc.netlify.app
+display_url: https://myplacesjc.netlify.app/blog/
+media_folder: assets/img/blog
+public_folder: /assets/img/blog
+
+# Cada guía tiene dos pestañas: inglés (obligatoria) y español (opcional, con su propia dirección y SEO).
+i18n:
+  structure: multiple_files
+  locales: [en, es]
+  default_locale: en
+
+# Nombres de archivo sin acentos ni espacios
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
+
+collections:
+  - name: blog
+    label: Guías de viaje (blog)
+    label_singular: Guía
+    description: >-
+      Cada guía tiene pestañas EN y ES. Una versión se publica solo si "Publicado" está encendido y tiene título y texto.
+    folder: content/blog
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: '{{fields.url_slug}}'     # el archivo se llama como la dirección web en inglés
+    identifier_field: url_slug
+    summary: '{{title}} · {{date}}'
+    sortable_fields: [date, title]
+    i18n: true
+    fields:
+      - label: Publicado
+        name: published
+        widget: boolean
+        default: false
+        i18n: true
+        hint: 'Apagado = borrador: se guarda pero no aparece en el sitio. Se controla por idioma (puedes publicar EN y dejar ES en borrador).'
+      - label: Título
+        name: title
+        widget: string
+        i18n: true
+        pattern: ['^.{10,60}$', 'Entre 10 y 60 caracteres: Google corta los títulos más largos.']
+        hint: 'Es el título de la página en Google. Ideal: 50 a 60 caracteres, con la palabra clave al inicio.'
+      - label: Dirección web (URL)
+        name: url_slug
+        widget: string
+        i18n: true
+        pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', 'Solo minúsculas, números y guiones. Sin acentos ni espacios.']
+        hint: 'Ejemplo: where-to-stay-in-san-jose-del-cabo. Es obligatoria en inglés y da nombre al archivo. En español escríbela en español (ej. donde-hospedarse-en-san-jose-del-cabo). No la cambies después de publicar: cambiaría el enlace que ya está en Google.'
+      - label: Fecha de publicación
+        name: date
+        widget: datetime
+        i18n: duplicate
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        format: 'YYYY-MM-DD'
+      - label: Última actualización
+        name: updated
+        widget: datetime
+        i18n: duplicate
+        required: false
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        format: 'YYYY-MM-DD'
+        hint: 'Cámbiala cuando revises o corrijas datos de la guía.'
+      - label: Categoría
+        name: category
+        widget: string
+        i18n: true
+        default: Guides
+        hint: 'Ej. Guides / Guías.'
+      - label: Descripción para Google (meta description)
+        name: description
+        widget: text
+        i18n: true
+        required: false
+        pattern: ['^[^\n]{120,160}$', 'Entre 120 y 160 caracteres, en una sola línea.']
+        hint: 'El texto que aparece bajo el título en Google. Entre 120 y 160 caracteres.'
+      - label: Resumen corto (para las tarjetas)
+        name: excerpt
+        widget: text
+        i18n: true
+        required: false
+        hint: 'Una o dos frases para la lista de guías.'
+      - label: Palabras clave
+        name: keywords
+        widget: string
+        i18n: true
+        required: false
+        hint: 'Separadas por comas. Ej. golf in San José del Cabo, tee times, Los Cabos golf'
+      - label: Imagen principal
+        name: image
+        widget: image
+        i18n: duplicate
+        required: false
+        hint: 'Opcional. Horizontal, mínimo 1200 px de ancho, JPG o WebP de menos de 300 KB. Si no hay imagen se usa la imagen por defecto del sitio al compartir.'
+      - label: Texto alternativo de la imagen
+        name: image_alt
+        widget: string
+        i18n: true
+        required: false
+        hint: 'Describe la imagen en una frase (accesibilidad y SEO).'
+      - label: Cuadro "De un vistazo" · título
+        name: glance_title
+        widget: string
+        i18n: true
+        required: false
+        hint: 'Ej. At a glance / De un vistazo. Aparece antes del primer subtítulo. Déjalo vacío si no quieres el cuadro.'
+      - label: Cuadro "De un vistazo" · datos
+        name: glance
+        widget: list
+        i18n: true
+        required: false
+        summary: '{{fields.label}}'
+        fields:
+          - { label: Dato, name: label, widget: string }
+          - { label: Detalle, name: text, widget: string }
+      - label: Texto de la guía
+        name: body
+        widget: markdown
+        i18n: true
+        required: false
+        hint: 'Usa "Título 2" para los subtítulos de sección. Para enlazar a la reserva escribe la dirección /#reservar (en español también sirve). Mínimo recomendado: 900 palabras.'
+
+  - name: ajustes
+    label: Ajustes del blog
+    editor:
+      preview: false
+    files:
+      - label: Páginas de índice del blog (EN / ES)
+        name: blog-settings
+        file: content/blog-settings.yml
+        fields:
+          - label: Inglés
+            name: en
+            widget: object
+            fields:
+              - { label: Título de la página (Google), name: title, widget: string }
+              - { label: Título grande (H1), name: h1, widget: string }
+              - { label: Introducción, name: intro, widget: text }
+              - { label: Descripción para Google, name: description, widget: text }
+              - { label: Texto alternativo de la imagen de redes, name: og_alt, widget: string }
+          - label: Español
+            name: es
+            widget: object
+            fields:
+              - { label: Título de la página (Google), name: title, widget: string }
+              - { label: Título grande (H1), name: h1, widget: string }
+              - { label: Introducción, name: intro, widget: text }
+              - { label: Descripción para Google, name: description, widget: text }
+              - { label: Texto alternativo de la imagen de redes, name: og_alt, widget: string }
