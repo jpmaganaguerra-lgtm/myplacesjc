@@ -16,18 +16,20 @@
     ]
   };
   v.muted=true;v.defaultMuted=true;
-  function state(x){hero.setAttribute('data-video',x)}
+  function state(x){console.log('[hero-video] state:', x);hero.setAttribute('data-video',x)}
   v.addEventListener('playing',function(){state('playing')});
-  v.addEventListener('error',function(){state('error')},true);
+  v.addEventListener('error',function(){console.log('[hero-video] Error:', v.error);state('error')},true);
   function play(){var p=v.play();if(p&&p.catch)p.catch(function(){})}
   function start(){
     var c=navigator.connection||{};
     var slow=c.saveData||/(^|-)2g|3g/.test(c.effectiveType||'');
-    var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(slow||still){state('poster-only');return}
-    var list=window.matchMedia('(max-width:820px)').matches?VIDEO.mobile:VIDEO.desktop;
+    if(slow){state('poster-only');return}
+    var isMobile=window.matchMedia('(max-width:820px)').matches;
+    var list=isMobile?VIDEO.mobile:VIDEO.desktop;
+    console.log('[hero-video] Device: '+(isMobile?'mobile':'desktop')+', sources:', list.length);
     function attach(){
       list.forEach(function(s){var el=document.createElement('source');el.src=s.src;el.type=s.type;v.appendChild(el)});
+      console.log('[hero-video] Video sources attached:', v.querySelectorAll('source').length);
       v.load();play();
     }
     function go(){if(document.documentElement.classList.contains('intro')){attach();return}if('requestIdleCallback' in window)requestIdleCallback(attach,{timeout:1500});else setTimeout(attach,400)}
