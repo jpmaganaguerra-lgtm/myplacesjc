@@ -180,7 +180,7 @@
   <svg class="moon" viewBox="0 0 44 44"><path class="crescent" d="M24 6A16 16 0 1 0 24 38A10 16 0 0 1 24 6Z" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/><path class="st" d="M36 10v5M33.5 12.5h5" opacity="0"/><path class="st" d="M38 28v3M36.5 29.5h3" opacity="0"/></svg>
 </div>
 
-<header id="hd">
+<header id="hd" class="nologo">
   <button class="menu-btn lab" id="mOpen" aria-label="Open menu" data-i18n-attr="aria-label:nav.open"><i></i><span data-i18n="nav.menu">Menu</span></button>
   <a class="mark" href="#top" aria-label="My Place Los Cabos" data-i18n-attr="aria-label:logo.alt"><img src="about:blank" alt="My Place Los Cabos" data-i18n-attr="alt:logo.alt" class="logo-img" data-logo-detect><small>San José del Cabo</small></a>
   <div class="hr">
@@ -217,11 +217,12 @@
   </div>
   <div class="shade"></div>
   <div class="intro-veil" aria-hidden="true"></div>
-  <div class="intro-logo" aria-hidden="true"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" data-logo-detect></div>
   <div class="f" id="heroF" data-sp="-0.05"><div class="sc" data-scene="hero-frente"></div></div>
   <div class="hero-copy">
     <h1><span class="sr-only" data-i18n="hero.h1sr">MyPlace San José del Cabo: suites and residences by the golf course, Baja California Sur, Mexico.</span><span class="ln"><span data-i18n="hero.l1">It's not just a place.</span></span><span class="ln"><span data-i18n="hero.l2"><em>It's a state of mind.</em></span></span></h1>
-    <!-- Motor de reservas al centro del hero (lo arma js/booking.js, igual que el de la sección Reservar) -->
+    <!-- Logo al centro del hero: aparece en la intro y se queda aquí -->
+    <div class="intro-logo" aria-hidden="true"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" data-logo-detect></div>
+    <!-- Motor de reservas debajo del logo (lo arma js/booking.js, igual que el de la sección Reservar) -->
     <div class="bar hero-bar" data-bar></div>
   </div>
   <a class="coord" href="https://maps.app.goo.gl/gbsJGfEmFwYNMdrS8" target="_blank" rel="noopener" aria-label="View location on Google Maps: 23.04622 degrees north, 109.70324 degrees west" data-i18n-attr="aria-label:hero.coord.aria" data-i18n="hero.coord">23.04622° N · 109.70324° W</a>
