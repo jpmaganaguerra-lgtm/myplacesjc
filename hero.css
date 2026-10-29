@@ -7,10 +7,11 @@
 @keyframes dusk{0%,18%{opacity:0}50%,68%{opacity:1}100%{opacity:0}}
 .hero .shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,8,5,.5),rgba(10,8,5,0) 30%,rgba(10,8,5,0) 52%,rgba(10,8,5,.68))}
 .hero .f{position:absolute;inset:auto -2% -3% -2%;height:72%}
-/* Texto y motor de reservas centrados: el motor queda justo al centro del hero y la frase encima. */
-.hero-copy{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;padding:0 clamp(18px,3.4vw,48px);pointer-events:none}
-.hero-c{position:relative;width:100%;max-width:760px;pointer-events:auto}
-.hero h1{position:absolute;left:0;right:0;bottom:calc(100% + clamp(26px,4vh,44px));text-align:center;font:300 clamp(30px,4vw,60px)/1 var(--serif);letter-spacing:-.02em}
+/* Motor de reservas justo al centro del hero (fila del medio de una rejilla 1fr · auto · 1fr).
+   La frase va en la fila de abajo, centrada entre el motor y el borde inferior del hero. */
+.hero-copy{position:absolute;inset:0;z-index:4;display:grid;grid-template-rows:1fr auto 1fr;justify-items:center;padding:0 clamp(18px,3.4vw,48px);pointer-events:none}
+.hero-copy>*{pointer-events:auto}
+.hero h1{grid-row:3;align-self:center;text-align:center;font:300 clamp(17px,2vw,30px)/1.05 var(--serif);letter-spacing:-.01em}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
 .hero h1 .ln span{display:block;transform:translateY(110%);animation:up 1.5s var(--ease) forwards}
 .hero h1 .ln:nth-child(2) span{animation-delay:.18s}
@@ -26,28 +27,37 @@
 @media(max-width:700px){.scroll-cue{display:none}}
 
 
-/* ---------- motor de reservas del hero: sin fondo, todo en blanco ---------- */
-.hero .bar{width:100%;max-width:none;margin:0 auto;background:transparent;color:var(--ivory);box-shadow:none;border:1px solid rgba(242,237,226,.55);
-  opacity:0;animation:heroBar 1.4s var(--ease) .55s forwards}
-@keyframes heroBar{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.hero .bar .fld{border-right:1px solid rgba(242,237,226,.3);text-align:center;padding:14px 18px 13px}
-.hero .bar .fld:hover{background:rgba(242,237,226,.06)}
-.hero .bar .fld small{color:var(--ivory);opacity:.72}
-.hero .bar .fld b{font-size:20px;color:var(--ivory)}
-.hero .bar .fld b.ph{color:var(--ivory);opacity:.6}
-.hero .bar .fld::after{background:var(--ivory);left:18px;right:18px}
-.hero .bar .go{background-color:transparent;color:var(--ivory);padding:0 30px;border-left:0;
-  background-image:linear-gradient(var(--ivory),var(--ivory))}
+/* ---------- motor de reservas del hero: compacto, sin fondo, solo líneas y textos blancos ---------- */
+.hero .bar{grid-row:2;width:100%;max-width:420px;margin:0;background:transparent;color:#fff;box-shadow:none;border:1px solid rgba(255,255,255,.8);
+  grid-template-columns:1fr 1fr 1fr auto;opacity:0;animation:heroBar 1.4s var(--ease) .55s forwards}
+@keyframes heroBar{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero .bar .fld{border-right:1px solid rgba(255,255,255,.45);text-align:center;padding:7px 8px 6px}
+.hero .bar .fld:hover{background:transparent}
+.hero .bar .fld small{color:#fff;opacity:.75;font-size:7px;letter-spacing:.24em}
+.hero .bar .fld b{font-size:13px;margin-top:1px;color:#fff}
+.hero .bar .fld b.ph{color:#fff;opacity:.65}
+.hero .bar .fld::after{background:#fff;left:8px;right:8px;height:1px}
+/* Ver tarifas: sin fondo; al pasar el mouse, fondo blanco y texto negro */
+.hero .bar .go{background:transparent;background-image:none;color:#fff;padding:0 14px;font-size:7.5px;letter-spacing:.24em;transition:background-color .35s,color .35s}
 @media(hover:hover){
-  .hero .bar .go:is(:hover,:focus-visible){background-color:transparent;color:#1B1712}
+  .hero .bar .go:is(:hover,:focus-visible){background-color:#fff;background-image:none;color:#000}
   .hero .bar .fld:is(:hover,:focus-visible) b{transform:none}
 }
 @media(max-width:700px){
-  .hero .bar .fld:nth-child(2){border-right:0}
-  .hero .bar .fld:nth-child(3){border-top:1px solid rgba(242,237,226,.3)}
-  .hero .bar .go{border-top:1px solid rgba(242,237,226,.3);padding:16px}
-  .hero h1{font-size:clamp(28px,7.6vw,40px)}
+  .hero .bar{grid-template-columns:1fr 1fr 1fr auto;max-width:360px}
+  .hero .bar .fld:nth-child(3){grid-column:auto;border-top:0;border-right:1px solid rgba(255,255,255,.45)}
+  .hero .bar .go{grid-column:auto;padding:0 10px}
+  .hero .bar .fld{padding:7px 4px 6px}
+  .hero .bar .fld b{font-size:12px}
+  .hero h1{font-size:clamp(15px,4.4vw,20px)}
   .hero-copy{padding:0 48px}   /* deja libre la franja de las coordenadas verticales */
+}
+@media(max-width:400px){
+  .hero .bar{grid-template-columns:1fr 1fr 1fr}
+  .hero .bar .fld:nth-child(3){border-right:0}
+  .hero .bar .go{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.45);padding:8px}
+  .hero .bar .fld small{letter-spacing:.16em}
+  .hero-copy{padding:0 42px}
 }
 /* Calendario un poco más compacto dentro del hero para que quepa en pantallas de laptop */
 .hero .pop{padding:20px 24px;text-align:left}
