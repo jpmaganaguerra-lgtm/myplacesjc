@@ -5,7 +5,10 @@ header.solid{background:var(--paper);color:var(--ink);padding-top:calc(14px + en
 .menu-btn i{display:block;width:26px;height:7px;border-top:1px solid currentColor;border-bottom:1px solid currentColor}
 .mark{text-align:center;text-decoration:none}
 .mark{display:flex;align-items:center;gap:0}
-.logo-img{height:clamp(42px,6.5vw,55px);width:auto;transition:opacity .4s,filter .5s}
+.logo-img{height:clamp(42px,6.5vw,55px);width:auto;transition:opacity .5s,filter .5s}
+/* Portada: sin logo en el header mientras se ve el logo grande del centro (lo controla js/ui.js) */
+header.nologo .mark{opacity:0;pointer-events:none}
+.mark{transition:opacity .5s}
 /* Header sólido en modo claro (fondo crema al bajar): el logo pasa a negro, sea cual sea su color de origen.
    En modo oscuro el header sólido es oscuro, así que el logo pasa a blanco (antes se volvía negro sobre negro y desaparecía). */
 header.solid .logo-img{filter:brightness(0)}
