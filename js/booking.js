@@ -81,15 +81,25 @@ document.addEventListener('click',function(e){
     var same=p.classList.contains('on')&&p.getAttribute('data-k')===k;
     closePops(p);
     if(same){p.classList.remove('on')}else{p.setAttribute('data-k',k);p.classList.add('on');p.innerHTML=k==='g'?guestHTML():calHTML();
-      if(!bar.closest('.hero')&&bar.getBoundingClientRect().top<420)p.classList.add('below');else p.classList.remove('below')}
+      placePop(bar,p)}
     return;
   }
   if(t.closest('[data-go]')){
-    if(!(S.start&&S.end)){closePops(p);p.setAttribute('data-k','c');p.classList.add('on');p.innerHTML=calHTML();return}
+    if(!(S.start&&S.end)){closePops(p);p.setAttribute('data-k','c');p.classList.add('on');p.innerHTML=calHTML();placePop(bar,p);return}
     closePops();openDrawer(2);return;
   }
   if(pop)popClick(t,p);
 });
+/* Dirección del desplegable. En el hero (que recorta lo que se sale) abre hacia donde haya más espacio;
+   si el calendario no cabe ni arriba ni abajo (pantallas bajas o móvil), se abre el panel lateral de reserva. */
+function placePop(bar,p){
+  var hb=bar.closest('.hero'),br=bar.getBoundingClientRect();
+  if(!hb){p.classList.toggle('below',br.top<420);return}
+  var hr=hb.getBoundingClientRect(),hdr=document.getElementById('hd'),top=Math.max(hr.top,0)+(hdr?hdr.offsetHeight:0);
+  var up=br.top-top-10,down=hr.bottom-br.bottom-10,need=p.offsetHeight;
+  p.classList.toggle('below',down>=up);
+  if(need>Math.max(up,down)&&p.getAttribute('data-k')==='c'){p.classList.remove('on');openDrawer(1)}
+}
 function popClick(t,p){
   var nav=t.closest('[data-nav]'),d=t.closest('[data-d]'),g=t.closest('[data-g]'),c=t.closest('[data-clear]');
   if(nav){S.view=new Date(S.view.getFullYear(),S.view.getMonth()+(+nav.getAttribute('data-nav')),1);refresh();return}
