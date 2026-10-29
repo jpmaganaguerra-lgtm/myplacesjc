@@ -45,7 +45,7 @@ document.querySelectorAll('[data-bar]').forEach(buildBar);
 refresh();
 
 
-var hd=document.getElementById('hd'),stick=document.getElementById('stick'),hero=document.querySelector('.hero');
+var hd=document.getElementById('hd'),stick=document.getElementById('stick'),hero=document.querySelector('.hero'),heroLogo=document.querySelector('.hero .intro-logo img');
 var words=document.getElementById('stmt'),wsp=[];
 /* Párrafo que se ilumina palabra por palabra al hacer scroll. */
 function splitStmt(){var t=words.innerHTML,out='';t.split(/(\s+)/).forEach(function(w){if(/^\s+$/.test(w)||!w){out+=w}else{out+='<span>'+w+'</span>'}});words.innerHTML=out;wsp=[].slice.call(words.querySelectorAll('span'))}
@@ -55,6 +55,9 @@ var ticking=false;
 function onScroll(){
   var y=window.scrollY||0,vh=window.innerHeight;
   hd.classList.toggle('solid',y>vh*0.7);
+  /* Logo del header: oculto mientras el logo grande del centro del hero esté a la vista, para no duplicarlo */
+  var ls=window.__logoState;   /* 'ready' | 'missing' | aún cargando */
+  hd.classList.toggle('nologo',!!heroLogo&&ls!=='missing'&&(ls!=='ready'||heroLogo.getBoundingClientRect().bottom>hd.offsetHeight));
   if(stick)stick.classList.toggle('on',y>vh*0.85&&!drw.classList.contains('on'));
   if(y<vh*1.4){parallax.forEach(function(p){if(p.closest('.hero')||p.id==='heroF'){p.style.transform='translate3d(0,'+(y*parseFloat(p.getAttribute('data-sp')))+'px,0)'}})}
   var r=words.getBoundingClientRect(),pr=Math.min(1,Math.max(0,(vh*.82-r.top)/(r.height+vh*.25)));
@@ -64,6 +67,8 @@ function onScroll(){
 }
 window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
 window.addEventListener('resize',onScroll);
+/* Cuando carga el logo (o si no existe) se recalcula si el header debe mostrar el suyo */
+window.addEventListener('logo:ready',onScroll);window.addEventListener('logo:missing',onScroll);
 if('IntersectionObserver' in window){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
